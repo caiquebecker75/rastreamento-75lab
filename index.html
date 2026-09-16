@@ -8,12 +8,11 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C0EE4E'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Impact,sans-serif' font-size='17' fill='%230E1110'%3E75%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=15">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=28">
 </head>
 <body>
-<div class="cur" id="cur"></div>
-<div class="cdot" id="cdot"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="ctxt" id="ctxt"></span></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
  <defs>
@@ -70,21 +69,25 @@
 
 <div id="stage">
  <div id="prog"></div>
+ <div class="cine cine-spot" id="cineSpot"></div><div class="cine cine-vig"></div><div class="cine cine-grain"></div>
 
  <section class="slide t-ink s-capa" id="capa" data-title="Capa" data-chap="Rastreamento de PDV">
   <div class="cap-l">
-   <div class="eyebrow rv">Tecnologia de rastreamento 75 LAB</div>
-   <h1 class="d rv" style="--d:1">Cada display<br><span class="hl">no mapa.</span></h1>
-   <p class="lead rv" style="--d:2">Rastreio de materiais de comunicação do CD até a loja, com dados que mostram <b>o que foi executado de verdade</b>.</p>
+   <div class="eyebrow plain rv">Aceleradora de trade marketing · rastreamento</div>
+   <h1 class="d rv" style="--d:1">Prova acima<br>de <span class="ac">promessa.<svg class="wave" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 14 Q80 4 150 12 T297 8"/></svg></span></h1>
+   <p class="kick rv" style="--d:2">A distância entre o CD e a gôndola agora tem dado.</p>
+   <p class="lead rv" style="--d:2">A 75 LAB rastreia cada material de PDV com duas tecnologias, <b>One Shot</b> e <b>OnTiming</b>, para você saber o que foi executado de verdade.</p>
    <div class="cta rv" style="--d:3">
-    <button class="btn" data-go="fazemos">Conhecer as tecnologias <svg><use href="#i-arr"/></svg></button>
+    <button class="btn" data-go="fazemos">Ver as tecnologias <span class="arr">→</span></button>
     <button class="btn alt" data-go="simulador">Simular investimento</button>
    </div>
-   <div class="chips rv" style="--d:4">
-    <span class="chip"><svg><use href="#i-cam"/></svg>One Shot · rastreio estático</span>
-    <span class="chip"><svg><use href="#i-live"/></svg>OnTiming · rastreio ao vivo</span>
+   <div class="statband rv" style="--d:4">
+    <div class="sb"><b>2</b><span>tecnologias de rastreio</span></div>
+    <div class="sb"><b>17</b><span>indicadores de PDV</span></div>
+    <div class="sb"><b>15.000+</b><span>PDVs positivados</span></div>
    </div>
   </div>
+  <div class="decos"><svg class="deco d-circ" viewBox="0 0 90 90"><circle cx="45" cy="45" r="40"/></svg><svg class="deco d-sq" viewBox="0 0 60 60"><rect x="12" y="12" width="36" height="36"/></svg><svg class="deco d-tri" viewBox="0 0 60 60"><path d="M8 12h44L30 50z"/></svg><svg class="deco d-ring" viewBox="0 0 70 70"><circle cx="35" cy="35" r="26"/></svg></div>
   <div class="radar">
    <svg class="rd" viewBox="0 0 700 700">
     <defs>
@@ -102,18 +105,18 @@
     <g class="sweep"><path d="M350 350 L690 350 A340 340 0 0 0 590 110 Z" fill="url(#swg)"/><path d="M350 350 L690 350" stroke="#C0EE4E" stroke-width="2.5"/></g>
     <circle cx="350" cy="350" r="7" fill="#C0EE4E"/>
    </svg>
-   <div class="rpin" style="left:470px;top:250px;--pa:.7s;--pd:.2s"><i></i><b><em></em>Loja 214 <small>instalado</small></b></div>
+   <div class="rpin" style="left:420px;top:240px;--pa:.7s;--pd:.2s"><i></i><b><em></em>Loja 214 <small>instalado</small></b></div>
    <div class="rpin teal" style="left:210px;top:190px;--pa:.95s;--pd:.8s"><i></i><b><em></em>Em trânsito <small>há 12 min</small></b></div>
    <div class="rpin" style="left:260px;top:480px;--pa:1.2s;--pd:1.3s"><i></i><b><em></em>CD Cajamar <small>42 displays</small></b></div>
-   <div class="rpin red" style="left:520px;top:440px;--pa:1.45s;--pd:.5s"><i></i><b><em></em>Fora da loja <small>alerta</small></b></div>
+   <div class="rpin red" style="left:470px;top:385px;--pa:1.45s;--pd:.5s"><i></i><b><em></em>Fora da loja <small>alerta</small></b></div>
   </div>
  </section>
 
  <section class="slide t-white s-faz" id="fazemos" data-title="O que fazemos" data-chap="O que fazemos">
   <div class="lc">
-   <div class="eyebrow rv">O que a 75 LAB faz</div>
-   <h2 class="d rv" style="--d:1">Cada peça de PDV<br>com <span class="hl">RG digital.</span></h2>
-   <p class="lead rv" style="--d:2">Aplicamos uma <b>identidade rastreável</b> em cada display, ilha ou material de comunicação e transformamos a presença dele no varejo em <b>dado para decisão</b>.</p>
+   <div class="eyebrow rv" data-n="(00)">O que a gente pluga</div>
+   <h2 class="d rv" style="--d:1"><span class="mute">Material sem dado</span><br><span class="mute">é promessa.</span> Com RG<br>digital, <span class="hl">é prova.</span></h2>
+   <p class="lead rv" style="--d:2">A 75 LAB pluga uma <b>identidade rastreável</b> em cada display, ilha ou material de comunicação e transformamos a presença dele no varejo em <b>dado para decisão</b>.</p>
    <div class="fflow rv" style="--d:3">
     <div class="fs"><span><svg><use href="#i-display"/></svg></span><b>Peça produzida</b></div>
     <i><svg><use href="#i-arr"/></svg></i>
@@ -146,7 +149,7 @@
 
  <section class="slide t-paper s-os" id="oneshot" data-title="One Shot · como funciona" data-chap="01 · One Shot · rastreio estático">
   <div class="lc">
-   <div class="eyebrow rv">01 · One Shot · como funciona</div>
+   <div class="eyebrow rv" data-n="(01)">One Shot · como funciona</div>
    <h2 class="d rv" style="--d:1">Escaneou.<br><span class="hl">Provou.</span></h2>
    <div class="steps rv" style="--d:2" id="osSteps">
     <button class="step on" data-k="0"><span class="n"><svg><use href="#i-qr"/></svg></span><span><b>QR único na peça</b><small>Cada display sai da produção identificado</small></span></button>
@@ -156,7 +159,7 @@
    </div>
   </div>
   <div class="mock rv" style="--d:2" id="osMock">
-   <div class="mbar"><img src="img/logo-75lab-lime.png" alt="75 LAB"><b>INSTALAÇÕES</b><i>painel da campanha</i></div>
+   <div class="mbar"><img src="img/logo-wordmark-lime.png" alt="75 LAB"><b>INSTALAÇÕES</b><i>painel da campanha</i></div>
    <div class="kpis" id="osKpis">
     <div class="kpi"><small>Registros</small><b>16</b></div>
     <div class="kpi"><small>Lojas</small><b>7</b></div>
@@ -195,7 +198,7 @@
 
  <section class="slide t-paper s-cat" id="os-indicadores" data-title="One Shot · indicadores" data-chap="01 · One Shot · rastreio estático">
   <div class="cath">
-   <div><div class="eyebrow rv">01 · One Shot · indicadores</div><h2 class="d rv" style="--d:1">12 indicadores<br><span class="hl">com prova de campo.</span></h2></div>
+   <div><div class="eyebrow rv" data-n="(01)">One Shot · indicadores</div><h2 class="d rv" style="--d:1">12 indicadores<br><span class="hl">com prova de campo.</span></h2></div>
    <div class="catside rv" style="--d:2"><span class="kp"><b>10</b>completos no registro de instalação</span><span class="kp soft"><b>2</b>com uma leitura extra (data de envio ou retirada)</span><p class="note">Passe o mouse para ver a pergunta que cada indicador responde.</p></div>
   </div>
   <div class="cgrid" data-cat="os-indicadores"></div>
@@ -203,17 +206,17 @@
 
  <section class="slide t-paper s-osp" id="os-preco" data-title="One Shot · investimento" data-chap="01 · One Shot · rastreio estático">
   <div class="lc">
-   <div class="eyebrow rv">01 · One Shot · investimento</div>
+   <div class="eyebrow rv" data-n="(01)">One Shot · investimento</div>
    <div class="bigp rv" style="--d:1"><em>R$</em>13<small>,64</small></div>
    <p class="lead rv" style="--d:2"><b>por display, pagamento único.</b><br>Sem mensalidade: a peça ganha o registro e o painel da campanha.</p>
    <div class="payopts rv" style="--d:3">
     <div class="po on"><span class="lbl">À vista</span><b>R$ 13,64</b><small>por display · 1 parcela</small></div>
     <div class="po"><span class="lbl">Parcelado</span><b>12x R$ 1,42</b><small>por display · total R$ 17,05</small></div>
    </div>
-   <button class="btn rv" style="--d:4" data-go="simulador">Simular com meus números <svg><use href="#i-arr"/></svg></button>
+   <button class="btn rv" style="--d:4" data-go="simulador">Simular com meus números <span class="arr">→</span></button>
   </div>
   <div class="receipt rv" style="--d:2">
-   <div class="rc-h"><img src="img/logo-75lab-preto.png" alt="75 LAB"><span>ONE SHOT<br><small>por display</small></span></div>
+   <div class="rc-h"><img src="img/logo-wordmark-black.png" alt="75 LAB"><span>ONE SHOT<br><small>por display</small></span></div>
    <ul class="rc-l">
     <li><svg><use href="#i-qr"/></svg><span>QR único aplicado na peça</span><b>incluso</b></li>
     <li><svg><use href="#i-phone"/></svg><span>Registro sem aplicativo</span><b>incluso</b></li>
@@ -231,8 +234,8 @@
 
  <section class="slide t-ink s-ot" id="ontiming" data-title="OnTiming · como funciona" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="lc">
-   <div class="eyebrow rv">02 · OnTiming · como funciona</div>
-   <h2 class="d rv" style="--d:1">O display avisa<br><span class="hl">onde está.</span></h2>
+   <div class="eyebrow rv" data-n="(02)">OnTiming · como funciona</div>
+   <h2 class="d rv" style="--d:1">O display <span class="mute">avisa</span><br><span class="hl">onde está.</span></h2>
   </div>
   <div class="route rv" style="--d:2" id="otRoute">
    <svg viewBox="0 0 980 360">
@@ -268,7 +271,7 @@
 
  <section class="slide t-ink s-cat" id="ot-indicadores" data-title="OnTiming · indicadores" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="cath">
-   <div><div class="eyebrow rv">02 · OnTiming · indicadores</div><h2 class="d rv" style="--d:1">17 indicadores:<br><span class="hl">5 exclusivos + os 12 do One Shot.</span></h2></div>
+   <div><div class="eyebrow rv" data-n="(02)">OnTiming · indicadores</div><h2 class="d rv" style="--d:1">17 indicadores.<br><span class="hl">5 exclusivos</span> <span class="mute">+ os 12 do One Shot.</span></h2></div>
    <div class="catside rv" style="--d:2"><span class="kp lime"><b>5</b>exclusivos do rastreio ao vivo</span><span class="kp"><b>12</b>do One Shot, todos completos</span><p class="note">Passe o mouse para ver a pergunta.</p></div>
   </div>
   <div class="cgrid" data-cat="ot-indicadores"></div>
@@ -276,7 +279,7 @@
 
  <section class="slide t-ink s-otp" id="ot-preco" data-title="OnTiming · investimento" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="lc">
-   <div class="eyebrow rv">02 · OnTiming · assinatura</div>
+   <div class="eyebrow rv" data-n="(02)">OnTiming · assinatura</div>
    <h2 class="d rv" style="--d:1">Escolha<br><span class="hl">o plano.</span></h2>
    <p class="lead rv" style="--d:2">Assinatura de <b>6 a 12 meses</b> por display. Pague à vista com <b>20% de desconto</b> ou em parcelas mensais.</p>
    <div class="otsel rv" style="--d:3" id="otSel"></div>
@@ -286,8 +289,8 @@
 
  <section class="slide t-paper s-sim" id="simulador" data-title="Simulador comparativo" data-chap="03 · Lado a lado">
   <div class="lc">
-   <div class="eyebrow rv">03 · Lado a lado · simulador</div>
-   <h2 class="d rv" style="--d:1">Compare e<br><span class="hl">simule.</span></h2>
+   <div class="eyebrow rv" data-n="(03)">Lado a lado · simulador</div>
+   <h2 class="d rv" style="--d:1">Compare<br><span class="hl">e simule.</span></h2>
    <div class="sin rv" style="--d:2">
     <div>
      <span class="lbl">Quantidade de displays</span>
@@ -327,32 +330,34 @@
   </div>
   <div class="acts rv" style="--d:3">
    <button class="btn" id="simCopy"><svg><use href="#i-copy"/></svg>Copiar resumo</button>
-   <button class="btn alt" data-go="fim">Próximo passo <svg><use href="#i-arr"/></svg></button>
+   <button class="btn alt" data-go="fim">Próximo passo <span class="arr">→</span></button>
   </div>
   <div class="toast" id="toast">Resumo copiado</div>
  </section>
 
  <section class="slide t-lime s-end" id="fim" data-title="Próximo passo" data-chap="Próximo passo">
   <div class="lc">
-   <div class="eyebrow rv">Próximo passo</div>
-   <h2 class="d rv" style="--d:1">Pare de supor.<br>Comece a <span class="hl">rastrear.</span></h2>
-   <p class="lead rv" style="--d:2">Do mapa de lojas ao painel no ar em quatro etapas, com a mesma equipe que produz o seu material de PDV.</p>
+   <div class="eyebrow rv" data-n="(04)">A tese</div>
+   <h2 class="d rv" style="--d:1">Ideia boa<br>é a que<br><span class="ac">acontece.<svg class="wave" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 14 Q80 4 150 12 T297 8"/></svg></span></h2>
+   <p class="lead rv" style="--d:2">E agora dá para provar. Conta a intenção comercial: a gente pluga o rastreio certo para cada peça, do CD à gôndola.</p>
    <div class="cta rv" style="--d:3">
-    <button class="btn" data-go="simulador">Simular investimento <svg><use href="#i-arr"/></svg></button>
-    <button class="btn alt" id="pdf"><svg><use href="#i-down"/></svg>Baixar PDF</button>
+    <a class="btn" href="mailto:contato@setecincolab.com.br?subject=Rastreamento%20de%20PDV">Acelerar minha marca <span class="arr">→</span></a>
+    <button class="btn alt" data-go="simulador">Simular investimento</button>
+    <button class="btn alt" id="pdf">Baixar PDF</button>
    </div>
   </div>
   <ol class="steps4 rv" style="--d:2">
-   <li><em>01</em><span class="si"><svg><use href="#i-map"/></svg></span><div><b>Mapa de lojas</b><p>Lojas, peças planejadas e equipe de campo.</p></div></li>
-   <li><em>02</em><span class="si"><svg><use href="#i-qr"/></svg></span><div><b>Identidade na produção</b><p>QR One Shot ou tag OnTiming aplicados na fábrica.</p></div></li>
-   <li><em>03</em><span class="si"><svg><use href="#i-phone"/></svg></span><div><b>Instalação e ativação</b><p>Registro com GPS e foto da fachada em menos de um minuto.</p></div></li>
-   <li><em>04</em><span class="si"><svg><use href="#i-dash"/></svg></span><div><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal.</p></div></li>
+   <li><em>01</em><div><b>Mapa de lojas</b><p>Lojas, peças planejadas e equipe de campo.</p></div><span class="si"><svg><use href="#i-map"/></svg></span></li>
+   <li><em>02</em><div><b>Identidade na produção</b><p>QR One Shot ou tag OnTiming aplicados na fábrica.</p></div><span class="si"><svg><use href="#i-qr"/></svg></span></li>
+   <li><em>03</em><div><b>Instalação e ativação</b><p>Registro com GPS e foto da fachada em menos de um minuto.</p></div><span class="si"><svg><use href="#i-phone"/></svg></span></li>
+   <li><em>04</em><div><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal.</p></div><span class="si"><svg><use href="#i-dash"/></svg></span></li>
   </ol>
+  <div class="marquee"><div class="mq-in"><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>One Shot</span><i>·</i><span>OnTiming</span><i>·</i><span>Prova acima de promessa</span><i>·</i><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>One Shot</span><i>·</i><span>OnTiming</span><i>·</i><span>Prova acima de promessa</span><i>·</i></div></div>
  </section>
 
  <!-- HUD -->
  <div id="hud">
-  <div class="hud-logo"><img class="lg-dark" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="lg-lime" src="img/logo-75lab-lime.png" alt=""></div>
+  <div class="hud-logo"><img class="lg-dark" src="img/logo-wordmark-black.png" alt="75 LAB"><img class="lg-lime" src="img/logo-wordmark-lime.png" alt=""></div>
   <div class="hud-foot">
    <span class="who" id="who"><b>75 LAB</b> · Rastreamento de PDV</span>
    <div class="hud-nav">
@@ -371,6 +376,6 @@
  </div>
 </div>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=20"></script>
 </body>
 </html>

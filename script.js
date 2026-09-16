@@ -107,30 +107,23 @@
     requestAnimationFrame(step);
   }
 
-  /* ================= cursor especial ================= */
-  var curEl = $('cur'), dot = $('cdot');
-  var mx = -100, my = -100, rx = -100, ry = -100, lastTrail = 0, ltx = 0, lty = 0;
-  var fine = matchMedia('(pointer:fine)').matches;
-  if (fine){
+  /* ================= cursor do guia 75 LAB (ponto lime com mistura difference) ================= */
+  var cursorEl = $('cursor'), ctxt = $('ctxt'), spot = $('cineSpot');
+  var mx = -100, my = -100, cx = -100, cy = -100;
+  if (matchMedia('(pointer:fine)').matches){
     document.addEventListener('mousemove', function(e){
       mx = e.clientX; my = e.clientY;
-      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-      var now = performance.now();
-      if (now - lastTrail > 28 && Math.hypot(mx - ltx, my - lty) > 14){
-        lastTrail = now; ltx = mx; lty = my;
-        var t = document.createElement('i'); t.className = 'trail'; t.style.left = mx + 'px'; t.style.top = my + 'px';
-        document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 720);
-      }
-      var hov = e.target.closest && e.target.closest('button,a,input,[data-go],.uf,.oi,.hb,.mrow,.bst,.polaroid,.ptag');
-      curEl.classList.toggle('on', !!hov);
+      var t = e.target.closest ? e.target : null;
+      var lab = t && t.closest('[data-cursor]');
+      var hov = t && t.closest('button,a,input,.ic,.pc,.po,.steps4 li,.step,.fs');
+      cursorEl.classList.toggle('label', !!lab);
+      cursorEl.classList.toggle('big', !lab && !!hov);
+      ctxt.textContent = lab ? lab.getAttribute('data-cursor') : '';
+      var r = stage.getBoundingClientRect();
+      spot.style.setProperty('--mx', ((mx - r.left) / r.width * 100) + '%');
+      spot.style.setProperty('--my', ((my - r.top) / r.height * 100) + '%');
     });
-    document.addEventListener('mousedown', function(e){
-      curEl.classList.add('down');
-      var p = document.createElement('i'); p.className = 'ping'; p.style.left = e.clientX + 'px'; p.style.top = e.clientY + 'px';
-      document.body.appendChild(p); setTimeout(function(){ p.remove(); }, 820);
-    });
-    document.addEventListener('mouseup', function(){ curEl.classList.remove('down'); });
-    (function loop(){ rx += (mx - rx) * .2; ry += (my - ry) * .2; curEl.style.transform = 'translate(' + rx + 'px,' + ry + 'px)'; requestAnimationFrame(loop); })();
+    (function loop(){ cx += (mx - cx) * .28; cy += (my - cy) * .28; cursorEl.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)'; requestAnimationFrame(loop); })();
   }
   document.addEventListener('pointerdown', function(e){
     var r = stage.getBoundingClientRect(), s = r.width / 1600;
@@ -312,7 +305,7 @@
     $('otSel').innerHTML = '<span class="lbl">Plano escolhido · ' + otPlan.m + ' meses · ' + (otPlan.p === 'v' ? 'à vista' : 'mensal') + '</span>' +
       '<div class="bp"><em>R$</em>' + money(mes).replace('R$', '').trim().replace(/,(\d\d)$/, '<small>,$1</small>') + '<i>por display<br>por mês</i></div>' +
       '<p>' + (otPlan.p === 'v' ? 'Total de <b>' + money(tot) + '</b> por display em 1 parcela. Economia de <b>' + money((PRICE.otMensal - PRICE.otVista) * otPlan.m) + '</b> contra o mensal.' : '<b>' + otPlan.m + ' parcelas de ' + money(mes) + '</b> por display. Total de ' + money(tot) + '.') + '</p>' +
-      '<button class="btn" data-go="simulador">Simular com meus números <svg><use href="#i-arr"/></svg></button>';
+      '<button class="btn" data-go="simulador">Simular com meus números <span class="arr">→</span></button>';
   }
   $('plans').addEventListener('click', function(e){ var b = e.target.closest('.pc'); if (b){ otPlan = {m:+b.getAttribute('data-m'), p:b.getAttribute('data-p')}; plansRender(); } });
   plansRender();
