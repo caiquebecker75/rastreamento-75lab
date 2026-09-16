@@ -158,6 +158,31 @@
     setTimeout(renderProb, 350);
   };
 
+  /* ================= 03 · o que fazemos ================= */
+  var FAZ = {
+    os:{c:'', call:'QR único', h:'One Shot', l:'Rastreio estático',
+      p:'Um QR único impresso ou colado na peça. Ele registra o momento da instalação: a prova de que o material chegou e foi montado.',
+      s:['A peça sai da produção com seu QR único.','Na loja, o promotor escaneia com a câmera do celular, sem aplicativo.','O registro guarda GPS, loja, foto da fachada, data e promotor.'],
+      ex:'Ideal para ações de curta duração e entrega direta na loja.'},
+    ot:{c:'ot', call:'Tag ao vivo', h:'OnTiming', l:'Rastreio ao vivo',
+      p:'Uma tag discreta, sem fio e sem tomada, fixada no display. A peça passa a informar sozinha onde está, do CD até a loja e durante toda a vida útil.',
+      s:['A tag é aplicada e ativada na produção.','A localização é atualizada automaticamente, sem ninguém escanear.','O painel mostra trajeto, tempo em cada etapa e alerta se a peça sai da loja.'],
+      ex:'Ideal para materiais de valor, que viajam por CD e ficam meses no PDV. Inclui o registro One Shot.'}
+  };
+  var fazT = null;
+  function fazSet(t){
+    var d = FAZ[t];
+    $('fDisp').classList.toggle('ot', t === 'ot');
+    $('fCallT').textContent = d.call;
+    [].forEach.call($('fTabs').children, function(b){ b.classList.toggle('on', b.getAttribute('data-t') === t); });
+    $('fBody').innerHTML = '<div class="fb ' + d.c + '"><span class="lbl">' + d.l + '</span><h3>' + d.h + '</h3><p>' + d.p + '</p><ol>' +
+      d.s.map(function(x, i){ return '<li><i>' + (i + 1) + '</i><span>' + x + '</span></li>'; }).join('') + '</ol><div class="ex"><b>Quando usar</b>' + d.ex + '</div></div>';
+    var fs = document.querySelector('.fflow .fs.on span');
+    fs.innerHTML = ico(t === 'ot' ? 'i-live' : 'i-qr');
+  }
+  $('fTabs').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ clearTimeout(fazT); fazSet(b.getAttribute('data-t')); } });
+  hooks.fazemos = function(){ fazSet('os'); clearTimeout(fazT); fazT = setTimeout(function(){ if (slides[cur].id === 'fazemos') fazSet('ot'); }, 5000); };
+
   /* ================= 03 · comparador ================= */
   function duo(){ var v = $('duoR').value + '%'; $('tecnologias').style.setProperty('--x', v); }
   $('duoR').addEventListener('input', duo);
@@ -236,7 +261,7 @@
   $('otPlay').onclick = otPlay;
   hooks.ontiming = function(){ otDraw(0); $('otLog').innerHTML = ''; $('otS0').textContent = 'No CD · agora'; setTimeout(otPlay, 1100); };
 
-  /* ================= 06 · órbita dos 17 ================= */
+  /* ================= indicadores (base do catálogo e da matriz) ================= */
   var IND = [
     ['i-percent','Penetração','Quantas lojas-alvo já têm a peça montada.','execucao','ambos'],
     ['i-users','Número de promotores','Quem registrou peças, onde e quando.','promotores','ambos'],
@@ -256,19 +281,6 @@
     ['i-truck','Tempo de transporte CD até a loja','Duração real de cada entrega.','logistica','ontiming'],
     ['i-box','Inventário de ativos','Onde está cada peça, agora.','logistica','ontiming']
   ];
-  var ring = $('orbRing'), R = 320;
-  ring.innerHTML = IND.map(function(d, k){
-    var a = k / IND.length * Math.PI * 2 - Math.PI / 2;
-    return '<div class="oi" style="transform:translate(' + (Math.cos(a) * R) + 'px,' + (Math.sin(a) * R) + 'px)"><button data-k="' + k + '" aria-label="' + d[1] + '">' + ico(d[0]) + '</button></div>';
-  }).join('');
-  var TGL = {ambos:'<span class="tag lime" style="background:#fff">One Shot</span><span class="tag">OnTiming</span>', parcial:'<span class="tag" style="background:#fff;color:#0E1110">One Shot parcial</span><span class="tag">OnTiming</span>', ontiming:'<span class="tag">Só OnTiming</span>'};
-  function orbShow(k){
-    var d = IND[k];
-    $('orbC').innerHTML = '<span class="lbl">Indicador ' + pad(k + 1) + '</span><b>' + d[1] + '</b><p>' + d[2] + '</p><div class="tg">' + TGL[d[4]] + '</div>';
-    [].forEach.call(ring.querySelectorAll('button'), function(b, i){ b.classList.toggle('on', i === k); });
-  }
-  ring.addEventListener('mouseover', function(e){ var b = e.target.closest('button'); if (b) orbShow(+b.getAttribute('data-k')); });
-  ring.addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) go(IND[+b.getAttribute('data-k')][3]); });
 
   /* ================= 07 · execução ================= */
   var WK = [
@@ -430,23 +442,74 @@
     [].forEach.call($('mtab').querySelectorAll('.mrow'), function(r){ r.classList.toggle('dim', g !== 'all' && r.getAttribute('data-g') !== g); });
   });
 
-  /* ================= 13 · tabela de preços ================= */
-  var tPay = 'v', tMes = 12;
-  function splitPrice(v){ var s = money(v).replace('R$', '').trim(); var p = s.split(','); return p[0] + '<small>,' + p[1] + '</small>'; }
-  function renderTags(){
-    var mes = tPay === 'v' ? PRICE.otVista : PRICE.otMensal;
-    $('tOtV').innerHTML = splitPrice(mes);
-    $('tOff').classList.toggle('hide', tPay !== 'v');
-    $('tOtAlt').innerHTML = tPay === 'v'
-      ? 'Plano de ' + tMes + ' meses: <b>' + money(PRICE.otVista * tMes) + '</b> por display em 1 parcela. Economia de <b>' + money((PRICE.otMensal - PRICE.otVista) * tMes) + '</b>.'
-      : 'Plano de ' + tMes + ' meses: <b>' + tMes + 'x de ' + money(PRICE.otMensal) + '</b> por display. À vista sai 20% menor.';
-    [].forEach.call($('tPay').children, function(b){ b.classList.toggle('on', b.getAttribute('data-p') === tPay); });
-    [].forEach.call($('tMes').children, function(b){ b.classList.toggle('on', +b.getAttribute('data-m') === tMes); });
+  /* ================= catálogos de indicadores ================= */
+  var FAM = {exe:['Execução','#0E1110'], pos:['Positivação','#00837D'], eq:['Equipe','#1DD4C8'], loja:['Loja','#8DBE2A'], log:['Logística','#F2A93B']};
+  // família, valor de exemplo, legenda, gráfico
+  var VIS = [
+    ['exe','62%','lojas-alvo','ring',62], ['eq','48','promotores ativos','dots',48], ['exe','84%','1.014 de 1.200','pair',[100,84]],
+    ['pos','86%','melhor bandeira','hbars',[86,79,71,64]], ['pos','9','praças no ranking','cols',[91,78,74,72,69]], ['pos','27','UFs no mapa','tiles',0],
+    ['exe','4,2','dias em média','clock',0], ['eq','96%','top promotor','cols',[96,93,88,85,79]], ['eq','91 x 73','próprio x compartilhado','duel',[91,73]],
+    ['exe','9','dias do CD à loja','rocket',0], ['loja','8 m','precisão do GPS','pin',0], ['loja','74','de 90 dias','line',82],
+    ['log','3','alertas hoje','alert',0], ['log','ao vivo','posição da frota','route',0], ['log','12','dias parado no CD','bars',[30,55,80,100,70]],
+    ['log','3,2','dias por entrega','truck',0], ['log','1.200','ativos rastreados','donut',0]
+  ];
+  function gfx(t, d){
+    var s = '<svg class="cg" viewBox="0 0 80 40">';
+    if (t === 'ring') s += '<circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-opacity=".15" stroke-width="6"/><circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="' + (d / 100 * 94.2) + ' 94.2" transform="rotate(-90 20 20)"/>';
+    else if (t === 'pair') s += '<rect x="4" y="' + (40 - d[0] * .36) + '" width="16" height="' + (d[0] * .36) + '" rx="3" fill="currentColor" fill-opacity=".2"/><rect x="26" y="' + (40 - d[1] * .36) + '" width="16" height="' + (d[1] * .36) + '" rx="3" fill="currentColor"/><path d="M48 12h28M48 22h20M48 32h24" stroke="currentColor" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/>';
+    else if (t === 'hbars') d.forEach(function(v, i){ s += '<rect x="0" y="' + (i * 10 + 1) + '" width="' + (v * .8) + '" height="6" rx="3" fill="currentColor" fill-opacity="' + (1 - i * .22) + '"/>'; });
+    else if (t === 'cols' || t === 'bars') d.forEach(function(v, i){ s += '<rect x="' + (i * 16 + 2) + '" y="' + (40 - v * .38) + '" width="10" height="' + (v * .38) + '" rx="3" fill="currentColor" fill-opacity="' + (t === 'cols' ? 1 - i * .16 : .35 + i * .13) + '"/>'; });
+    else if (t === 'tiles') [[1,0],[3,0],[0,1],[1,1],[2,1],[3,1],[1,2],[2,2],[2,3]].forEach(function(p, i){ s += '<rect x="' + (p[0] * 11 + 16) + '" y="' + (p[1] * 10) + '" width="9" height="8" rx="2" fill="currentColor" fill-opacity="' + [.3,.2,.5,.8,1,.6,.9,1,.7][i] + '"/>'; });
+    else if (t === 'dots') for (var i = 0; i < 18; i++) s += '<circle cx="' + (i % 6 * 13 + 6) + '" cy="' + (Math.floor(i / 6) * 13 + 7) + '" r="4.5" fill="currentColor" fill-opacity="' + (i < 14 ? 1 : .2) + '"/>';
+    else if (t === 'duel') s += '<rect x="0" y="8" width="' + (d[0] * .8) + '" height="9" rx="4" fill="currentColor"/><rect x="0" y="24" width="' + (d[1] * .8) + '" height="9" rx="4" fill="currentColor" fill-opacity=".35"/>';
+    else if (t === 'line') s += '<rect x="0" y="17" width="80" height="6" rx="3" fill="currentColor" fill-opacity=".15"/><rect x="0" y="17" width="' + (d * .8) + '" height="6" rx="3" fill="currentColor"/><circle cx="' + (d * .8) + '" cy="20" r="6" fill="#E5484D"/><path d="M79 8v24" stroke="currentColor" stroke-dasharray="3 3" stroke-width="2"/>';
+    else if (t === 'donut') s += '<g transform="rotate(-90 40 20)" fill="none" stroke-width="7"><circle cx="40" cy="20" r="15" stroke="currentColor" stroke-dasharray="64 94.2"/><circle cx="40" cy="20" r="15" stroke="currentColor" stroke-opacity=".45" stroke-dasharray="16 94.2" stroke-dashoffset="-65"/><circle cx="40" cy="20" r="15" stroke="#E5484D" stroke-dasharray="7 94.2" stroke-dashoffset="-83"/></g>';
+    else if (t === 'route') s += '<path d="M6 32C20 32 20 8 40 8s20 24 34 24" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="4 5"/><circle cx="6" cy="32" r="5" fill="currentColor"/><circle cx="74" cy="32" r="5" fill="currentColor"/><circle cx="40" cy="8" r="6" fill="#1DD4C8" stroke="currentColor" stroke-width="2"/>';
+    else if (t === 'alert') s += '<circle cx="40" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/><rect x="33" y="13" width="14" height="14" rx="4" fill="currentColor"/><circle cx="68" cy="10" r="6" fill="#E5484D"/>';
+    else if (t === 'pin') s += '<path d="M40 38s-12-11-12-20a12 12 0 0 1 24 0c0 9-12 20-12 20z" fill="currentColor"/><circle cx="40" cy="18" r="4.5" fill="#C0EE4E"/><circle cx="40" cy="36" r="3" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="2"/>';
+    else { var ic = {clock:'i-clock', rocket:'i-rocket', truck:'i-truck'}[t]; s = '<svg class="cg"><use href="#' + ic + '"/>'; }
+    return s + '</svg>';
   }
-  $('tPay').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ tPay = b.getAttribute('data-p'); renderTags(); } });
-  $('tMes').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ tMes = +b.getAttribute('data-m'); renderTags(); } });
-  $('tOsAlt').innerHTML = 'ou <b>12x de ' + money(PRICE.osParc / 12) + '</b> por display';
-  renderTags();
+  function card(k, cls, badge){
+    var d = IND[k], v = VIS[k], f = FAM[v[0]];
+    return '<button class="ic ' + (cls || '') + '" data-go="' + d[3] + '">' +
+      '<span class="ic-top"><span class="ic-i">' + ico(d[0]) + '</span><span class="ic-f"><i style="background:' + f[1] + '"></i>' + f[0] + '</span></span>' +
+      '<b class="ic-n">' + d[1] + '</b>' +
+      '<span class="ic-v"><span class="ic-num">' + v[1] + '<small>' + v[2] + '</small></span>' + gfx(v[3], v[4]) + '</span>' +
+      '<span class="ic-q">' + ico('i-search') + d[2] + '</span>' + (badge || '') + '</button>';
+  }
+  var OS_ORDER = [0,2,6,9,3,4,5,1,7,8,10,11], EXCL = [12,13,14,15,16];
+  document.querySelector('[data-cat="os-indicadores"]').innerHTML = OS_ORDER.map(function(k, i){
+    return card(k, 'c' + i, IND[k][4] === 'parcial' ? '<span class="ic-b">com leitura extra</span>' : '');
+  }).join('');
+  document.querySelector('[data-cat="ot-indicadores"]').innerHTML = EXCL.map(function(k, i){ return card(k, 'ex c' + i, '<span class="ic-b ex">exclusivo</span>'); }).join('') +
+    '<div class="ic plus c5"><span class="lbl">Também inclui</span><b>+ os 12 do One Shot</b><p>Execução, positivação, equipe e loja, todos completos.</p><svg class="down"><use href="#i-drop"/></svg></div>' +
+    OS_ORDER.map(function(k, i){ return card(k, 'c' + (i + 6), IND[k][4] === 'parcial' ? '<span class="ic-b">completo aqui</span>' : ''); }).join('');
+
+  /* ================= One Shot · preço ================= */
+  function osq(){ var q = +$('osq').value; $('osq').style.setProperty('--p', ((q - 50) / 2950 * 100) + '%'); $('osqN').textContent = nf0.format(q); $('osqV').textContent = money(q * PRICE.osVista); }
+  $('osq').addEventListener('input', osq); osq();
+  [].forEach.call(document.querySelectorAll('.payopts .po'), function(p){ p.addEventListener('mouseenter', function(){ [].forEach.call(document.querySelectorAll('.payopts .po'), function(x){ x.classList.toggle('on', x === p); }); }); });
+
+  /* ================= OnTiming · planos ================= */
+  var otPlan = {m:12, p:'v'};
+  function plansRender(){
+    var rows = [6, 9, 12];
+    $('plans').innerHTML = '<div class="ph"><span></span><span class="lbl">À vista · 1 parcela <em>20% off</em></span><span class="lbl">Mensal · parcelado</span></div>' + rows.map(function(m){
+      function cell(p){
+        var mes = p === 'v' ? PRICE.otVista : PRICE.otMensal, tot = mes * m, on = otPlan.m === m && otPlan.p === p;
+        return '<button class="pc ' + p + (on ? ' on' : '') + '" data-m="' + m + '" data-p="' + p + '"><span class="pm">' + money(mes) + '<small>/mês</small></span><span class="pt">' + (p === 'v' ? money(tot) + ' em 1 parcela' : m + 'x de ' + money(mes)) + '</span></button>';
+      }
+      return '<div class="pr"><span class="pl"><b>' + m + '</b>meses</span>' + cell('v') + cell('m') + '</div>';
+    }).join('');
+    var mes = otPlan.p === 'v' ? PRICE.otVista : PRICE.otMensal, tot = mes * otPlan.m;
+    $('otSel').innerHTML = '<span class="lbl">Plano escolhido · ' + otPlan.m + ' meses · ' + (otPlan.p === 'v' ? 'à vista' : 'mensal') + '</span>' +
+      '<div class="bp"><em>R$</em>' + money(mes).replace('R$', '').trim().replace(/,(\d\d)$/, '<small>,$1</small>') + '<i>por display<br>por mês</i></div>' +
+      '<p>' + (otPlan.p === 'v' ? 'Total de <b>' + money(tot) + '</b> por display em 1 parcela. Economia de <b>' + money((PRICE.otMensal - PRICE.otVista) * otPlan.m) + '</b> contra o mensal.' : '<b>' + otPlan.m + ' parcelas de ' + money(mes) + '</b> por display. Total de ' + money(tot) + '.') + '</p>' +
+      '<button class="btn" data-go="simulador">Simular com meus números <svg><use href="#i-arr"/></svg></button>';
+  }
+  $('plans').addEventListener('click', function(e){ var b = e.target.closest('.pc'); if (b){ otPlan = {m:+b.getAttribute('data-m'), p:b.getAttribute('data-p')}; plansRender(); } });
+  plansRender();
 
   /* ================= 14 · simulador ================= */
   var sim = {q:500, m:12, p:'v'};
