@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rastreamento de PDV · 75 LAB</title>
+<meta name="description" content="Apresentação comercial 75 LAB: tecnologias One Shot e OnTiming de rastreamento de materiais de comunicação no PDV, indicadores, tabela de preços e simulador.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C0EE4E'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Impact,sans-serif' font-size='17' fill='%230E1110'%3E75%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cdot" id="cdot"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="i-arr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13.5 6.5 19.5 12l-6 5.5"/></symbol>
+  <symbol id="i-l" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 12H5M10.5 6.5 5 12l5.5 5.5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5.5 5.5L20 6.5"/></symbol>
+  <symbol id="i-no" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M5 12h14"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
+  <symbol id="i-drag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 6.5 3 12l5.5 5.5M15.5 6.5 21 12l-5.5 5.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.6"/></g></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.2"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.2"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.2"/><path stroke-linecap="round" d="M14 14h2.5v2.5M20.5 14v.01M14 20.5h.01M17.5 18v2.5h3v-3.2"/></g></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h2.2L9 4h6l1.8 2.5H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.6"/></g></symbol>
+  <symbol id="i-live" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></g></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6h11v10.5h-11zM13.5 9.5h4l3.5 3.5v3.5h-7.5"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></g></symbol>
+  <symbol id="i-cd" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 3.5 21.5 9v11.5h-19z"/><path d="M6.5 20.5v-8h11v8M6.5 15.5h11M6.5 18h11"/></g></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.5V20.5h17V9.5M2.5 4h19l-1.2 4.2a2.6 2.6 0 0 1-5 .3 2.7 2.7 0 0 1-5.1 0 2.6 2.6 0 0 1-5 0L2.5 4z"/><path d="M9.5 20.5v-6h5v6"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M15.5 5.3a3.5 3.5 0 0 1 0 6.4M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></g></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21.5V3.5M5 4h12.5l-2.5 4 2.5 4H5"/></g></symbol>
+  <symbol id="i-city" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9h6v12M11 21V3.5h8V21M7.5 12.5h1.5M7.5 16h1.5M14 7h2.5M14 10.5h2.5M14 14h2.5M14 17.5h2.5"/></g></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
+  <symbol id="i-hour" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.8 3.2 8.6 7.5 10 4.3-1.4 7.5-5.2 7.5-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-4.8"/></g></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></g></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17M6.5 20.5v-6M11 20.5V9M15.5 20.5v-8.5M20 20.5V4.5"/></g></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 2.5a6.5 6.5 0 0 1 6.5 6.5H15z"/></g></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 21h4"/></g></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.2v.1"/></g></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/><path d="M8 18.5h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8" y="8" width="12.5" height="12.5" rx="2.5"/><path d="M16 8V5.5A2 2 0 0 0 14 3.5H5.5a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2H8"/></g></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5v12M6.5 10.5 12 16l5.5-5.5M4 20.5h16"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v14M6 11l6 6 6-6"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 8h14.5M15 4.5 18.5 8 15 11.5M20 16H5.5M9 12.5 5.5 16 9 19.5"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></g></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5c3-1.5 5.5-1 5.5-1s.5 2.5-1 5.5l-6 6-4.5-4.5z"/><path d="M8 10.5 4.5 10l3-3.5h4M13.5 16l.5 3.5 3.5-3v-4M8.5 15.5c-1.5 0-3 1.5-3 3.5 2 0 3.5-1.5 3.5-3"/></g></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 8 12 13l9.5-5z"/><path d="m2.5 12.5 9.5 5 9.5-5M2.5 16.5l9.5 5 9.5-5"/></g></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13.5 2.5 4.5 13.5h7l-1 8 9-11h-7z"/></symbol>
+  <symbol id="i-display" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h12v13H6zM6 7h12M6 11.5h12M8 15.5 6.5 21.5M16 15.5l1.5 6"/></g></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 1 0 2.4-5.7M4 3.5v4h4"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="14" rx="2.5"/><path d="M8 21h8M12 17.5V21M6.5 13l3-3.5 3 2 4.5-5"/></g></symbol>
+  <symbol id="i-geo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></g></symbol>
+ </defs>
+</svg>
+
+<div id="stage">
+ <div id="prog"></div>
+
+ <!-- ================= 01 · CAPA ================= -->
+ <section class="slide t-ink s-capa" id="capa" data-title="Capa">
+  <div class="cap-l">
+   <div class="eyebrow rv">Tecnologia de rastreamento 75 LAB</div>
+   <h1 class="d rv" style="--d:1">Cada display<br><span class="hl">no mapa.</span></h1>
+   <p class="lead rv" style="--d:2">Rastreio de materiais de comunicação do CD até a loja, com dados que mostram <b>o que foi executado de verdade</b>.</p>
+   <div class="cta rv" style="--d:3">
+    <button class="btn" data-go="tecnologias">Conhecer as tecnologias <svg><use href="#i-arr"/></svg></button>
+    <button class="btn alt" data-go="simulador">Simular investimento</button>
+   </div>
+   <div class="chips rv" style="--d:4">
+    <span class="chip"><svg><use href="#i-cam"/></svg>One Shot · rastreio estático</span>
+    <span class="chip"><svg><use href="#i-live"/></svg>OnTiming · rastreio ao vivo</span>
+   </div>
+  </div>
+  <div class="radar">
+   <svg class="rd" viewBox="0 0 700 700">
+    <defs>
+     <linearGradient id="swg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C0EE4E" stop-opacity="0"/><stop offset="1" stop-color="#C0EE4E" stop-opacity=".32"/></linearGradient>
+    </defs>
+    <g fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5">
+     <circle cx="350" cy="350" r="90"/><circle cx="350" cy="350" r="180"/><circle cx="350" cy="350" r="270"/><circle cx="350" cy="350" r="340" stroke-dasharray="4 8"/>
+     <path d="M350 0v700M0 350h700"/>
+    </g>
+    <g stroke="rgba(255,255,255,.07)" stroke-width="10" fill="none" stroke-linecap="round">
+     <path d="M60 470c90-40 140-10 230-60s120-150 230-150 110-60 150-90"/>
+     <path d="M140 110c60 80 60 170 150 220s170 30 220 120 40 150 60 190"/>
+     <path d="M20 250c120 10 200 60 330 100s230 10 330 60"/>
+    </g>
+    <g class="sweep"><path d="M350 350 L690 350 A340 340 0 0 0 590 110 Z" fill="url(#swg)"/><path d="M350 350 L690 350" stroke="#C0EE4E" stroke-width="2.5"/></g>
+    <circle cx="350" cy="350" r="7" fill="#C0EE4E"/>
+   </svg>
+   <div class="rpin" style="left:470px;top:250px;--pa:.7s;--pd:.2s"><i></i><b><em></em>Loja 214 <small>instalado</small></b></div>
+   <div class="rpin teal" style="left:210px;top:190px;--pa:.95s;--pd:.8s"><i></i><b><em></em>Em trânsito <small>há 12 min</small></b></div>
+   <div class="rpin" style="left:260px;top:480px;--pa:1.2s;--pd:1.3s"><i></i><b><em></em>CD Cajamar <small>42 displays</small></b></div>
+   <div class="rpin red" style="left:520px;top:440px;--pa:1.45s;--pd:.5s"><i></i><b><em></em>Fora da loja <small>alerta</small></b></div>
+  </div>
+ </section>
+
+ <!-- ================= 02 · PROBLEMA ================= -->
+ <section class="slide t-paper s-prob" id="problema" data-title="O ponto cego">
+  <div class="top">
+   <div class="eyebrow rv">O ponto cego do trade</div>
+   <h2 class="d rv" style="--d:1">Saem <span class="hl" id="pQty">1.000</span>.<br>Quantos trabalham?</h2>
+  </div>
+  <div class="ctrl rv" style="--d:2">
+   <div class="row"><span class="lbl">Displays produzidos</span><span class="num" id="pQty2">1.000</span></div>
+   <input type="range" id="pRange" min="100" max="10000" step="100" value="1000">
+   <div class="loss">
+    <span class="lbl">Sem prova de que estão trabalhando</span>
+    <div class="num" id="pLoss">710</div>
+    <p class="note">Cenário ilustrativo de uma ação sem rastreio. Arraste para o volume da sua campanha.</p>
+   </div>
+  </div>
+  <div class="funnel" id="funnel"></div>
+ </section>
+
+ <!-- ================= 03 · DUAS TECNOLOGIAS ================= -->
+ <section class="slide t-white s-duo" id="tecnologias" data-title="Duas tecnologias">
+  <div class="pane p-os">
+   <div class="pc">
+    <div class="big-ico"><svg><use href="#i-cam"/></svg></div>
+    <div class="kick">01 · One Shot</div>
+    <h2>A foto.</h2>
+    <p>Rastreio estático: prova de execução no momento da instalação.</p>
+    <ul>
+     <li><svg><use href="#i-qr"/></svg>QR na peça, registro em segundos</li>
+     <li><svg><use href="#i-pin"/></svg>GPS e foto da fachada da loja</li>
+     <li><svg><use href="#i-chart"/></svg>Positivação e performance de campo</li>
+    </ul>
+    <div class="go"><button class="btn" data-go="oneshot">Como funciona <svg><use href="#i-arr"/></svg></button></div>
+   </div>
+  </div>
+  <div class="pane p-ot" id="duoOt">
+   <div class="pc">
+    <div class="big-ico"><svg><use href="#i-live"/></svg></div>
+    <div class="kick">02 · OnTiming</div>
+    <h2>O filme.</h2>
+    <p>Rastreio ao vivo: o display avisa onde está durante toda a vida útil.</p>
+    <ul>
+     <li><svg><use href="#i-route"/></svg>Do CD à loja, com tempo de cada etapa</li>
+     <li><svg><use href="#i-bell"/></svg>Alerta quando sai da loja</li>
+     <li><svg><use href="#i-box"/></svg>Inventário de ativos sempre atualizado</li>
+    </ul>
+    <div class="go"><button class="btn" data-go="ontiming">Como funciona <svg><use href="#i-arr"/></svg></button></div>
+   </div>
+  </div>
+  <div class="handle" id="duoH"><b><svg><use href="#i-drag"/></svg></b><span>Arraste e compare</span></div>
+  <input class="drag" type="range" id="duoR" min="8" max="92" value="50" aria-label="Comparar One Shot e OnTiming">
+ </section>
+
+ <!-- ================= 04 · ONE SHOT ================= -->
+ <section class="slide t-paper s-os" id="oneshot" data-title="One Shot">
+  <div class="lc">
+   <div class="eyebrow rv">01 · One Shot · rastreio estático</div>
+   <h2 class="d rv" style="--d:1">Escaneou.<br><span class="hl">Provou.</span></h2>
+   <div class="steps rv" style="--d:2" id="osSteps">
+    <button class="step on" data-k="0"><span class="n"><svg><use href="#i-qr"/></svg></span><span><b>QR único na peça</b><small>Cada display sai da produção identificado</small></span></button>
+    <button class="step" data-k="1"><span class="n"><svg><use href="#i-phone"/></svg></span><span><b>Promotor escaneia</b><small>Sem aplicativo, direto na câmera do celular</small></span></button>
+    <button class="step" data-k="2"><span class="n"><svg><use href="#i-pin"/></svg></span><span><b>GPS, loja e foto da fachada</b><small>Registro com data, hora e localização</small></span></button>
+    <button class="step" data-k="3"><span class="n"><svg><use href="#i-dash"/></svg></span><span><b>Painel na hora</b><small>Mapa, indicadores e exportação em Excel</small></span></button>
+   </div>
+  </div>
+  <div class="mock rv" style="--d:2" id="osMock">
+   <div class="mbar"><img src="img/logo-75lab-lime.png" alt="75 LAB"><b>INSTALAÇÕES</b><i>painel da campanha</i></div>
+   <div class="kpis" id="osKpis">
+    <div class="kpi"><small>Registros</small><b>16</b></div>
+    <div class="kpi"><small>Lojas</small><b>7</b></div>
+    <div class="kpi"><small>Promotores</small><b>5</b></div>
+    <div class="kpi"><small>Com localização</small><b>100%</b></div>
+   </div>
+   <div class="mmap" id="osMap">
+    <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice">
+     <rect width="800" height="420" fill="#E9EDE2"/>
+     <g fill="#DCE8CF"><path d="M0 300c80-20 120 20 200 0s90-60 160-40 80 60 140 50v110H0z"/><circle cx="640" cy="90" r="60"/></g>
+     <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M-20 120c120 30 220-10 330 30s200 90 520 40"/><path d="M120-20c30 120 10 230 60 330s40 90 30 150"/><path d="M420-20c-20 110 30 190 10 270s-40 130-30 200"/><path d="M-20 360c200-40 380 0 560-50s190-30 280-20"/></g>
+     <g fill="none" stroke="#F6C9A6" stroke-width="6" stroke-linecap="round"><path d="M-20 230c160 10 260-40 420-10s260 70 420 20"/><path d="M600-20c-40 120 20 200-10 300s-60 100-70 160"/></g>
+     <g fill="none" stroke="#fff" stroke-width="3"><path d="M40 40l200 150M250 20l-60 380M520 60l220 300M300 250l400-120M60 400l300-120"/></g>
+    </svg>
+   </div>
+   <div class="leg">
+    <span><i style="background:#3B6EF5">PP</i>Polenguinho 2</span>
+    <span><i style="background:#F07A1A">WP</i>Whiskas &amp; Pedigree 7</span>
+    <span><i style="background:#0F8A80">FR</i>Frescatino 3</span>
+    <span><i style="background:#D93A6A">MM</i>Melão Famosa 2</span>
+   </div>
+  </div>
+  <div class="phone rv" style="--d:3" id="osPhone">
+   <div class="scr">
+    <div class="ph-top"><b>Registrar<br>instalação</b><small>Display · Loja 214</small><div class="qrbox"><svg viewBox="0 0 24 24" style="width:100%;height:100%"><use href="#i-qr"/></svg></div><div class="scanl"></div></div>
+    <div class="ph-body">
+     <div class="ph-row" data-r="0"><svg><use href="#i-qr"/></svg>Peça identificada<em><svg><use href="#i-ok"/></svg></em></div>
+     <div class="ph-row" data-r="1"><svg><use href="#i-pin"/></svg>GPS · precisão 8 m<em><svg><use href="#i-ok"/></svg></em></div>
+     <div class="ph-row" data-r="2"><svg><use href="#i-store"/></svg>Loja confirmada<em><svg><use href="#i-ok"/></svg></em></div>
+     <div class="ph-row" data-r="3"><svg><use href="#i-cam"/></svg>Foto da fachada<em><svg><use href="#i-ok"/></svg></em></div>
+     <div class="ph-btn">ENVIAR REGISTRO</div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- ================= 05 · ONTIMING ================= -->
+ <section class="slide t-ink s-ot" id="ontiming" data-title="OnTiming">
+  <div class="lc">
+   <div class="eyebrow rv">02 · OnTiming · rastreio ao vivo</div>
+   <h2 class="d rv" style="--d:1">O display avisa<br><span class="hl">onde está.</span></h2>
+  </div>
+  <div class="play rv" style="--d:2"><button class="btn" id="otPlay"><svg><use href="#i-play"/></svg>Acompanhar a jornada</button></div>
+  <div class="route rv" style="--d:2" id="otRoute">
+   <svg viewBox="0 0 980 360">
+    <path id="otPath" d="M70 220 C 180 220, 200 90, 300 90 S 440 220, 530 220 S 660 90, 760 90 S 880 170, 920 220" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10" stroke-linecap="round"/>
+    <path id="otPathOn" d="M70 220 C 180 220, 200 90, 300 90 S 440 220, 530 220 S 660 90, 760 90 S 880 170, 920 220" fill="none" stroke="#C0EE4E" stroke-width="10" stroke-linecap="round"/>
+   </svg>
+   <div class="node" style="left:70px;top:220px" data-at="0"><div class="nb"><svg><use href="#i-cd"/></svg></div><div class="nl"><b>CD</b><small>saída registrada</small></div></div>
+   <div class="node up" style="left:300px;top:90px" data-at=".27"><div class="nb"><svg><use href="#i-truck"/></svg></div><div class="nl"><b>Transporte</b><small>em rota</small></div></div>
+   <div class="node" style="left:530px;top:220px" data-at=".52"><div class="nb"><svg><use href="#i-box"/></svg></div><div class="nl"><b>Armazém</b><small>tempo parado</small></div></div>
+   <div class="node up" style="left:760px;top:90px" data-at=".78"><div class="nb"><svg><use href="#i-store"/></svg></div><div class="nl"><b>Loja</b><small>no lugar</small></div></div>
+   <div class="node alert" style="left:920px;top:220px" data-at="1"><div class="nb"><svg><use href="#i-bell"/></svg></div><div class="nl"><b>Alerta</b><small>saiu da loja</small></div></div>
+   <div class="tagdot" id="otDot"><i></i></div>
+  </div>
+  <div class="fleet rv" style="--d:3">
+   <h4>Frota <span><i></i>ao vivo</span></h4>
+   <div class="srch"><svg><use href="#i-search"/></svg>Buscar loja, rede, tag ou grupo</div>
+   <div class="fsec">4 TAGS</div>
+   <ul id="otList">
+    <li data-i="0"><i></i><span><b>DISPLAY LOJA 214</b><small id="otS0">No CD · agora</small></span><svg><use href="#i-chev"/></svg></li>
+    <li><i></i><span><b>DISPLAY PDV 087</b><small>No lugar · há 22 min</small></span><svg><use href="#i-chev"/></svg></li>
+    <li><i></i><span><b>ILHA PROMOCIONAL 03</b><small>No lugar · há 24 min</small></span><svg><use href="#i-chev"/></svg></li>
+    <li><i></i><span><b>CLIP STRIP 112</b><small>No lugar · há 26 min</small></span><svg><use href="#i-chev"/></svg></li>
+   </ul>
+   <div class="flog" id="otLog"></div>
+  </div>
+  <div class="chips rv" style="--d:4">
+   <span class="chip"><svg><use href="#i-bolt"/></svg>Sem fio e sem tomada</span>
+   <span class="chip"><svg><use href="#i-clock"/></svg>Atualização automática</span>
+   <span class="chip"><svg><use href="#i-bell"/></svg>Alerta de saída da loja</span>
+   <span class="chip"><svg><use href="#i-cam"/></svg>Inclui o registro One Shot</span>
+  </div>
+ </section>
+
+ <!-- ================= 06 · 17 INDICADORES ================= -->
+ <section class="slide t-lime s-17" id="dados" data-title="17 indicadores">
+  <div class="big rv" data-count="17">17</div>
+  <div class="txt rv" style="--d:2">
+   <div class="d">indicadores que o seu<br>trade nunca teve.</div>
+  </div>
+  <div class="orbit rv" style="--d:1">
+   <div class="ring" id="orbRing"></div>
+   <div class="ocenter" id="orbC">
+    <span class="lbl">Passe o mouse</span>
+    <b>Um rastreio,<br>17 respostas</b>
+    <p>Clique em um ícone para ver o indicador em ação.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ================= 07 · EXECUÇÃO ================= -->
+ <section class="slide t-white s-exe" id="execucao" data-title="Planejado x executado">
+  <div class="lc">
+   <div class="eyebrow rv">Execução</div>
+   <h2 class="d rv" style="--d:1">Planejado<br><span class="hl">x executado.</span></h2>
+  </div>
+  <div class="waffle rv" style="--d:2" id="waffle"></div>
+  <div class="wleg rv" style="--d:3">
+   <span><i style="background:var(--lime)"></i>Executado</span>
+   <span><i style="background:var(--ink)"></i>Executado nesta semana</span>
+   <span><i style="background:var(--soft)"></i>Planejado, ainda sem registro</span>
+   <span class="note">cada quadrado = 4 displays</span>
+  </div>
+  <div class="weeks rv" style="--d:4"><div class="seg" id="weeks"></div></div>
+  <div class="stats">
+   <div class="stat hero rv" style="--d:2"><span class="si"><svg><use href="#i-target"/></svg></span><span><b>Peças executadas</b><small id="exSub">de 1.200 planejadas</small></span><span class="num" id="exN">1.014</span><div class="pbar"><i id="exBar"></i></div></div>
+   <div class="stat rv" style="--d:3"><span class="si"><svg><use href="#i-percent"/></svg></span><span><b>Penetração</b><small>lojas-alvo com a peça</small></span><span class="num"><span id="exPen">62</span><sup>%</sup></span></div>
+   <div class="stat rv" style="--d:4"><span class="si"><svg><use href="#i-rocket"/></svg></span><span><b>Tempo de introdução no varejo</b><small>da saída do CD à 1ª instalação</small></span><span class="num"><span id="exIn">9</span><sup>dias</sup></span></div>
+   <div class="stat rv" style="--d:5"><span class="si"><svg><use href="#i-clock"/></svg></span><span><b>Tempo de positivação</b><small>da chegada à peça montada</small></span><span class="num"><span id="exPo">4,2</span><sup>dias</sup></span></div>
+  </div>
+ </section>
+
+ <!-- ================= 08 · POSITIVAÇÃO ================= -->
+ <section class="slide t-paper s-pos" id="positivacao" data-title="Positivação">
+  <div class="lc">
+   <div class="eyebrow rv">Positivação</div>
+   <h2 class="d rv" style="--d:1">Onde a marca<br><span class="hl">está de pé.</span></h2>
+  </div>
+  <div class="seg rv" style="--d:2" id="posTabs">
+   <button class="on" data-v="uf">Estado</button><button data-v="city">Cidade</button><button data-v="flag">Bandeira</button>
+  </div>
+  <div class="detail rv" style="--d:3" id="posDet"></div>
+  <div class="pview on" id="pv-uf">
+   <div class="carto" id="carto"></div>
+   <div class="cscale">
+    <span class="lbl">Positivação</span>
+    <span><i style="background:#E4E7DC"></i>sem ação</span>
+    <span><i style="background:var(--lime-s)"></i>até 40%</span>
+    <span><i style="background:var(--lime-m)"></i>40% a 59%</span>
+    <span><i style="background:var(--lime)"></i>60% a 74%</span>
+    <span><i style="background:var(--teal)"></i>75% ou mais</span>
+   </div>
+  </div>
+  <div class="pview" id="pv-city"><div class="hbars" id="cityBars"></div></div>
+  <div class="pview" id="pv-flag"><div class="hbars" id="flagBars"></div></div>
+ </section>
+
+ <!-- ================= 09 · PROMOTORES ================= -->
+ <section class="slide t-ink s-pro" id="promotores" data-title="Promotores">
+  <div class="lc">
+   <div class="eyebrow rv">Equipe de campo</div>
+   <h2 class="d rv" style="--d:1">Quem faz<br><span class="hl">acontecer.</span></h2>
+  </div>
+  <div class="count rv" style="--d:2"><span class="num" data-count="48">48</span><p><b>promotores</b>registraram<br>peças na campanha</p></div>
+  <div class="duel rv" style="--d:2">
+   <div class="dh"><div class="own"><svg><use href="#i-user"/></svg>Próprio</div><span>X</span><div class="shr">Compartilhado<svg><use href="#i-users"/></svg></div></div>
+   <div id="duel"></div>
+  </div>
+  <div class="rank rv" style="--d:3">
+   <div class="rh"><b>Positivação por promotor</b><div class="seg" id="rkTabs"><button class="on" data-m="p">Positivação</button><button data-m="d">Lojas por dia</button></div></div>
+   <div id="rank"></div>
+  </div>
+ </section>
+
+ <!-- ================= 10 · LOJA ================= -->
+ <section class="slide t-white s-loja" id="loja" data-title="Prova na loja">
+  <div class="polaroid rv" style="--d:1">
+   <div class="ph">
+    <svg viewBox="0 0 546 470" preserveAspectRatio="xMidYMid slice">
+     <rect width="546" height="470" fill="#CFE3EE"/>
+     <circle cx="450" cy="80" r="44" fill="#F6E7A8"/>
+     <path d="M0 150h120v-40h90v40h80V90h110v60h146v320H0z" fill="#B9CCD6"/>
+     <rect x="40" y="160" width="466" height="270" fill="#F4F1E8"/>
+     <rect x="40" y="160" width="466" height="62" fill="#0E1110"/>
+     <text x="273" y="202" text-anchor="middle" font-family="Anton,Impact" font-size="32" letter-spacing="6" fill="#C0EE4E">SUPERMERCADO BOM PREÇO</text>
+     <g><path d="M40 222h466l-20 44H60z" fill="#00837D"/><path d="M60 266h40l10-44H80zM140 266h40l10-44h-30zM220 266h40l10-44h-30zM300 266h40l10-44h-30zM380 266h40l10-44h-30zM460 266h26l20-44h-26z" fill="#1DD4C8" opacity=".55"/></g>
+     <rect x="70" y="290" width="150" height="140" fill="#9CC3D3"/><rect x="326" y="290" width="150" height="140" fill="#9CC3D3"/>
+     <rect x="233" y="290" width="80" height="140" fill="#0E1110"/><rect x="238" y="296" width="33" height="134" fill="#6FA2B6"/><rect x="275" y="296" width="33" height="134" fill="#6FA2B6"/>
+     <g><rect x="120" y="332" width="54" height="98" rx="4" fill="#C0EE4E"/><rect x="128" y="342" width="38" height="24" fill="#0E1110"/><path d="M128 378h38M128 392h38M128 406h38" stroke="#0E1110" stroke-width="4"/></g>
+     <rect x="0" y="430" width="546" height="40" fill="#8A9399"/><path d="M0 446h546" stroke="#fff" stroke-width="3" stroke-dasharray="30 22"/>
+    </svg>
+   </div>
+   <div class="cap"><span><b>Loja 214 · Bom Preço</b><small>Registro de instalação · 14/09/2026 10:42</small></span><span class="tag lime"><svg><use href="#i-ok"/></svg>validado</span></div>
+  </div>
+  <div class="dropin"><svg viewBox="0 0 70 84"><path d="M35 82S4 54 4 32a31 31 0 0 1 62 0c0 22-31 50-31 50z" fill="#0E1110"/><circle cx="35" cy="32" r="18" fill="#C0EE4E"/><path d="m27 32 6 6 11-12" fill="none" stroke="#0E1110" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="geo rv" style="--d:3">
+   <span class="lbl">Geolocalização</span>
+   <p><span>Latitude</span><b>-23,5614</b></p>
+   <p><span>Longitude</span><b>-46,6559</b></p>
+   <p><span>Precisão</span><b>8 m</b></p>
+   <p><span>Promotor</span><b>Promotor 07</b></p>
+  </div>
+  <div class="lc">
+   <div class="eyebrow rv">Loja e vida útil</div>
+   <h2 class="d rv" style="--d:1">A prova na<br><span class="hl">porta da loja.</span></h2>
+  </div>
+  <div class="life rv" style="--d:2">
+   <div class="lh">
+    <div><span class="lbl">Tempo de existência na loja</span><div class="num" data-count="74">74<small>dias</small></div></div>
+    <p>de 90 dias planejados<br><b style="color:var(--red);font-weight:500">retirado 16 dias antes</b></p>
+   </div>
+   <div class="ltrack" id="ltrack"><div class="base"></div><div class="fill" id="lfill"></div><div class="plan"></div></div>
+   <p class="lt" id="ltxt">Clique nos marcos da linha do tempo.</p>
+  </div>
+ </section>
+
+ <!-- ================= 11 · LOGÍSTICA ================= -->
+ <section class="slide t-paper s-log" id="logistica" data-title="Logística e ativos">
+  <div class="lc">
+   <div class="eyebrow rv">Logística e ativos <span class="tag" style="margin-left:6px"><svg><use href="#i-live"/></svg>exclusivo OnTiming</span></div>
+   <h2 class="d rv" style="--d:1">Do CD à gôndola,<br><span class="hl">sem ponto cego.</span></h2>
+  </div>
+  <div class="belt rv" style="--d:2">
+   <div class="bst"><span class="bi"><svg><use href="#i-cd"/></svg></span><span class="num" data-count="12">12<small> dias</small></span><b>Armazenagem</b><small>tempo parado no CD</small></div>
+   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>saída</span></div>
+   <div class="bst"><span class="bi"><svg><use href="#i-truck"/></svg></span><span class="num">3,2<small> dias</small></span><b>Transporte</b><small>do CD até a loja</small></div>
+   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>entrega</span></div>
+   <div class="bst"><span class="bi"><svg><use href="#i-store"/></svg></span><span class="num" data-count="74">74<small> dias</small></span><b>Na loja</b><small>vida útil no PDV</small></div>
+   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>retirada</span></div>
+   <div class="bst"><span class="bi" style="background:var(--ink);color:var(--lime)"><svg><use href="#i-reset"/></svg></span><span class="num">86<small>%</small></span><b>Retorno</b><small>peças recuperadas</small></div>
+  </div>
+  <div class="geof rv" style="--d:3" id="geof">
+   <div class="gt">
+    <span class="lbl">Prevenção de perda</span>
+    <b>Cerca virtual<br>de 300 m</b>
+    <p>Se o display sai do raio da loja, o time recebe o alerta na hora.</p>
+   </div>
+   <svg class="gm" viewBox="0 0 380 240">
+    <g stroke="rgba(255,255,255,.07)" stroke-width="8" fill="none" stroke-linecap="round"><path d="M0 60h380M0 180h380M90 0v240M270 0v240"/></g>
+    <circle cx="170" cy="120" r="80" fill="rgba(192,238,78,.1)" stroke="#C0EE4E" stroke-width="2.5" stroke-dasharray="8 7"/>
+    <g transform="translate(170 120)"><rect x="-18" y="-18" width="36" height="36" rx="10" fill="#C0EE4E"/><path d="M-9-3v11h18V-3M-11-9h22l-2 5h-18z" fill="none" stroke="#0E1110" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <circle id="gDot" cx="170" cy="120" r="11" fill="#1DD4C8" stroke="#0E1110" stroke-width="4"/>
+   </svg>
+   <div class="alertc"><svg><use href="#i-alert"/></svg>Display Loja 214 saiu da cerca</div>
+  </div>
+  <div class="inv rv" style="--d:4">
+   <svg viewBox="0 0 200 200" id="donut"></svg>
+   <div class="dn"><div><div class="num">1.200</div><small>ativos rastreados</small></div></div>
+   <div><span class="lbl" style="display:block;margin-bottom:8px">Inventário de ativos · agora</span><ul id="invList"></ul></div>
+  </div>
+ </section>
+
+ <!-- ================= 12 · MATRIZ ================= -->
+ <section class="slide t-white s-mx" id="matriz" data-title="Quem entrega o quê">
+  <div class="lc">
+   <div class="eyebrow rv">Comparativo de indicadores</div>
+   <h2 class="d rv" style="--d:1">Quem entrega<br><span class="hl">o quê.</span></h2>
+   <div class="score rv" style="--d:2">
+    <div class="a"><b>One Shot</b><span class="num">12<small> de 17</small></span></div>
+    <div class="b"><b>OnTiming</b><span class="num" style="color:var(--lime)">17<small> de 17</small></span></div>
+   </div>
+  </div>
+  <div class="fil rv" style="--d:2"><div class="seg" id="mxTabs"></div></div>
+  <div class="mtab rv" style="--d:3" id="mtab"></div>
+  <div class="mleg rv" style="--d:4">
+   <span><i class="dotf"></i>entrega completo</span>
+   <span><i class="doth"></i>entrega com registro extra (data de envio ou leitura na retirada)</span>
+   <span><i class="doto"></i>não entrega</span>
+  </div>
+ </section>
+
+ <!-- ================= 13 · PREÇOS ================= -->
+ <section class="slide t-ink s-price" id="precos" data-title="Tabela de preços">
+  <div class="lc">
+   <div class="eyebrow rv">Investimento</div>
+   <h2 class="d rv" style="--d:1">Preço por<br><span class="hl">display.</span></h2>
+   <p class="lead rv" style="--d:2">One Shot em pagamento único. OnTiming em assinatura de <b style="color:#fff">6 a 12 meses</b>, à vista com <b style="color:var(--lime)">20% de desconto</b> ou em parcelas mensais.</p>
+   <button class="btn rv" style="--d:3" data-go="simulador">Simular com meus números <svg><use href="#i-arr"/></svg></button>
+  </div>
+  <div class="rail"></div>
+  <div class="ptag os rv" style="--d:2">
+   <div class="str"></div>
+   <div class="body">
+    <div class="hole"></div>
+    <div class="pk"><b>One Shot</b><svg><use href="#i-cam"/></svg></div>
+    <div class="sub">Rastreio estático · pagamento unitário</div>
+    <div class="pv"><em>R$</em><span class="num" id="tOsV">13<small>,64</small></span></div>
+    <div class="pu">por display, pagamento único</div>
+    <div class="alt" id="tOsAlt">ou <b>12x de R$ 1,42</b> por display</div>
+    <div class="fl">
+     <p><svg><use href="#i-qr"/></svg>QR único por peça</p>
+     <p><svg><use href="#i-pin"/></svg>GPS e foto da fachada</p>
+     <p><svg><use href="#i-chart"/></svg>Positivação e promotores</p>
+     <p><svg><use href="#i-dash"/></svg>Painel e Excel</p>
+    </div>
+   </div>
+  </div>
+  <div class="ptag ot rv" style="--d:3">
+   <div class="str"></div>
+   <div class="body">
+    <div class="hole"></div>
+    <div class="off" id="tOff">20%<small>OFF</small></div>
+    <div class="pk"><b>OnTiming</b><svg><use href="#i-live"/></svg></div>
+    <div class="sub">Rastreio ao vivo · assinatura</div>
+    <div class="ctl">
+     <div class="seg" id="tPay"><button class="on" data-p="v">À vista</button><button data-p="m">Mensal</button></div>
+     <div class="seg" id="tMes"><button data-m="6">6 meses</button><button data-m="9">9 meses</button><button class="on" data-m="12">12 meses</button></div>
+    </div>
+    <div class="pv"><em>R$</em><span class="num" id="tOtV">27<small>,27</small></span></div>
+    <div class="pu">por display por mês</div>
+    <div class="alt" id="tOtAlt"></div>
+    <div class="fl">
+     <p><svg><use href="#i-live"/></svg>Localização ao vivo</p>
+     <p><svg><use href="#i-bell"/></svg>Alerta de saída e prevenção de perda</p>
+     <p><svg><use href="#i-box"/></svg>Transporte, armazenagem e inventário</p>
+     <p><svg><use href="#i-cam"/></svg>Registro One Shot incluído</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- ================= 14 · SIMULADOR ================= -->
+ <section class="slide t-paper s-sim" id="simulador" data-title="Simulador">
+  <div class="lc">
+   <div class="eyebrow rv">Simulador</div>
+   <h2 class="d rv" style="--d:1">Monte o seu<br><span class="hl">cenário.</span></h2>
+   <div class="sin rv" style="--d:2">
+    <div>
+     <span class="lbl">Quantidade de displays</span>
+     <div class="qty"><button id="qMinus" aria-label="Menos"><svg><use href="#i-minus"/></svg></button><input id="qIn" type="text" inputmode="numeric" value="500"><button id="qPlus" aria-label="Mais"><svg><use href="#i-plus"/></svg></button></div>
+     <div class="qchips" id="qChips"><button data-q="50">50</button><button data-q="200">200</button><button data-q="500" class="on">500</button><button data-q="1000">1.000</button><button data-q="3000">3.000</button><button data-q="5000">5.000</button></div>
+    </div>
+    <div>
+     <div class="prz"><span class="lbl">Assinatura OnTiming</span><span class="num"><span id="mOut">12</span> <small style="font-size:18px">meses</small></span></div>
+     <input type="range" id="mIn" min="6" max="12" step="1" value="12">
+     <div class="ticks"><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+    </div>
+    <div>
+     <span class="lbl">Forma de pagamento</span>
+     <div class="seg" id="payIn"><button class="on" data-p="v">À vista · 20% off</button><button data-p="m">Parcelas mensais</button></div>
+    </div>
+   </div>
+  </div>
+  <div class="stab rv" style="--d:2" id="stab">
+   <div class="col c0">
+    <div class="cell hd"><span class="lbl">Comparativo</span><small id="sQtyLbl">500 displays</small></div>
+    <div class="cell"><svg><use href="#i-display"/></svg>Preço por display</div>
+    <div class="cell"><svg><use href="#i-cal"/></svg>Forma de pagamento</div>
+    <div class="cell"><svg><use href="#i-percent"/></svg>Valor da parcela</div>
+    <div class="cell"><svg><use href="#i-target"/></svg>Investimento total</div>
+    <div class="cell gap"></div>
+    <div class="cell"><svg><use href="#i-pin"/></svg>GPS e foto da fachada</div>
+    <div class="cell"><svg><use href="#i-map"/></svg>Positivação bandeira, cidade, UF</div>
+    <div class="cell"><svg><use href="#i-users"/></svg>Performance de promotores</div>
+    <div class="cell"><svg><use href="#i-chart"/></svg>Planejado x executado</div>
+    <div class="cell"><svg><use href="#i-live"/></svg>Localização ao vivo</div>
+    <div class="cell"><svg><use href="#i-shield"/></svg>Prevenção de perda</div>
+    <div class="cell"><svg><use href="#i-truck"/></svg>Transporte e armazenagem</div>
+    <div class="cell"><svg><use href="#i-box"/></svg>Inventário de ativos</div>
+   </div>
+   <div class="col c1" id="colOs"></div>
+   <div class="col c2" id="colOt"></div>
+  </div>
+  <div class="acts rv" style="--d:3">
+   <button class="btn" id="simCopy"><svg><use href="#i-copy"/></svg>Copiar resumo</button>
+   <button class="btn alt" data-go="escolher">Qual escolher? <svg><use href="#i-arr"/></svg></button>
+  </div>
+  <div class="toast" id="toast">Resumo copiado</div>
+ </section>
+
+ <!-- ================= 15 · QUAL ESCOLHER ================= -->
+ <section class="slide t-white s-dec" id="escolher" data-title="Qual escolher">
+  <div class="lc">
+   <div class="eyebrow rv">Recomendação</div>
+   <h2 class="d rv" style="--d:1">Qual rastreio<br><span class="hl">é o seu?</span></h2>
+  </div>
+  <div class="flow rv" style="--d:2" id="flow">
+   <div class="q" data-q="0"><span class="qn">01</span><p>O material fica mais de 30 dias no PDV?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
+   <div class="farr"><svg><use href="#i-arr"/></svg></div>
+   <div class="q wait" data-q="1"><span class="qn">02</span><p>Ele passa por CD, transportadora ou armazém antes da loja?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
+   <div class="farr"><svg><use href="#i-arr"/></svg></div>
+   <div class="q wait" data-q="2"><span class="qn">03</span><p>Perder a peça custa caro para a marca?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
+   <div class="farr"><svg><use href="#i-arr"/></svg></div>
+   <div class="res" id="res"><span class="lbl">Resultado</span><b id="resT">Responda as 3 perguntas</b><p id="resP">A recomendação aparece aqui.</p><button class="btn" data-go="simulador">Ver no simulador <svg><use href="#i-arr"/></svg></button></div>
+  </div>
+  <button class="reset" id="decReset"><svg><use href="#i-reset"/></svg>Recomeçar</button>
+ </section>
+
+ <!-- ================= 16 · COMO COMEÇAMOS ================= -->
+ <section class="slide t-ink s-go" id="comecar" data-title="Como começamos">
+  <div class="lc">
+   <div class="eyebrow rv">Implantação</div>
+   <h2 class="d rv" style="--d:1">Quatro degraus<br><span class="hl">até o painel.</span></h2>
+  </div>
+  <div class="stair rv" style="--d:2" id="stair">
+   <button class="st on"><span class="sn">01<svg><use href="#i-map"/></svg></span><b>Mapa de lojas</b><p>Lista de lojas, peças planejadas por loja e equipe de promotores.</p></button>
+   <button class="st"><span class="sn">02<svg><use href="#i-qr"/></svg></span><b>Etiqueta na produção</b><p>QR One Shot e tag OnTiming aplicados na fábrica, prontos para ativar.</p></button>
+   <button class="st"><span class="sn">03<svg><use href="#i-phone"/></svg></span><b>Instalação e ativação</b><p>O promotor escaneia, confirma a loja e fotografa a fachada em menos de um minuto.</p></button>
+   <button class="st"><span class="sn">04<svg><use href="#i-dash"/></svg></span><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal com os indicadores da campanha.</p></button>
+   <div class="walker" id="walker"><svg><use href="#i-display"/></svg></div>
+  </div>
+ </section>
+
+ <!-- ================= 17 · FECHO ================= -->
+ <section class="slide t-lime s-end" id="fim" data-title="Vamos rastrear">
+  <div class="d giant rv"><span>Pare de supor.</span><span class="o">Comece a</span><span>rastrear.</span></div>
+  <img class="logo-big rv" style="--d:2" src="img/logo-75lab-preto.png" alt="75 LAB">
+  <div class="cta rv" style="--d:3">
+   <button class="btn" data-go="simulador">Simular investimento <svg><use href="#i-arr"/></svg></button>
+   <button class="btn alt" data-go="tecnologias">Rever as tecnologias</button>
+   <button class="btn alt" id="pdf"><svg><use href="#i-down"/></svg>Baixar PDF</button>
+  </div>
+ </section>
+
+ <!-- HUD -->
+ <div id="hud">
+  <div class="hud-logo"><img class="lg-dark" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="lg-lime" src="img/logo-75lab-lime.png" alt=""></div>
+  <div class="hud-foot">
+   <span class="who"><b>75 LAB</b> · Rastreamento de PDV</span>
+   <div class="hud-nav">
+    <button class="idx" id="btnMenu"><svg><use href="#i-grid"/></svg>Índice</button>
+    <button id="btnPrev" aria-label="Anterior"><svg><use href="#i-l"/></svg></button>
+    <span class="cnt" id="cnt">01 <i>/ 17</i></span>
+    <button id="btnNext" aria-label="Próxima"><svg><use href="#i-arr"/></svg></button>
+   </div>
+  </div>
+ </div>
+
+ <div id="menu">
+  <h3>Índice</h3>
+  <button class="close" id="menuClose" aria-label="Fechar"><svg><use href="#i-no"/></svg></button>
+  <div id="menuList"></div>
+ </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
