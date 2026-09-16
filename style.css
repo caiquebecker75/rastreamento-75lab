@@ -180,7 +180,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
    02 · PROBLEMA · funil com vazamento
    ========================================================================== */
 .s-prob .top{position:absolute;left:80px;top:120px;width:1060px}
-.s-prob h2{font-size:104px;margin-top:24px}
+.s-prob h2{font-size:92px;margin-top:24px;white-space:nowrap}
 .s-prob .ctrl{position:absolute;right:80px;top:150px;width:420px;background:var(--card);border-radius:28px;padding:28px 30px}
 .s-prob .ctrl .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
 .s-prob .ctrl .num{font-size:48px}
