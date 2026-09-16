@@ -71,7 +71,7 @@ svg{overflow:visible}
 .eyebrow{font-family:var(--anton);font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg);display:flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:34px;height:4px;background:var(--lime);border-radius:4px}
 .t-lime .eyebrow::before{background:var(--ink)}
-.d{font-family:var(--anton);font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:.005em;color:var(--fg)}
+.d{font-family:var(--anton);font-weight:400;text-transform:uppercase;line-height:1.08;letter-spacing:.005em;color:var(--fg)}
 .d .hl{color:var(--lime)}
 .t-paper .d .hl,.t-white .d .hl{color:var(--fg);background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);padding:0 .06em}
 .t-lime .d .hl{color:var(--ink);background:none;-webkit-text-stroke:0}
@@ -157,8 +157,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 /* ==========================================================================
    01 · CAPA
    ========================================================================== */
-.s-capa .cap-l{position:absolute;left:80px;top:150px;width:900px}
-.s-capa h1{font-size:150px;margin:30px 0 30px;white-space:nowrap}
+.s-capa .cap-l{position:absolute;left:80px;top:130px;width:770px}
+.s-capa h1{font-size:136px;margin:30px 0 30px;white-space:nowrap}
 .s-capa .lead{max-width:660px;font-size:25px}
 .s-capa .cta{display:flex;gap:14px;margin-top:44px}
 .s-capa .chips{display:flex;gap:10px;margin-top:30px}
@@ -264,11 +264,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .mpin{position:absolute;width:44px;height:52px;margin:-52px 0 0 -22px;transition:transform .4s var(--ease)}
 .mpin svg{width:44px;height:52px}
 .mpin span{position:absolute;left:0;top:10px;width:44px;text-align:center;font-family:var(--anton);font-size:12px;color:#fff;letter-spacing:.04em}
-.mock .leg{position:absolute;left:16px;right:16px;bottom:14px;display:flex;gap:8px}
+.mock .leg{position:absolute;left:16px;right:16px;bottom:14px;display:flex;gap:8px;justify-content:flex-end}
 .mock .leg span{display:flex;align-items:center;gap:6px;background:#fff;border-radius:100px;padding:5px 11px 5px 5px;font-size:12px}
 .mock .leg span i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--anton);font-size:8px;color:#fff}
 .mock .hlc{box-shadow:0 0 0 4px var(--lime),0 0 0 7px var(--ink)!important}
-.phone{position:absolute;left:640px;top:330px;width:250px;height:470px;border-radius:40px;background:var(--ink);padding:12px;z-index:4;transition:transform .5s var(--ease)}
+.phone{position:absolute;left:640px;top:300px;width:250px;height:460px;border-radius:40px;background:var(--ink);padding:12px;z-index:4;transition:transform .5s var(--ease)}
 .phone .scr{width:100%;height:100%;border-radius:30px;background:#fff;overflow:hidden;position:relative}
 .phone .ph-top{height:130px;background:var(--lime);padding:36px 18px 0;position:relative}
 .phone .ph-top b{font-family:var(--anton);font-weight:400;font-size:24px;text-transform:uppercase;line-height:1}
@@ -289,9 +289,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
    05 · ONTIMING · rota ao vivo
    ========================================================================== */
 .s-ot .lc{position:absolute;left:80px;top:120px;width:900px}
-.s-ot h2{font-size:92px;margin-top:22px}
-.route{position:absolute;left:60px;top:400px;width:980px;height:360px}
-.route > svg{position:absolute;inset:0;width:100%;height:100%}
+.s-ot h2{font-size:84px;margin-top:22px}
+.route{position:absolute;left:60px;top:415px;width:980px;height:330px}
+.route > svg{position:absolute;left:0;top:0;width:980px;height:360px}
 .node{position:absolute;width:0;height:0}
 .node .nb{position:absolute;left:-42px;top:-42px;width:84px;height:84px;border-radius:26px;background:var(--ink-3);color:#fff;display:grid;place-items:center;transition:background .4s,color .4s,transform .4s var(--ease)}
 .node .nb svg{width:40px;height:40px;display:block}
@@ -325,7 +325,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .fleet .flog p{font-size:12.5px;color:#4A5663;display:flex;gap:8px;align-items:center;animation:rise .5s var(--ease) both}
 .fleet .flog p b{font-weight:600;color:#0F2A4A}
 .s-ot .play{position:absolute;left:640px;top:250px;display:flex;gap:12px;align-items:center}
-.s-ot .chips{position:absolute;left:80px;bottom:110px;display:flex;gap:10px;width:1000px;flex-wrap:wrap}
+.s-ot .chips{position:absolute;left:80px;bottom:110px;display:flex;gap:10px;width:940px;flex-wrap:wrap}
 
 /* ==========================================================================
    06 · CAPÍTULO · 17 indicadores em órbita
@@ -608,7 +608,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
    14 · SIMULADOR
    ========================================================================== */
 .s-sim .lc{position:absolute;left:80px;top:110px;width:470px}
-.s-sim h2{font-size:92px;margin:20px 0 22px}
+.s-sim h2{font-size:80px;margin:18px 0 22px}
 .sin{background:#fff;border-radius:28px;padding:22px 26px;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
 .sin > div{min-width:0}
 .sin .lbl{color:var(--fg2);margin-bottom:6px;display:block}
@@ -626,7 +626,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .sin .seg{width:100%}
 .sin .seg button{flex:1;text-align:center;font-size:13px;padding:0 10px}
 .stab{position:absolute;left:600px;top:110px;width:920px;height:690px;background:#fff;border-radius:30px;padding:10px 12px;display:grid;grid-template-columns:300px 1fr 1fr}
-.stab .col{display:grid;grid-template-rows:104px repeat(4,58px) 12px repeat(8,38px);border-radius:22px;transition:background .3s}
+.stab .col{display:grid;grid-template-rows:122px repeat(4,58px) 10px repeat(8,36px);border-radius:22px;transition:background .3s}
 .stab .col.c1,.stab .col.c2{padding:0 16px}
 .stab .col.c2{background:var(--lime)}
 .stab .col.c1:hover{background:var(--paper)}
@@ -730,7 +730,6 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   #hud,#prog,.cur,.cdot,#menu,.toast{display:none!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-#stage[data-slide="fim"] .hud-logo{opacity:0}
 
 #stage[data-slide="tecnologias"] .hud-nav button{background:#fff;color:var(--ink)}
 #stage[data-slide="tecnologias"] .hud-nav .cnt{color:#fff}
@@ -744,7 +743,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
    03 · O QUE FAZEMOS · anatomia do display
    ========================================================================== */
 .s-faz .lc{position:absolute;left:80px;top:120px;width:620px}
-.s-faz h2{font-size:84px;margin:24px 0 24px;white-space:nowrap}
+.s-faz h2{font-size:84px;margin:24px 0 24px;white-space:nowrap;line-height:1.22}
 .s-faz .lead{font-size:21px}
 .fflow{margin-top:40px;display:flex;align-items:center;gap:10px}
 .fflow .fs{flex:1;background:var(--card);border-radius:22px;padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
@@ -926,3 +925,56 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .pc.v{background:var(--lime-s)}
 .pc.on{background:var(--ink);color:var(--lime)}
 .pc.on .pm small,.pc.on .pt{color:#C4C9BC}
+
+/* ==========================================================================
+   REVISÃO 10 TELAS · ajustes de harmonia
+   ========================================================================== */
+.hud-foot .who{max-width:720px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* One Shot · investimento em tema claro */
+.s-osp .bigp{color:var(--ink)}
+.s-osp .bigp small{color:var(--ink)}
+.s-osp .bigp em{color:var(--ink2)}
+.s-osp .po{background:#fff;color:var(--ink)}
+.s-osp .po .lbl{color:var(--ink3)}
+.s-osp .po small{color:var(--ink2)}
+.s-osp .po.on{background:var(--ink);color:var(--lime)}
+.s-osp .po.on small,.s-osp .po.on .lbl{color:#C4C9BC}
+.s-osp .receipt{box-shadow:0 40px 80px -40px rgba(14,17,16,.35)}
+
+/* OnTiming · planos em tema escuro */
+.s-otp .otsel{background:var(--lime);color:var(--ink)}
+.s-otp .otsel .lbl{color:var(--ink)}
+.s-otp .otsel .bp i,.s-otp .otsel p{color:var(--ink2)}
+.s-otp .otsel p b{color:var(--ink)}
+.s-otp .otsel .btn{background:var(--ink)!important;color:var(--lime)!important}
+.s-otp .plans .ph .lbl{color:#fff}
+.s-otp .plans .ph em{color:var(--ink)}
+.s-otp .pl{background:var(--ink-2);color:#9AA08F}
+.s-otp .pl b{color:#fff}
+.s-otp .pc{background:var(--ink-2);color:#fff}
+.s-otp .pc .pm small,.s-otp .pc .pt{color:#9AA08F}
+.s-otp .pc.v{background:var(--ink-3)}
+.s-otp .pc.on{background:var(--lime);color:var(--ink)}
+.s-otp .pc.on .pm small,.s-otp .pc.on .pt{color:var(--ink2)}
+
+/* Próximo passo */
+.s-end .lc{position:absolute;left:80px;top:120px;width:760px}
+.s-end h2{font-size:112px;margin:24px 0 26px}
+.s-end .lead{font-size:23px;max-width:640px}
+.s-end .cta{position:static;display:flex;gap:12px;margin-top:40px}
+.steps4{position:absolute;right:80px;top:150px;width:600px;list-style:none;display:grid;gap:16px}
+.steps4 li{display:grid;grid-template-columns:48px 60px 1fr;gap:18px;align-items:center;background:rgba(255,255,255,.62);border-radius:26px;padding:26px 28px;transition:transform .35s var(--ease),background .3s}
+.steps4 li:hover{transform:translateX(-10px);background:#fff}
+.steps4 em{font-style:normal;font-family:var(--anton);font-size:34px;line-height:1;color:var(--ink)}
+.steps4 .si{width:60px;height:60px;border-radius:18px;background:var(--ink);color:var(--lime);display:grid;place-items:center}
+.steps4 .si svg{width:30px;height:30px}
+.steps4 b{display:block;font-family:var(--anton);font-weight:400;font-size:24px;letter-spacing:.03em;text-transform:uppercase;line-height:1.1}
+.steps4 p{font-size:16px;color:var(--ink2);line-height:1.4;margin-top:4px}
+
+.rc-ex .lbl{display:block;margin-bottom:16px}
+.route .node{z-index:2}
+.route .tagdot{z-index:1}
+#ot-indicadores .ic-num small{display:none}
+#ot-indicadores .ic-n{line-height:1.25}
+.s-sim .stab .hd small{line-height:1.35}

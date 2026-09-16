@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 <div class="cur" id="cur"></div>
@@ -71,7 +71,7 @@
 <div id="stage">
  <div id="prog"></div>
 
- <section class="slide t-ink s-capa" id="capa" data-title="Capa">
+ <section class="slide t-ink s-capa" id="capa" data-title="Capa" data-chap="Rastreamento de PDV">
   <div class="cap-l">
    <div class="eyebrow rv">Tecnologia de rastreamento 75 LAB</div>
    <h1 class="d rv" style="--d:1">Cada display<br><span class="hl">no mapa.</span></h1>
@@ -109,24 +109,7 @@
   </div>
  </section>
 
- <section class="slide t-paper s-prob" id="problema" data-title="O ponto cego">
-  <div class="top">
-   <div class="eyebrow rv">O ponto cego do trade</div>
-   <h2 class="d rv" style="--d:1">Saem <span class="hl" id="pQty">1.000</span>.<br>Quantos são executados?</h2>
-  </div>
-  <div class="ctrl rv" style="--d:2">
-   <div class="row"><span class="lbl">Displays produzidos</span><span class="num" id="pQty2">1.000</span></div>
-   <input type="range" id="pRange" min="100" max="10000" step="100" value="1000">
-   <div class="loss">
-    <span class="lbl">Sem prova de execução</span>
-    <div class="num" id="pLoss">710</div>
-    <p class="note">Cenário ilustrativo de uma ação sem rastreio. Arraste para o volume da sua campanha.</p>
-   </div>
-  </div>
-  <div class="funnel" id="funnel"></div>
- </section>
-
- <section class="slide t-white s-faz" id="fazemos" data-title="O que fazemos">
+ <section class="slide t-white s-faz" id="fazemos" data-title="O que fazemos" data-chap="O que fazemos">
   <div class="lc">
    <div class="eyebrow rv">O que a 75 LAB faz</div>
    <h2 class="d rv" style="--d:1">Cada peça de PDV<br>com <span class="hl">RG digital.</span></h2>
@@ -161,52 +144,9 @@
   </div>
  </section>
 
- <section class="slide t-white s-duo" id="tecnologias" data-title="Duas tecnologias">
-  <div class="pane p-os">
-   <div class="pc">
-    <div class="big-ico"><svg><use href="#i-cam"/></svg></div>
-    <div class="kick">01 · One Shot</div>
-    <h2>A foto.</h2>
-    <p>Rastreio estático: prova de execução no momento da instalação.</p>
-    <ul>
-     <li><svg><use href="#i-qr"/></svg>QR na peça, registro em segundos</li>
-     <li><svg><use href="#i-pin"/></svg>GPS e foto da fachada da loja</li>
-     <li><svg><use href="#i-chart"/></svg>Positivação e performance de campo</li>
-    </ul>
-    <div class="go"><button class="btn" data-go="cap-os">Conhecer o One Shot <svg><use href="#i-arr"/></svg></button></div>
-   </div>
-  </div>
-  <div class="pane p-ot" id="duoOt">
-   <div class="pc">
-    <div class="big-ico"><svg><use href="#i-live"/></svg></div>
-    <div class="kick">02 · OnTiming</div>
-    <h2>O filme.</h2>
-    <p>Rastreio ao vivo: o display avisa onde está durante toda a vida útil.</p>
-    <ul>
-     <li><svg><use href="#i-route"/></svg>Do CD à loja, com tempo de cada etapa</li>
-     <li><svg><use href="#i-bell"/></svg>Alerta quando sai da loja</li>
-     <li><svg><use href="#i-box"/></svg>Inventário de ativos sempre atualizado</li>
-    </ul>
-    <div class="go"><button class="btn" data-go="cap-ot">Conhecer o OnTiming <svg><use href="#i-arr"/></svg></button></div>
-   </div>
-  </div>
-  <div class="handle" id="duoH"><b><svg><use href="#i-drag"/></svg></b><span>Arraste e compare</span></div>
-  <input class="drag" type="range" id="duoR" min="8" max="92" value="50" aria-label="Comparar One Shot e OnTiming">
- </section>
-
- <section class="slide t-lime s-chap" id="cap-os" data-title="Capítulo One Shot">
-  <div class="cnum rv">01</div>
-  <div class="cmain">
-   <div class="cico rv" style="--d:1"><svg><use href="#i-cam"/></svg></div>
-   <h2 class="d rv" style="--d:2">One Shot</h2>
-   <p class="lead rv" style="--d:3">Rastreio estático. <b>A prova de que a peça foi instalada</b>, na loja certa, com foto e localização.</p>
-  </div>
-  <div class="agenda rv" style="--d:3"><span class="lbl">Neste capítulo</span><button class="ag" data-go="oneshot"><em>A</em><span>Como funciona</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="os-indicadores"><em>B</em><span>Os 12 indicadores</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="execucao"><em>C</em><span>Exemplos no painel</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="os-preco"><em>D</em><span>Investimento</span><svg><use href="#i-arr"/></svg></button></div>
- </section>
-
- <section class="slide t-paper s-os" id="oneshot" data-title="One Shot">
+ <section class="slide t-paper s-os" id="oneshot" data-title="One Shot · como funciona" data-chap="01 · One Shot · rastreio estático">
   <div class="lc">
-   <div class="eyebrow rv">01 · One Shot · rastreio estático</div>
+   <div class="eyebrow rv">01 · One Shot · como funciona</div>
    <h2 class="d rv" style="--d:1">Escaneou.<br><span class="hl">Provou.</span></h2>
    <div class="steps rv" style="--d:2" id="osSteps">
     <button class="step on" data-k="0"><span class="n"><svg><use href="#i-qr"/></svg></span><span><b>QR único na peça</b><small>Cada display sai da produção identificado</small></span></button>
@@ -253,121 +193,19 @@
   </div>
  </section>
 
- <section class="slide t-paper s-cat" id="os-indicadores" data-title="One Shot · indicadores">
+ <section class="slide t-paper s-cat" id="os-indicadores" data-title="One Shot · indicadores" data-chap="01 · One Shot · rastreio estático">
   <div class="cath">
    <div><div class="eyebrow rv">01 · One Shot · indicadores</div><h2 class="d rv" style="--d:1">12 indicadores<br><span class="hl">com prova de campo.</span></h2></div>
-   <div class="catside rv" style="--d:2"><span class="kp"><b>10</b>completos no registro de instalação</span><span class="kp soft"><b>2</b>com uma leitura extra (data de envio ou retirada)</span><p class="note">Passe o mouse para ver a pergunta que cada indicador responde. Clique para ver o exemplo.</p></div>
+   <div class="catside rv" style="--d:2"><span class="kp"><b>10</b>completos no registro de instalação</span><span class="kp soft"><b>2</b>com uma leitura extra (data de envio ou retirada)</span><p class="note">Passe o mouse para ver a pergunta que cada indicador responde.</p></div>
   </div>
   <div class="cgrid" data-cat="os-indicadores"></div>
  </section>
 
- <section class="slide t-white s-exe" id="execucao" data-title="Planejado x executado">
-  <div class="lc">
-   <div class="eyebrow rv">One Shot · exemplo · Execução <span class="tag lime" style="margin-left:6px"><svg><use href="#i-cam"/></svg>One Shot</span></div>
-   <h2 class="d rv" style="--d:1">Planejado<br><span class="hl">x executado.</span></h2>
-  </div>
-  <div class="waffle rv" style="--d:2" id="waffle"></div>
-  <div class="wleg rv" style="--d:3">
-   <span><i style="background:var(--lime)"></i>Executado</span>
-   <span><i style="background:var(--ink)"></i>Executado nesta semana</span>
-   <span><i style="background:var(--soft)"></i>Planejado, ainda sem registro</span>
-   <span class="note">cada quadrado = 4 displays</span>
-  </div>
-  <div class="weeks rv" style="--d:4"><div class="seg" id="weeks"></div></div>
-  <div class="stats">
-   <div class="stat hero rv" style="--d:2"><span class="si"><svg><use href="#i-target"/></svg></span><span><b>Peças executadas</b><small id="exSub">de 1.200 planejadas</small></span><span class="num" id="exN">1.014</span><div class="pbar"><i id="exBar"></i></div></div>
-   <div class="stat rv" style="--d:3"><span class="si"><svg><use href="#i-percent"/></svg></span><span><b>Penetração</b><small>lojas-alvo com a peça</small></span><span class="num"><span id="exPen">62</span><sup>%</sup></span></div>
-   <div class="stat rv" style="--d:4"><span class="si"><svg><use href="#i-rocket"/></svg></span><span><b>Tempo de introdução no varejo</b><small>com a data de envio informada</small></span><span class="num"><span id="exIn">9</span><sup>dias</sup></span></div>
-   <div class="stat rv" style="--d:5"><span class="si"><svg><use href="#i-clock"/></svg></span><span><b>Tempo de positivação</b><small>da chegada à peça montada</small></span><span class="num"><span id="exPo">4,2</span><sup>dias</sup></span></div>
-  </div>
- </section>
-
- <section class="slide t-paper s-pos" id="positivacao" data-title="Positivação">
-  <div class="lc">
-   <div class="eyebrow rv">One Shot · exemplo <span class="tag lime" style="margin-left:6px"><svg><use href="#i-cam"/></svg>One Shot</span></div>
-   <h2 class="d rv" style="--d:1">Onde a marca<br><span class="hl">está de pé.</span></h2>
-  </div>
-  <div class="seg rv" style="--d:2" id="posTabs">
-   <button class="on" data-v="uf">Estado</button><button data-v="city">Cidade</button><button data-v="flag">Bandeira</button>
-  </div>
-  <div class="detail rv" style="--d:3" id="posDet"></div>
-  <div class="pview on" id="pv-uf">
-   <div class="carto" id="carto"></div>
-   <div class="cscale">
-    <span class="lbl">Positivação</span>
-    <span><i style="background:#E4E7DC"></i>sem ação</span>
-    <span><i style="background:var(--lime-s)"></i>até 40%</span>
-    <span><i style="background:var(--lime-m)"></i>40% a 59%</span>
-    <span><i style="background:var(--lime)"></i>60% a 74%</span>
-    <span><i style="background:var(--teal)"></i>75% ou mais</span>
-   </div>
-  </div>
-  <div class="pview" id="pv-city"><div class="hbars" id="cityBars"></div></div>
-  <div class="pview" id="pv-flag"><div class="hbars" id="flagBars"></div></div>
- </section>
-
- <section class="slide t-ink s-pro" id="promotores" data-title="Promotores">
-  <div class="lc">
-   <div class="eyebrow rv">One Shot · exemplo <span class="tag lime" style="margin-left:6px"><svg><use href="#i-cam"/></svg>One Shot</span></div>
-   <h2 class="d rv" style="--d:1">Quem faz<br><span class="hl">acontecer.</span></h2>
-  </div>
-  <div class="count rv" style="--d:2"><span class="num" data-count="48">48</span><p><b>promotores</b>registraram<br>peças na campanha</p></div>
-  <div class="duel rv" style="--d:2">
-   <div class="dh"><div class="own"><svg><use href="#i-user"/></svg>Próprio</div><span>X</span><div class="shr">Compartilhado<svg><use href="#i-users"/></svg></div></div>
-   <div id="duel"></div>
-  </div>
-  <div class="rank rv" style="--d:3">
-   <div class="rh"><b>Positivação por promotor</b><div class="seg" id="rkTabs"><button class="on" data-m="p">Positivação</button><button data-m="d">Lojas por dia</button></div></div>
-   <div id="rank"></div>
-  </div>
- </section>
-
- <section class="slide t-white s-loja" id="loja" data-title="Prova na loja">
-  <div class="polaroid rv" style="--d:1">
-   <div class="ph">
-    <svg viewBox="0 0 546 470" preserveAspectRatio="xMidYMid slice">
-     <rect width="546" height="470" fill="#CFE3EE"/>
-     <circle cx="450" cy="80" r="44" fill="#F6E7A8"/>
-     <path d="M0 150h120v-40h90v40h80V90h110v60h146v320H0z" fill="#B9CCD6"/>
-     <rect x="40" y="160" width="466" height="270" fill="#F4F1E8"/>
-     <rect x="40" y="160" width="466" height="62" fill="#0E1110"/>
-     <text x="273" y="202" text-anchor="middle" font-family="Anton,Impact" font-size="32" letter-spacing="6" fill="#C0EE4E">SUPERMERCADO BOM PREÇO</text>
-     <g><path d="M40 222h466l-20 44H60z" fill="#00837D"/><path d="M60 266h40l10-44H80zM140 266h40l10-44h-30zM220 266h40l10-44h-30zM300 266h40l10-44h-30zM380 266h40l10-44h-30zM460 266h26l20-44h-26z" fill="#1DD4C8" opacity=".55"/></g>
-     <rect x="70" y="290" width="150" height="140" fill="#9CC3D3"/><rect x="326" y="290" width="150" height="140" fill="#9CC3D3"/>
-     <rect x="233" y="290" width="80" height="140" fill="#0E1110"/><rect x="238" y="296" width="33" height="134" fill="#6FA2B6"/><rect x="275" y="296" width="33" height="134" fill="#6FA2B6"/>
-     <g><rect x="120" y="332" width="54" height="98" rx="4" fill="#C0EE4E"/><rect x="128" y="342" width="38" height="24" fill="#0E1110"/><path d="M128 378h38M128 392h38M128 406h38" stroke="#0E1110" stroke-width="4"/></g>
-     <rect x="0" y="430" width="546" height="40" fill="#8A9399"/><path d="M0 446h546" stroke="#fff" stroke-width="3" stroke-dasharray="30 22"/>
-    </svg>
-   </div>
-   <div class="cap"><span><b>Loja 214 · Bom Preço</b><small>Registro de instalação · 14/09/2026 10:42</small></span><span class="tag lime"><svg><use href="#i-ok"/></svg>validado</span></div>
-  </div>
-  <div class="dropin"><svg viewBox="0 0 70 84"><path d="M35 82S4 54 4 32a31 31 0 0 1 62 0c0 22-31 50-31 50z" fill="#0E1110"/><circle cx="35" cy="32" r="18" fill="#C0EE4E"/><path d="m27 32 6 6 11-12" fill="none" stroke="#0E1110" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-  <div class="geo rv" style="--d:3">
-   <span class="lbl">Geolocalização</span>
-   <p><span>Latitude</span><b>-23,5614</b></p>
-   <p><span>Longitude</span><b>-46,6559</b></p>
-   <p><span>Precisão</span><b>8 m</b></p>
-   <p><span>Promotor</span><b>Promotor 07</b></p>
-  </div>
-  <div class="lc">
-   <div class="eyebrow rv">One Shot · exemplo <span class="tag lime" style="margin-left:6px"><svg><use href="#i-cam"/></svg>One Shot</span></div>
-   <h2 class="d rv" style="--d:1">A prova na<br><span class="hl">porta da loja.</span></h2>
-  </div>
-  <div class="life rv" style="--d:2">
-   <div class="lh">
-    <div><span class="lbl">Tempo de existência na loja</span><div class="num" data-count="74">74<small>dias</small></div></div>
-    <p>com leituras de conferência<br>de 90 dias planejados<br><b style="color:var(--red);font-weight:500">retirado 16 dias antes</b></p>
-   </div>
-   <div class="ltrack" id="ltrack"><div class="base"></div><div class="fill" id="lfill"></div><div class="plan"></div></div>
-   <p class="lt" id="ltxt">Clique nos marcos da linha do tempo.</p>
-  </div>
- </section>
-
- <section class="slide t-ink s-osp" id="os-preco" data-title="One Shot · preço">
+ <section class="slide t-paper s-osp" id="os-preco" data-title="One Shot · investimento" data-chap="01 · One Shot · rastreio estático">
   <div class="lc">
    <div class="eyebrow rv">01 · One Shot · investimento</div>
    <div class="bigp rv" style="--d:1"><em>R$</em>13<small>,64</small></div>
-   <p class="lead rv" style="--d:2"><b style="color:#fff">por display, pagamento único.</b><br>Sem mensalidade: a peça ganha o registro e o painel da campanha.</p>
+   <p class="lead rv" style="--d:2"><b>por display, pagamento único.</b><br>Sem mensalidade: a peça ganha o registro e o painel da campanha.</p>
    <div class="payopts rv" style="--d:3">
     <div class="po on"><span class="lbl">À vista</span><b>R$ 13,64</b><small>por display · 1 parcela</small></div>
     <div class="po"><span class="lbl">Parcelado</span><b>12x R$ 1,42</b><small>por display · total R$ 17,05</small></div>
@@ -391,22 +229,11 @@
   </div>
  </section>
 
- <section class="slide t-ink s-chap" id="cap-ot" data-title="Capítulo OnTiming">
-  <div class="cnum rv">02</div>
-  <div class="cmain">
-   <div class="cico rv" style="--d:1"><svg><use href="#i-live"/></svg></div>
-   <h2 class="d rv" style="--d:2">OnTiming</h2>
-   <p class="lead rv" style="--d:3">Rastreio ao vivo. <b>A peça informa onde está</b> do CD até a loja e durante toda a vida útil.</p>
-  </div>
-  <div class="agenda rv" style="--d:3"><span class="lbl">Neste capítulo</span><button class="ag" data-go="ontiming"><em>A</em><span>Como funciona</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="ot-indicadores"><em>B</em><span>Os 17 indicadores</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="logistica"><em>C</em><span>Logística e ativos</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="ot-preco"><em>D</em><span>Investimento</span><svg><use href="#i-arr"/></svg></button></div>
- </section>
-
- <section class="slide t-ink s-ot" id="ontiming" data-title="OnTiming">
+ <section class="slide t-ink s-ot" id="ontiming" data-title="OnTiming · como funciona" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="lc">
-   <div class="eyebrow rv">02 · OnTiming · rastreio ao vivo</div>
+   <div class="eyebrow rv">02 · OnTiming · como funciona</div>
    <h2 class="d rv" style="--d:1">O display avisa<br><span class="hl">onde está.</span></h2>
   </div>
-  <div class="play rv" style="--d:2"><button class="btn" id="otPlay"><svg><use href="#i-play"/></svg>Acompanhar a jornada</button></div>
   <div class="route rv" style="--d:2" id="otRoute">
    <svg viewBox="0 0 980 360">
     <path id="otPath" d="M70 220 C 180 220, 200 90, 300 90 S 440 220, 530 220 S 660 90, 760 90 S 880 170, 920 220" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10" stroke-linecap="round"/>
@@ -439,50 +266,15 @@
   </div>
  </section>
 
- <section class="slide t-ink s-cat" id="ot-indicadores" data-title="OnTiming · indicadores">
+ <section class="slide t-ink s-cat" id="ot-indicadores" data-title="OnTiming · indicadores" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="cath">
    <div><div class="eyebrow rv">02 · OnTiming · indicadores</div><h2 class="d rv" style="--d:1">17 indicadores:<br><span class="hl">5 exclusivos + os 12 do One Shot.</span></h2></div>
-   <div class="catside rv" style="--d:2"><span class="kp lime"><b>5</b>exclusivos do rastreio ao vivo</span><span class="kp"><b>12</b>do One Shot, todos completos</span><p class="note">Passe o mouse para ver a pergunta. Clique para ver o exemplo.</p></div>
+   <div class="catside rv" style="--d:2"><span class="kp lime"><b>5</b>exclusivos do rastreio ao vivo</span><span class="kp"><b>12</b>do One Shot, todos completos</span><p class="note">Passe o mouse para ver a pergunta.</p></div>
   </div>
   <div class="cgrid" data-cat="ot-indicadores"></div>
  </section>
 
- <section class="slide t-paper s-log" id="logistica" data-title="Logística e ativos">
-  <div class="lc">
-   <div class="eyebrow rv">OnTiming · exemplo <span class="tag lime" style="margin-left:6px"><svg><use href="#i-live"/></svg>exclusivo OnTiming</span></div>
-   <h2 class="d rv" style="--d:1">Do CD à gôndola,<br><span class="hl">sem ponto cego.</span></h2>
-  </div>
-  <div class="belt rv" style="--d:2">
-   <div class="bst"><span class="bi"><svg><use href="#i-cd"/></svg></span><span class="num" data-count="12">12<small> dias</small></span><b>Armazenagem</b><small>tempo parado no CD</small></div>
-   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>saída</span></div>
-   <div class="bst"><span class="bi"><svg><use href="#i-truck"/></svg></span><span class="num">3,2<small> dias</small></span><b>Transporte</b><small>do CD até a loja</small></div>
-   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>entrega</span></div>
-   <div class="bst"><span class="bi"><svg><use href="#i-store"/></svg></span><span class="num" data-count="74">74<small> dias</small></span><b>Na loja</b><small>vida útil no PDV</small></div>
-   <div class="barrow"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="ln" d="M4 15h88"/><path d="M84 7l10 8-10 8" fill="none" stroke="#0E1110" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span>retirada</span></div>
-   <div class="bst"><span class="bi" style="background:var(--ink);color:var(--lime)"><svg><use href="#i-reset"/></svg></span><span class="num">86<small>%</small></span><b>Retorno</b><small>peças recuperadas</small></div>
-  </div>
-  <div class="geof rv" style="--d:3" id="geof">
-   <div class="gt">
-    <span class="lbl">Prevenção de perda</span>
-    <b>Cerca virtual<br>de 300 m</b>
-    <p>Se o display sai do raio da loja, o time recebe o alerta na hora.</p>
-   </div>
-   <svg class="gm" viewBox="0 0 380 240">
-    <g stroke="rgba(255,255,255,.07)" stroke-width="8" fill="none" stroke-linecap="round"><path d="M0 60h380M0 180h380M90 0v240M270 0v240"/></g>
-    <circle cx="170" cy="120" r="80" fill="rgba(192,238,78,.1)" stroke="#C0EE4E" stroke-width="2.5" stroke-dasharray="8 7"/>
-    <g transform="translate(170 120)"><rect x="-18" y="-18" width="36" height="36" rx="10" fill="#C0EE4E"/><path d="M-9-3v11h18V-3M-11-9h22l-2 5h-18z" fill="none" stroke="#0E1110" stroke-width="2.5" stroke-linejoin="round"/></g>
-    <circle id="gDot" cx="170" cy="120" r="11" fill="#1DD4C8" stroke="#0E1110" stroke-width="4"/>
-   </svg>
-   <div class="alertc"><svg><use href="#i-alert"/></svg>Display Loja 214 saiu da cerca</div>
-  </div>
-  <div class="inv rv" style="--d:4">
-   <svg viewBox="0 0 200 200" id="donut"></svg>
-   <div class="dn"><div><div class="num">1.200</div><small>ativos rastreados</small></div></div>
-   <div><span class="lbl" style="display:block;margin-bottom:8px">Inventário de ativos · agora</span><ul id="invList"></ul></div>
-  </div>
- </section>
-
- <section class="slide t-white s-otp" id="ot-preco" data-title="OnTiming · preço">
+ <section class="slide t-ink s-otp" id="ot-preco" data-title="OnTiming · investimento" data-chap="02 · OnTiming · rastreio ao vivo">
   <div class="lc">
    <div class="eyebrow rv">02 · OnTiming · assinatura</div>
    <h2 class="d rv" style="--d:1">Escolha<br><span class="hl">o plano.</span></h2>
@@ -492,38 +284,10 @@
   <div class="plans rv" style="--d:2" id="plans"></div>
  </section>
 
- <section class="slide t-white s-chap" id="cap-dec" data-title="Comparar e decidir">
-  <div class="cnum rv">03</div>
-  <div class="cmain">
-   <div class="cico rv" style="--d:1"><svg><use href="#i-swap"/></svg></div>
-   <h2 class="d rv" style="--d:2">Lado a lado</h2>
-   <p class="lead rv" style="--d:3">Compare as duas tecnologias, simule o investimento e descubra <b>qual rastreio faz sentido</b> para cada ação.</p>
-  </div>
-  <div class="agenda rv" style="--d:3"><span class="lbl">Neste capítulo</span><button class="ag" data-go="matriz"><em>A</em><span>Quem entrega o quê</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="simulador"><em>B</em><span>Simulador</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="escolher"><em>C</em><span>Qual escolher</span><svg><use href="#i-arr"/></svg></button><button class="ag" data-go="comecar"><em>D</em><span>Como começamos</span><svg><use href="#i-arr"/></svg></button></div>
- </section>
-
- <section class="slide t-white s-mx" id="matriz" data-title="Quem entrega o quê">
+ <section class="slide t-paper s-sim" id="simulador" data-title="Simulador comparativo" data-chap="03 · Lado a lado">
   <div class="lc">
-   <div class="eyebrow rv">03 · Lado a lado</div>
-   <h2 class="d rv" style="--d:1">Quem entrega<br><span class="hl">o quê.</span></h2>
-   <div class="score rv" style="--d:2">
-    <div class="a"><b>One Shot</b><span class="num">12<small> de 17</small></span></div>
-    <div class="b"><b>OnTiming</b><span class="num" style="color:var(--lime)">17<small> de 17</small></span></div>
-   </div>
-  </div>
-  <div class="fil rv" style="--d:2"><div class="seg" id="mxTabs"></div></div>
-  <div class="mtab rv" style="--d:3" id="mtab"></div>
-  <div class="mleg rv" style="--d:4">
-   <span><i class="dotf"></i>entrega completo</span>
-   <span><i class="doth"></i>entrega com registro extra (data de envio ou leitura na retirada)</span>
-   <span><i class="doto"></i>não entrega</span>
-  </div>
- </section>
-
- <section class="slide t-paper s-sim" id="simulador" data-title="Simulador">
-  <div class="lc">
-   <div class="eyebrow rv">Simulador</div>
-   <h2 class="d rv" style="--d:1">Monte o seu<br><span class="hl">cenário.</span></h2>
+   <div class="eyebrow rv">03 · Lado a lado · simulador</div>
+   <h2 class="d rv" style="--d:1">Compare e<br><span class="hl">simule.</span></h2>
    <div class="sin rv" style="--d:2">
     <div>
      <span class="lbl">Quantidade de displays</span>
@@ -563,59 +327,34 @@
   </div>
   <div class="acts rv" style="--d:3">
    <button class="btn" id="simCopy"><svg><use href="#i-copy"/></svg>Copiar resumo</button>
-   <button class="btn alt" data-go="escolher">Qual escolher? <svg><use href="#i-arr"/></svg></button>
+   <button class="btn alt" data-go="fim">Próximo passo <svg><use href="#i-arr"/></svg></button>
   </div>
   <div class="toast" id="toast">Resumo copiado</div>
  </section>
 
- <section class="slide t-white s-dec" id="escolher" data-title="Qual escolher">
+ <section class="slide t-lime s-end" id="fim" data-title="Próximo passo" data-chap="Próximo passo">
   <div class="lc">
-   <div class="eyebrow rv">Recomendação</div>
-   <h2 class="d rv" style="--d:1">Qual rastreio<br><span class="hl">é o seu?</span></h2>
+   <div class="eyebrow rv">Próximo passo</div>
+   <h2 class="d rv" style="--d:1">Pare de supor.<br>Comece a <span class="hl">rastrear.</span></h2>
+   <p class="lead rv" style="--d:2">Do mapa de lojas ao painel no ar em quatro etapas, com a mesma equipe que produz o seu material de PDV.</p>
+   <div class="cta rv" style="--d:3">
+    <button class="btn" data-go="simulador">Simular investimento <svg><use href="#i-arr"/></svg></button>
+    <button class="btn alt" id="pdf"><svg><use href="#i-down"/></svg>Baixar PDF</button>
+   </div>
   </div>
-  <div class="flow rv" style="--d:2" id="flow">
-   <div class="q" data-q="0"><span class="qn">01</span><p>O material fica mais de 30 dias no PDV?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
-   <div class="farr"><svg><use href="#i-arr"/></svg></div>
-   <div class="q wait" data-q="1"><span class="qn">02</span><p>Ele passa por CD, transportadora ou armazém antes da loja?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
-   <div class="farr"><svg><use href="#i-arr"/></svg></div>
-   <div class="q wait" data-q="2"><span class="qn">03</span><p>Perder a peça custa caro para a marca?</p><div class="yn"><button data-a="1">Sim</button><button data-a="0">Não</button></div></div>
-   <div class="farr"><svg><use href="#i-arr"/></svg></div>
-   <div class="res" id="res"><span class="lbl">Resultado</span><b id="resT">Responda as 3 perguntas</b><p id="resP">A recomendação aparece aqui.</p><button class="btn" data-go="simulador">Ver no simulador <svg><use href="#i-arr"/></svg></button></div>
-  </div>
-  <button class="reset" id="decReset"><svg><use href="#i-reset"/></svg>Recomeçar</button>
+  <ol class="steps4 rv" style="--d:2">
+   <li><em>01</em><span class="si"><svg><use href="#i-map"/></svg></span><div><b>Mapa de lojas</b><p>Lojas, peças planejadas e equipe de campo.</p></div></li>
+   <li><em>02</em><span class="si"><svg><use href="#i-qr"/></svg></span><div><b>Identidade na produção</b><p>QR One Shot ou tag OnTiming aplicados na fábrica.</p></div></li>
+   <li><em>03</em><span class="si"><svg><use href="#i-phone"/></svg></span><div><b>Instalação e ativação</b><p>Registro com GPS e foto da fachada em menos de um minuto.</p></div></li>
+   <li><em>04</em><span class="si"><svg><use href="#i-dash"/></svg></span><div><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal.</p></div></li>
+  </ol>
  </section>
-
- <section class="slide t-ink s-go" id="comecar" data-title="Como começamos">
-  <div class="lc">
-   <div class="eyebrow rv">Implantação</div>
-   <h2 class="d rv" style="--d:1">Quatro degraus<br><span class="hl">até o painel.</span></h2>
-  </div>
-  <div class="stair rv" style="--d:2" id="stair">
-   <button class="st on"><span class="sn">01<svg><use href="#i-map"/></svg></span><b>Mapa de lojas</b><p>Lista de lojas, peças planejadas por loja e equipe de promotores.</p></button>
-   <button class="st"><span class="sn">02<svg><use href="#i-qr"/></svg></span><b>Etiqueta na produção</b><p>QR One Shot e tag OnTiming aplicados na fábrica, prontos para ativar.</p></button>
-   <button class="st"><span class="sn">03<svg><use href="#i-phone"/></svg></span><b>Instalação e ativação</b><p>O promotor escaneia, confirma a loja e fotografa a fachada em menos de um minuto.</p></button>
-   <button class="st"><span class="sn">04<svg><use href="#i-dash"/></svg></span><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal com os indicadores da campanha.</p></button>
-   <div class="walker" id="walker"><svg><use href="#i-display"/></svg></div>
-  </div>
- </section>
-
- <section class="slide t-lime s-end" id="fim" data-title="Vamos rastrear">
-  <div class="d giant rv"><span>Pare de supor.</span><span class="o">Comece a</span><span>rastrear.</span></div>
-  <img class="logo-big rv" style="--d:2" src="img/logo-75lab-preto.png" alt="75 LAB">
-  <div class="cta rv" style="--d:3">
-   <button class="btn" data-go="simulador">Simular investimento <svg><use href="#i-arr"/></svg></button>
-   <button class="btn alt" data-go="tecnologias">Rever as tecnologias</button>
-   <button class="btn alt" id="pdf"><svg><use href="#i-down"/></svg>Baixar PDF</button>
-  </div>
- </section>
-
-
 
  <!-- HUD -->
  <div id="hud">
   <div class="hud-logo"><img class="lg-dark" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="lg-lime" src="img/logo-75lab-lime.png" alt=""></div>
   <div class="hud-foot">
-   <span class="who"><b>75 LAB</b> · Rastreamento de PDV</span>
+   <span class="who" id="who"><b>75 LAB</b> · Rastreamento de PDV</span>
    <div class="hud-nav">
     <button class="idx" id="btnMenu"><svg><use href="#i-grid"/></svg>Índice</button>
     <button id="btnPrev" aria-label="Anterior"><svg><use href="#i-l"/></svg></button>
@@ -632,6 +371,6 @@
  </div>
 </div>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>
