@@ -1304,3 +1304,98 @@ input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--ink)}
 .s-end h2{font-size:128px;margin:20px 0 24px}
 .marquee{bottom:86px;height:48px}
 .mq-in span,.mq-in i{font-size:26px}
+
+/* simulador: à vista e mensal sempre visíveis */
+.stab .v small{display:block;margin:2px 0 0;font-weight:400}
+.stab .cell.sel{box-shadow:inset 4px 0 0 var(--teal)}
+.stab .col.c2 .cell.sel{box-shadow:inset 4px 0 0 var(--ink)}
+.stab .col.c0 .cell.sel{color:var(--ink);font-weight:600}
+.stab .cell.rw-v:not(.sel) .v,.stab .cell.rw-m:not(.sel) .v{opacity:.72}
+.stab .col.c1 .cell,.stab .col.c2 .cell{padding-left:12px}
+
+/* ==========================================================================
+   MINIMALISTA · tipografia menor, respiro maior
+   ========================================================================== */
+.eyebrow{font-size:12px}
+.lead{font-size:17px;line-height:1.55;max-width:520px}
+.lbl{font-size:11px}
+.btn,.t-lime .btn,.t-paper .btn:not(.alt),.t-white .btn:not(.alt){font-size:12px;padding:14px 22px}
+.hud-foot .who,.hud-nav .idx{font-size:11px}
+
+.s-capa .cap-l{top:150px}
+.s-capa h1{font-size:104px;margin:22px 0 22px}
+.s-capa .kick{font-size:20px;margin-bottom:8px}
+.statband{width:520px;margin-top:40px}
+.statband b{font-size:30px}
+.statband span{font-size:10px}
+.radar{transform:scale(.86);transform-origin:70% 50%}
+
+.s-faz .lc{top:150px}
+.s-faz h2{font-size:56px;line-height:1.06;width:560px}
+.s-faz .lead{font-size:16px}
+.fflow{margin-top:40px;width:560px}
+.fflow .fs b{font-size:10px}
+.fcard .fb h3{font-size:38px}
+.fcard .fb > p{font-size:14px}
+.fcard .fb li{font-size:13px}
+
+.s-os .lc{top:140px}
+.s-os h2{font-size:80px}
+.steps{margin-top:40px;gap:8px}
+.step b{font-size:19px}
+.step small{font-size:13px}
+.step .n{width:44px;height:44px}
+.step .n svg{width:22px;height:22px}
+
+.s-cat h2{font-size:54px}
+.kp{font-size:12px;padding:6px 14px}
+.kp b{font-size:28px}
+#os-indicadores .ic-n{font-size:17px}
+.ic-num{font-size:30px}
+#ot-indicadores .ic-n{font-size:14px}
+#ot-indicadores .ic-num{font-size:24px}
+.ic-i svg{width:26px;height:26px}
+.ic.plus b{font-size:24px}
+
+.bigp{font-size:180px}
+.bigp small{font-size:88px}
+.bigp em{font-size:28px;margin-top:22px}
+.s-osp .lc{top:150px}
+.s-osp .payopts{margin:34px 0 34px}
+.s-osp .po b{font-size:32px}
+.rc-h span{font-size:22px}
+.rc-l li{font-size:14px}
+.rc-t b{font-size:38px}
+
+.s-ot h2{font-size:68px}
+.fleet h4{font-size:26px}
+.node .nl b{font-size:17px}
+
+.s-otp .lc{top:140px}
+.s-otp h2{font-size:80px}
+.s-otp .lead{font-size:16px}
+.s-otp .otsel{margin-top:34px}
+.s-otp .otsel .bp{font-size:72px}
+.s-otp .otsel .bp small{font-size:40px}
+.pm{font-size:44px}
+.s-otp .pl b{font-size:54px}
+
+.s-sim h2{font-size:64px}
+.qty input{font-size:36px}
+.prz .num{font-size:30px}
+.stab .hd b{font-size:30px}
+.stab .tot .v{font-size:30px}
+.stab .v{font-size:16px}
+
+.s-end .lc{top:140px}
+.s-end h2{font-size:96px;margin:22px 0 22px}
+.s-end .lead{font-size:17px}
+.steps4 li{padding:20px 6px}
+.steps4 em{font-size:38px}
+.steps4 b{font-size:21px}
+.steps4 p{font-size:14px}
+.steps4 .si{width:46px;height:46px}
+.steps4 .si svg{width:22px;height:22px}
+.steps4 li{grid-template-columns:58px 1fr 46px}
+.mq-in span,.mq-in i{font-size:18px}
+.marquee{height:40px}

@@ -209,7 +209,7 @@
           $('otS0').textContent = OTEV[k][1];
           li.classList.toggle('red', k === 4); li.classList.remove('fresh'); void li.offsetWidth; li.classList.add('fresh');
           var hh = pad(8 + k * 2) + ':' + pad((k * 17) % 60);
-          $('otLog').insertAdjacentHTML('afterbegin', '<p><b>' + hh + '</b> Display Loja 214 ' + OTEV[k][2] + '</p>');
+          $('otLog').innerHTML = '<p><b>' + hh + '</b> Display Loja 214 ' + OTEV[k][2] + '</p>';
         }
       }
       if (p < 1) otRun = requestAnimationFrame(step);
@@ -315,37 +315,39 @@
   var YES = '<span class="cell ck">' + ico('i-ok', 'y') + '</span>', NO = '<span class="cell ck">' + ico('i-no', 'n') + '</span>';
   function simCalc(){
     var q = sim.q, m = sim.m, v = sim.p === 'v';
-    var os = { unit: v ? PRICE.osVista : PRICE.osParc, n: v ? 1 : 12 };
-    os.total = q * os.unit; os.parc = os.total / os.n; os.save = q * (PRICE.osParc - PRICE.osVista);
-    var ot = { mes: v ? PRICE.otVista : PRICE.otMensal, n: v ? 1 : m };
-    ot.total = q * ot.mes * m; ot.parc = ot.total / ot.n; ot.save = q * (PRICE.otMensal - PRICE.otVista) * m;
+    var os = { vista: q * PRICE.osVista, mensTot: q * PRICE.osParc, n: 12 };
+    os.parc = os.mensTot / 12; os.save = os.mensTot - os.vista; os.total = v ? os.vista : os.mensTot;
+    var ot = { vista: q * PRICE.otVista * m, mensTot: q * PRICE.otMensal * m, n: m };
+    ot.parc = ot.mensTot / m; ot.save = ot.mensTot - ot.vista; ot.total = v ? ot.vista : ot.mensTot;
     return {os:os, ot:ot};
   }
   function simRender(flash){
     var c = simCalc(), v = sim.p === 'v';
-    $('sQtyLbl').textContent = nf0.format(sim.q) + ' displays · ' + (v ? 'à vista' : 'parcelado');
+    $('sQtyLbl').textContent = nf0.format(sim.q) + ' displays · ' + (v ? 'à vista' : 'mensal');
     $('mOut').textContent = sim.m;
     $('mIn').style.setProperty('--p', ((sim.m - 6) / 6 * 100) + '%');
+    var sv = v ? ' sel' : '', sm = v ? '' : ' sel';
     $('colOs').innerHTML =
       '<div class="cell hd"><span class="tag" style="background:var(--paper);color:var(--ink)">' + ico('i-cam') + 'estático</span><b>One Shot</b><small>pagamento único por display</small></div>' +
-      '<div class="cell"><span class="v">' + money(c.os.unit) + '</span></div>' +
-      '<div class="cell"><span class="v">' + (v ? '1 parcela' : '12 parcelas') + '</span></div>' +
-      '<div class="cell"><span class="v">' + money(c.os.parc) + (v ? '' : '<small>/mês</small>') + '</span></div>' +
+      '<div class="cell"><span class="v">' + money(PRICE.osVista) + '<small>ou 12x ' + money(PRICE.osParc / 12) + '</small></span></div>' +
+      '<div class="cell rw-v' + sv + '"><span class="v">' + money(c.os.vista) + '</span></div>' +
+      '<div class="cell rw-m' + sm + '"><span class="v">12x ' + money(c.os.parc) + '<small>total ' + money(c.os.mensTot) + '</small></span></div>' +
       '<div class="cell tot"><span class="v">' + money(c.os.total) + '</span></div>' +
       '<div class="cell gap"></div>' + YES + YES + YES + YES + NO + NO + NO + NO;
     $('colOt').innerHTML =
       '<div class="cell hd"><span class="tag">' + ico('i-live') + 'recomendado</span><b>OnTiming</b><small>assinatura de ' + sim.m + ' meses</small></div>' +
-      '<div class="cell"><span class="v">' + money(c.ot.mes) + '<small>/mês</small></span></div>' +
-      '<div class="cell"><span class="v">' + (v ? '1 parcela' : sim.m + ' parcelas') + '</span></div>' +
-      '<div class="cell"><span class="v">' + money(c.ot.parc) + (v ? '' : '<small>/mês</small>') + '</span></div>' +
+      '<div class="cell"><span class="v">' + money(PRICE.otVista) + '<small>/mês à vista · ' + money(PRICE.otMensal) + '/mês mensal</small></span></div>' +
+      '<div class="cell rw-v' + sv + '"><span class="v">' + money(c.ot.vista) + '</span></div>' +
+      '<div class="cell rw-m' + sm + '"><span class="v">' + sim.m + 'x ' + money(c.ot.parc) + '<small>total ' + money(c.ot.mensTot) + '</small></span></div>' +
       '<div class="cell tot"><span class="v">' + money(c.ot.total) + '</span></div>' +
       '<div class="cell gap"></div>' + YES + YES + YES + YES + YES + YES + YES + YES;
+    [].forEach.call(document.querySelectorAll('#stab .c0 .rw-v'), function(x){ x.classList.toggle('sel', v); });
+    [].forEach.call(document.querySelectorAll('#stab .c0 .rw-m'), function(x){ x.classList.toggle('sel', !v); });
     if (flash) [].forEach.call(document.querySelectorAll('#stab .tot'), function(t){ t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); });
     [].forEach.call($('qChips').children, function(b){ b.classList.toggle('on', +b.getAttribute('data-q') === sim.q); });
     [].forEach.call($('payIn').children, function(b){ b.classList.toggle('on', b.getAttribute('data-p') === sim.p); });
-    var saveTxt = v ? 'Economia à vista: ' + money(c.ot.save) : 'Pagando à vista economiza ' + money(c.ot.save);
-    $('colOt').querySelector('.hd small').innerHTML = 'assinatura de ' + sim.m + ' meses · <span class="sav">' + saveTxt + '</span>';
-    $('colOs').querySelector('.hd small').innerHTML = v ? 'pagamento único · <span class="sav">economia de ' + money(c.os.save) + '</span>' : 'pagamento único em 12x';
+    $('colOt').querySelector('.hd small').innerHTML = 'assinatura de ' + sim.m + ' meses · <span class="sav">à vista economiza ' + money(c.ot.save) + '</span>';
+    $('colOs').querySelector('.hd small').innerHTML = 'pagamento único · <span class="sav">à vista economiza ' + money(c.os.save) + '</span>';
   }
   function setQ(q){ q = Math.max(1, Math.min(100000, Math.round(q) || 1)); sim.q = q; $('qIn').value = nf0.format(q); simRender(true); }
   $('qIn').addEventListener('input', function(){ var raw = this.value.replace(/\D/g, ''); if (raw){ sim.q = Math.min(100000, +raw); simRender(false); } });
@@ -357,9 +359,9 @@
   $('payIn').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b){ sim.p = b.getAttribute('data-p'); simRender(true); } });
   $('simCopy').onclick = function(){
     var c = simCalc(), v = sim.p === 'v';
-    var txt = 'Rastreamento de PDV · 75 LAB\n' + nf0.format(sim.q) + ' displays · pagamento ' + (v ? 'à vista (20% off)' : 'parcelado') + '\n\n' +
-      'ONE SHOT (rastreio estático)\n' + money(c.os.unit) + ' por display · ' + (v ? '1 parcela' : '12x de ' + money(c.os.parc)) + '\nTotal: ' + money(c.os.total) + '\n\n' +
-      'ONTIMING (rastreio ao vivo, ' + sim.m + ' meses)\n' + money(c.ot.mes) + ' por display por mês · ' + (v ? '1 parcela' : sim.m + 'x de ' + money(c.ot.parc)) + '\nTotal: ' + money(c.ot.total) + '\n\n' +
+    var txt = 'Rastreamento de PDV · 75 LAB\n' + nf0.format(sim.q) + ' displays\n\n' +
+      'ONE SHOT (rastreio estático)\nÀ vista: ' + money(c.os.vista) + ' em 1 parcela\nMensal: 12x de ' + money(c.os.parc) + ' (total ' + money(c.os.mensTot) + ')\n\n' +
+      'ONTIMING (rastreio ao vivo, ' + sim.m + ' meses)\nÀ vista: ' + money(c.ot.vista) + ' em 1 parcela (20% off)\nMensal: ' + sim.m + 'x de ' + money(c.ot.parc) + ' (total ' + money(c.ot.mensTot) + ')\n\n' +
       'Simulador: ' + location.href.split('#')[0] + '#simulador';
     function done(){ var t = $('toast'); t.classList.add('on'); setTimeout(function(){ t.classList.remove('on'); }, 1800); }
     if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, done); else done();
