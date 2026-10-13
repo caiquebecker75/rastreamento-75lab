@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rastreamento de PDV · 75 LAB</title>
-<meta name="description" content="Apresentação comercial 75 LAB: tecnologias One Shot e OnTiming de rastreamento de materiais de comunicação no PDV, indicadores, tabela de preços e simulador.">
+<meta name="description" content="Apresentação 75 LAB: como funciona o QR code nas peças de PDV, a página de montagem, o painel de execução, o link ao vivo para o cliente, a tabela de preços por volume e a tag de rastreio ao vivo.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C0EE4E'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Impact,sans-serif' font-size='17' fill='%230E1110'%3E75%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rastreamento de PDV · 75 LAB">
+<meta property="og:description" content="O QR na peça, a página de montagem, o painel de execução e o link ao vivo do cliente.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=40">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="ctxt" id="ctxt"></span></div>
@@ -71,288 +74,332 @@
  <div id="prog"></div>
  <div class="cine cine-spot" id="cineSpot"></div><div class="cine cine-vig"></div><div class="cine cine-grain"></div>
 
+ <!-- 01 ................................................................. capa -->
  <section class="slide t-ink s-capa" id="capa" data-title="Capa" data-chap="Rastreamento de PDV">
   <div class="cap-l">
-   <div class="eyebrow plain rv">Aceleradora de trade marketing · rastreamento</div>
+   <div class="eyebrow plain rv">Aceleradora de trade marketing · rastreamento de PDV</div>
    <h1 class="d rv" style="--d:1">Prova acima<br>de <span class="ac">promessa.<svg class="wave" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 14 Q80 4 150 12 T297 8"/></svg></span></h1>
    <p class="kick rv" style="--d:2">A distância entre o CD e a gôndola agora tem dado.</p>
-   <p class="lead rv" style="--d:2">Duas tecnologias para rastrear material de PDV: <b>One Shot</b> e <b>OnTiming</b>.</p>
+   <p class="lead rv" style="--d:2">Duas tecnologias, explicadas uma de cada vez: o <b>QR na peça</b> e a <b>tag ao vivo</b>.</p>
    <div class="cta rv" style="--d:3">
-    <button class="btn" data-go="fazemos">Ver as tecnologias <span class="arr">→</span></button>
-    <button class="btn alt" data-go="simulador">Simular investimento</button>
+    <button class="btn" data-go="comoqr">Começar pelo QR <span class="arr">→</span></button>
+    <button class="btn alt" data-go="preco">Ver o investimento</button>
    </div>
    <div class="statband rv" style="--d:4">
-    <div class="sb"><b>2</b><span>tecnologias de rastreio</span></div>
-    <div class="sb"><b>17</b><span>indicadores de PDV</span></div>
-    <div class="sb"><b>15.000+</b><span>PDVs positivados</span></div>
+    <div class="sb"><b>3</b><span>frentes do QR</span></div>
+    <div class="sb"><b>12</b><span>indicadores de execução</span></div>
+    <div class="sb"><b>R$ 0,30</b><span>por peça rastreada</span></div>
    </div>
   </div>
   <div class="decos"><svg class="deco d-circ" viewBox="0 0 90 90"><circle cx="45" cy="45" r="40"/></svg><svg class="deco d-sq" viewBox="0 0 60 60"><rect x="12" y="12" width="36" height="36"/></svg><svg class="deco d-tri" viewBox="0 0 60 60"><path d="M8 12h44L30 50z"/></svg><svg class="deco d-ring" viewBox="0 0 70 70"><circle cx="35" cy="35" r="26"/></svg></div>
   <div class="radar">
    <svg class="rd" viewBox="0 0 700 700">
-    <defs>
-     <linearGradient id="swg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C0EE4E" stop-opacity="0"/><stop offset="1" stop-color="#C0EE4E" stop-opacity=".32"/></linearGradient>
-    </defs>
+    <defs><linearGradient id="swg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C0EE4E" stop-opacity="0"/><stop offset="1" stop-color="#C0EE4E" stop-opacity=".32"/></linearGradient></defs>
     <g fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5">
      <circle cx="350" cy="350" r="90"/><circle cx="350" cy="350" r="180"/><circle cx="350" cy="350" r="270"/><circle cx="350" cy="350" r="340" stroke-dasharray="4 8"/>
      <path d="M350 0v700M0 350h700"/>
     </g>
-    <g stroke="rgba(255,255,255,.07)" stroke-width="10" fill="none" stroke-linecap="round">
-     <path d="M60 470c90-40 140-10 230-60s120-150 230-150 110-60 150-90"/>
-     <path d="M140 110c60 80 60 170 150 220s170 30 220 120 40 150 60 190"/>
-     <path d="M20 250c120 10 200 60 330 100s230 10 330 60"/>
-    </g>
     <g class="sweep"><path d="M350 350 L690 350 A340 340 0 0 0 590 110 Z" fill="url(#swg)"/><path d="M350 350 L690 350" stroke="#C0EE4E" stroke-width="2.5"/></g>
     <circle cx="350" cy="350" r="7" fill="#C0EE4E"/>
    </svg>
-   <div class="rpin" style="left:420px;top:240px;--pa:.7s;--pd:.2s"><i></i><b><em></em>Loja 214 <small>instalado</small></b></div>
-   <div class="rpin teal" style="left:210px;top:190px;--pa:.95s;--pd:.8s"><i></i><b><em></em>Em trânsito <small>há 12 min</small></b></div>
-   <div class="rpin" style="left:260px;top:480px;--pa:1.2s;--pd:1.3s"><i></i><b><em></em>CD Cajamar <small>42 displays</small></b></div>
-   <div class="rpin red" style="left:470px;top:385px;--pa:1.45s;--pd:.5s"><i></i><b><em></em>Fora da loja <small>alerta</small></b></div>
+   <div class="rpin" style="left:420px;top:240px;--pa:.7s;--pd:.2s"><i></i><b><em></em>Loja 214 <small>peça instalada</small></b></div>
+   <div class="rpin teal" style="left:210px;top:190px;--pa:.95s;--pd:.8s"><i></i><b><em></em>Foto da fachada <small>há 12 min</small></b></div>
+   <div class="rpin" style="left:260px;top:480px;--pa:1.2s;--pd:1.3s"><i></i><b><em></em>58 lojas <small>positivadas</small></b></div>
   </div>
  </section>
 
- <section class="slide t-white s-faz" id="fazemos" data-title="O que fazemos" data-chap="O que fazemos">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(00)">O que a gente pluga</div>
-   <h2 class="d rv" style="--d:1"><span class="mute">Material sem dado</span><br><span class="mute">é promessa.</span> Com RG<br>digital, <span class="hl">é prova.</span></h2>
-   <p class="lead rv" style="--d:2">Uma <b>identidade rastreável</b> em cada peça. A presença no varejo vira <b>dado para decisão</b>.</p>
-   <div class="fflow rv" style="--d:3">
-    <div class="fs"><span><svg><use href="#i-display"/></svg></span><b>Peça produzida</b></div>
-    <i><svg><use href="#i-arr"/></svg></i>
-    <div class="fs on"><span><svg><use href="#i-qr"/></svg></span><b>Identidade 75 LAB</b></div>
-    <i><svg><use href="#i-arr"/></svg></i>
-    <div class="fs"><span><svg><use href="#i-dash"/></svg></span><b>Dado no painel</b></div>
-   </div>
+ <!-- 02 ........................................................... o problema -->
+ <section class="slide t-white s-cego" id="cego" data-title="O ponto cego" data-chap="O problema">
+  <div class="ce-top">
+   <div class="eyebrow" data-n="(01)">O ponto cego do trade</div>
+   <h2 class="d">Quando a peça sai<br>do CD, começa <span class="hl">a fé.</span></h2>
   </div>
-  <div class="fdisp rv" style="--d:2" id="fDisp">
-   <svg viewBox="0 0 300 620">
-    <rect x="30" y="20" width="240" height="120" rx="14" fill="#0E1110"/>
-    <text x="150" y="72" text-anchor="middle" font-family="Anton,Impact" font-size="30" letter-spacing="3" fill="#C0EE4E">SUA MARCA</text>
-    <text x="150" y="104" text-anchor="middle" font-family="Lexend" font-size="14" fill="#C4C9BC">display de chão</text>
-    <rect x="30" y="140" width="240" height="420" fill="#F1F2EC"/>
-    <g fill="#E3E7DA"><rect x="30" y="250" width="240" height="10"/><rect x="30" y="360" width="240" height="10"/><rect x="30" y="470" width="240" height="10"/></g>
-    <g fill="#C0EE4E"><rect x="48" y="176" width="44" height="74" rx="6"/><rect x="104" y="176" width="44" height="74" rx="6"/><rect x="160" y="176" width="44" height="74" rx="6"/><rect x="216" y="176" width="36" height="74" rx="6"/></g>
-    <g fill="#00837D"><rect x="48" y="290" width="44" height="70" rx="6"/><rect x="104" y="290" width="44" height="70" rx="6"/><rect x="160" y="290" width="44" height="70" rx="6"/><rect x="216" y="290" width="36" height="70" rx="6"/></g>
-    <g fill="#0E1110" opacity=".85"><rect x="48" y="400" width="44" height="70" rx="6"/><rect x="104" y="400" width="44" height="70" rx="6"/><rect x="160" y="400" width="44" height="70" rx="6"/><rect x="216" y="400" width="36" height="70" rx="6"/></g>
-    <rect x="30" y="560" width="240" height="40" rx="6" fill="#0E1110"/>
-    <g class="f-qr"><rect x="196" y="508" width="56" height="44" rx="6" fill="#fff" stroke="#0E1110" stroke-width="3"/><g fill="#0E1110"><rect x="203" y="514" width="12" height="12"/><rect x="233" y="514" width="12" height="12"/><rect x="203" y="534" width="12" height="12"/><rect x="221" y="522" width="6" height="6"/><rect x="233" y="536" width="6" height="6"/><rect x="241" y="542" width="6" height="6"/></g></g>
-    <g class="f-tag"><circle cx="248" cy="40" r="30" fill="#1DD4C8" opacity=".25" class="f-pulse"/><circle cx="248" cy="40" r="17" fill="#1DD4C8" stroke="#0E1110" stroke-width="4"/><circle cx="248" cy="40" r="5" fill="#0E1110"/></g>
-   </svg>
-   <div class="fcall" id="fCall"><em></em><span id="fCallT">QR único</span></div>
-  </div>
-  <div class="fcard rv" style="--d:3">
-   <div class="seg" id="fTabs"><button class="on" data-t="os">One Shot · QR</button><button data-t="ot">OnTiming · tag</button></div>
-   <div id="fBody"></div>
-  </div>
- </section>
-
- <section class="slide t-paper s-os" id="oneshot" data-title="One Shot · como funciona" data-chap="01 · One Shot · rastreio estático">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(01)">One Shot · como funciona</div>
-   <h2 class="d rv" style="--d:1">Escaneou.<br><span class="hl">Provou.</span></h2>
-   <div class="steps rv" style="--d:2" id="osSteps">
-    <button class="step on" data-k="0"><span class="n"><svg><use href="#i-qr"/></svg></span><span><b>QR único na peça</b><small>Cada display sai da produção identificado</small></span></button>
-    <button class="step" data-k="1"><span class="n"><svg><use href="#i-phone"/></svg></span><span><b>Promotor escaneia</b><small>Sem aplicativo, direto na câmera do celular</small></span></button>
-    <button class="step" data-k="2"><span class="n"><svg><use href="#i-pin"/></svg></span><span><b>GPS, loja e foto da fachada</b><small>Registro com data, hora e localização</small></span></button>
-    <button class="step" data-k="3"><span class="n"><svg><use href="#i-dash"/></svg></span><span><b>Painel na hora</b><small>Mapa, indicadores e exportação em Excel</small></span></button>
-   </div>
-  </div>
-  <div class="mock rv" style="--d:2" id="osMock">
-   <div class="mbar"><img src="img/logo-wordmark-lime.png" alt="75 LAB"><b>INSTALAÇÕES</b><i>painel da campanha</i></div>
-   <div class="kpis" id="osKpis">
-    <div class="kpi"><small>Registros</small><b>16</b></div>
-    <div class="kpi"><small>Lojas</small><b>7</b></div>
-    <div class="kpi"><small>Promotores</small><b>5</b></div>
-    <div class="kpi"><small>Com localização</small><b>100%</b></div>
-   </div>
-   <div class="mmap" id="osMap">
-    <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice">
-     <rect width="800" height="420" fill="#E9EDE2"/>
-     <g fill="#DCE8CF"><path d="M0 300c80-20 120 20 200 0s90-60 160-40 80 60 140 50v110H0z"/><circle cx="640" cy="90" r="60"/></g>
-     <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"><path d="M-20 120c120 30 220-10 330 30s200 90 520 40"/><path d="M120-20c30 120 10 230 60 330s40 90 30 150"/><path d="M420-20c-20 110 30 190 10 270s-40 130-30 200"/><path d="M-20 360c200-40 380 0 560-50s190-30 280-20"/></g>
-     <g fill="none" stroke="#F6C9A6" stroke-width="6" stroke-linecap="round"><path d="M-20 230c160 10 260-40 420-10s260 70 420 20"/><path d="M600-20c-40 120 20 200-10 300s-60 100-70 160"/></g>
-     <g fill="none" stroke="#fff" stroke-width="3"><path d="M40 40l200 150M250 20l-60 380M520 60l220 300M300 250l400-120M60 400l300-120"/></g>
-    </svg>
-   </div>
-   <div class="leg">
-    <span><i style="background:#3B6EF5">PP</i>Polenguinho 2</span>
-    <span><i style="background:#F07A1A">WP</i>Whiskas &amp; Pedigree 7</span>
-    <span><i style="background:#0F8A80">FR</i>Frescatino 3</span>
-    <span><i style="background:#D93A6A">MM</i>Melão Famosa 2</span>
-   </div>
-  </div>
-  <div class="phone rv" style="--d:3" id="osPhone">
-   <div class="scr">
-    <div class="ph-top"><b>Registrar<br>instalação</b><small>Display · Loja 214</small><div class="qrbox"><svg viewBox="0 0 24 24" style="width:100%;height:100%"><use href="#i-qr"/></svg></div><div class="scanl"></div></div>
-    <div class="ph-body">
-     <div class="ph-row" data-r="0"><svg><use href="#i-qr"/></svg>Peça identificada<em><svg><use href="#i-ok"/></svg></em></div>
-     <div class="ph-row" data-r="1"><svg><use href="#i-pin"/></svg>GPS · precisão 8 m<em><svg><use href="#i-ok"/></svg></em></div>
-     <div class="ph-row" data-r="2"><svg><use href="#i-store"/></svg>Loja confirmada<em><svg><use href="#i-ok"/></svg></em></div>
-     <div class="ph-row" data-r="3"><svg><use href="#i-cam"/></svg>Foto da fachada<em><svg><use href="#i-ok"/></svg></em></div>
-     <div class="ph-btn">ENVIAR REGISTRO</div>
-    </div>
-   </div>
-  </div>
- </section>
-
- <section class="slide t-paper s-cat" id="os-indicadores" data-title="One Shot · indicadores" data-chap="01 · One Shot · rastreio estático">
-  <div class="cath">
-   <div><div class="eyebrow rv" data-n="(01)">One Shot · indicadores</div><h2 class="d rv" style="--d:1">12 indicadores<br><span class="hl">com prova de campo.</span></h2></div>
-   <div class="catside rv" style="--d:2"><span class="kp"><b>10</b>completos no registro de instalação</span><span class="kp soft"><b>2</b>com uma leitura extra (data de envio ou retirada)</span><p class="note">Passe o mouse para ver a pergunta que cada indicador responde.</p></div>
-  </div>
-  <div class="cgrid" data-cat="os-indicadores"></div>
- </section>
-
- <section class="slide t-paper s-osp" id="os-preco" data-title="One Shot · investimento" data-chap="01 · One Shot · rastreio estático">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(01)">One Shot · investimento</div>
-   <div class="bigp rv" style="--d:1"><em>R$</em>13<small>,64</small></div>
-   <p class="lead rv" style="--d:2"><b>por display, pagamento único.</b> Sem mensalidade.</p>
-   <div class="payopts rv" style="--d:3">
-    <div class="po on"><span class="lbl">À vista</span><b>R$ 13,64</b><small>por display · 1 parcela</small></div>
-    <div class="po"><span class="lbl">Parcelado</span><b>12x R$ 1,42</b><small>por display · total R$ 17,05</small></div>
-   </div>
-   <button class="btn rv" style="--d:4" data-go="simulador">Simular com meus números <span class="arr">→</span></button>
-  </div>
-  <div class="receipt rv" style="--d:2">
-   <div class="rc-h"><img src="img/logo-wordmark-black.png" alt="75 LAB"><span>ONE SHOT<br><small>por display</small></span></div>
-   <ul class="rc-l">
-    <li><svg><use href="#i-qr"/></svg><span>QR único aplicado na peça</span><b>incluso</b></li>
-    <li><svg><use href="#i-phone"/></svg><span>Registro sem aplicativo</span><b>incluso</b></li>
-    <li><svg><use href="#i-pin"/></svg><span>GPS, loja e foto da fachada</span><b>incluso</b></li>
-    <li><svg><use href="#i-dash"/></svg><span>Painel da campanha e Excel</span><b>incluso</b></li>
-    <li><svg><use href="#i-chart"/></svg><span>12 indicadores de execução</span><b>incluso</b></li>
-   </ul>
-   <div class="rc-t"><span>TOTAL POR DISPLAY</span><b>R$ 13,64</b></div>
-   <div class="rc-ex"><span class="lbl">Exemplo rápido</span>
-    <div class="rc-q"><input type="range" id="osq" min="50" max="3000" step="50" value="500"><p><b id="osqN">500</b> displays = <b id="osqV">R$ 6.820,00</b></p></div>
-   </div>
-   <div class="zig"></div>
-  </div>
- </section>
-
- <section class="slide t-ink s-ot" id="ontiming" data-title="OnTiming · como funciona" data-chap="02 · OnTiming · rastreio ao vivo">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(02)">OnTiming · como funciona</div>
-   <h2 class="d rv" style="--d:1">O display <span class="mute">avisa</span><br><span class="hl">onde está.</span></h2>
-  </div>
-  <div class="route rv" style="--d:2" id="otRoute">
-   <svg viewBox="0 0 980 360">
-    <path id="otPath" d="M70 220 C 180 220, 200 90, 300 90 S 440 220, 530 220 S 660 90, 760 90 S 880 170, 920 220" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10" stroke-linecap="round"/>
-    <path id="otPathOn" d="M70 220 C 180 220, 200 90, 300 90 S 440 220, 530 220 S 660 90, 760 90 S 880 170, 920 220" fill="none" stroke="#C0EE4E" stroke-width="10" stroke-linecap="round"/>
-   </svg>
-   <div class="node" style="left:70px;top:220px" data-at="0"><div class="nb"><svg><use href="#i-cd"/></svg></div><div class="nl"><b>CD</b><small>saída registrada</small></div></div>
-   <div class="node up" style="left:300px;top:90px" data-at=".27"><div class="nb"><svg><use href="#i-truck"/></svg></div><div class="nl"><b>Transporte</b><small>em rota</small></div></div>
-   <div class="node" style="left:530px;top:220px" data-at=".52"><div class="nb"><svg><use href="#i-box"/></svg></div><div class="nl"><b>Armazém</b><small>tempo parado</small></div></div>
-   <div class="node up" style="left:760px;top:90px" data-at=".78"><div class="nb"><svg><use href="#i-store"/></svg></div><div class="nl"><b>Loja</b><small>no lugar</small></div></div>
-   <div class="node alert" style="left:920px;top:220px" data-at="1"><div class="nb"><svg><use href="#i-bell"/></svg></div><div class="nl"><b>Alerta</b><small>saiu da loja</small></div></div>
-   <div class="tagdot" id="otDot"><i></i></div>
-  </div>
-  <div class="fleet rv" style="--d:3">
-   <h4>Frota <span><i></i>ao vivo</span></h4>
-   <div class="srch"><svg><use href="#i-search"/></svg>Buscar loja, rede, tag ou grupo</div>
-   <div class="fsec">4 TAGS</div>
-   <ul id="otList">
-    <li data-i="0"><i></i><span><b>DISPLAY LOJA 214</b><small id="otS0">No CD · agora</small></span><svg><use href="#i-chev"/></svg></li>
-    <li><i></i><span><b>DISPLAY PDV 087</b><small>No lugar · há 22 min</small></span><svg><use href="#i-chev"/></svg></li>
-    <li><i></i><span><b>ILHA PROMOCIONAL 03</b><small>No lugar · há 24 min</small></span><svg><use href="#i-chev"/></svg></li>
-    <li><i></i><span><b>CLIP STRIP 112</b><small>No lugar · há 26 min</small></span><svg><use href="#i-chev"/></svg></li>
-   </ul>
-   <div class="flog" id="otLog"></div>
-  </div>
-  <div class="chips rv" style="--d:4">
-   <span class="chip"><svg><use href="#i-bolt"/></svg>Sem fio e sem tomada</span>
-   <span class="chip"><svg><use href="#i-clock"/></svg>Atualização automática</span>
-   <span class="chip"><svg><use href="#i-bell"/></svg>Alerta de saída da loja</span>
-   <span class="chip"><svg><use href="#i-cam"/></svg>Inclui o registro One Shot</span>
-  </div>
- </section>
-
- <section class="slide t-ink s-cat" id="ot-indicadores" data-title="OnTiming · indicadores" data-chap="02 · OnTiming · rastreio ao vivo">
-  <div class="cath">
-   <div><div class="eyebrow rv" data-n="(02)">OnTiming · indicadores</div><h2 class="d rv" style="--d:1">17 indicadores.<br><span class="hl">5 exclusivos</span> <span class="mute">+ os 12 do One Shot.</span></h2></div>
-   <div class="catside rv" style="--d:2"><span class="kp lime"><b>5</b>exclusivos do rastreio ao vivo</span><span class="kp"><b>12</b>do One Shot, todos completos</span><p class="note">Passe o mouse para ver a pergunta.</p></div>
-  </div>
-  <div class="cgrid" data-cat="ot-indicadores"></div>
- </section>
-
- <section class="slide t-ink s-otp" id="ot-preco" data-title="OnTiming · investimento" data-chap="02 · OnTiming · rastreio ao vivo">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(02)">OnTiming · assinatura</div>
-   <h2 class="d rv" style="--d:1">Escolha<br><span class="hl">o plano.</span></h2>
-   <p class="lead rv" style="--d:2">Assinatura de <b>6 a 12 meses</b>. À vista com <b>20% off</b> ou mensal.</p>
-   <div class="otsel rv" style="--d:3" id="otSel"></div>
-  </div>
-  <div class="plans rv" style="--d:2" id="plans"></div>
- </section>
-
- <section class="slide t-paper s-sim" id="simulador" data-title="Simulador comparativo" data-chap="03 · Lado a lado">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(03)">Lado a lado · simulador</div>
-   <h2 class="d rv" style="--d:1">Compare<br><span class="hl">e simule.</span></h2>
-   <div class="sin rv" style="--d:2">
-    <div>
-     <span class="lbl">Quantidade de displays</span>
-     <div class="qty"><button id="qMinus" aria-label="Menos"><svg><use href="#i-minus"/></svg></button><input id="qIn" type="text" inputmode="numeric" value="500"><button id="qPlus" aria-label="Mais"><svg><use href="#i-plus"/></svg></button></div>
-     <div class="qchips" id="qChips"><button data-q="50">50</button><button data-q="200">200</button><button data-q="500" class="on">500</button><button data-q="1000">1.000</button><button data-q="3000">3.000</button><button data-q="5000">5.000</button></div>
-    </div>
-    <div>
-     <div class="prz"><span class="lbl">Assinatura OnTiming</span><span class="num"><span id="mOut">12</span> <small style="font-size:18px">meses</small></span></div>
-     <input type="range" id="mIn" min="6" max="12" step="1" value="12">
-     <div class="ticks"><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
-    </div>
-    <div>
-     <span class="lbl">Forma de pagamento</span>
-     <div class="seg" id="payIn"><button class="on" data-p="v">À vista · 20% off</button><button data-p="m">Parcelas mensais</button></div>
-    </div>
-   </div>
-  </div>
-  <div class="stab rv" style="--d:2" id="stab">
-   <div class="col c0">
-    <div class="cell hd"><span class="lbl">Comparativo</span><small id="sQtyLbl">500 displays</small></div>
-    <div class="cell"><svg><use href="#i-display"/></svg>Preço por display</div>
-    <div class="cell rw-v"><svg><use href="#i-percent"/></svg>À vista · 1 parcela</div>
-    <div class="cell rw-m"><svg><use href="#i-cal"/></svg>Mensal · parcelado</div>
-    <div class="cell"><svg><use href="#i-target"/></svg>Investimento escolhido</div>
-    <div class="cell gap"></div>
-    <div class="cell"><svg><use href="#i-pin"/></svg>GPS e foto da fachada</div>
-    <div class="cell"><svg><use href="#i-map"/></svg>Positivação bandeira, cidade, UF</div>
-    <div class="cell"><svg><use href="#i-users"/></svg>Performance de promotores</div>
-    <div class="cell"><svg><use href="#i-chart"/></svg>Planejado x executado</div>
-    <div class="cell"><svg><use href="#i-live"/></svg>Localização ao vivo</div>
-    <div class="cell"><svg><use href="#i-shield"/></svg>Prevenção de perda</div>
-    <div class="cell"><svg><use href="#i-truck"/></svg>Transporte e armazenagem</div>
-    <div class="cell"><svg><use href="#i-box"/></svg>Inventário de ativos</div>
-   </div>
-   <div class="col c1" id="colOs"></div>
-   <div class="col c2" id="colOt"></div>
-  </div>
-  <div class="acts rv" style="--d:3">
-   <button class="btn" id="simCopy"><svg><use href="#i-copy"/></svg>Copiar resumo</button>
-   <button class="btn alt" data-go="fim">Próximo passo <span class="arr">→</span></button>
-  </div>
-  <div class="toast" id="toast">Resumo copiado</div>
- </section>
-
- <section class="slide t-lime s-end" id="fim" data-title="Próximo passo" data-chap="Próximo passo">
-  <div class="lc">
-   <div class="eyebrow rv" data-n="(04)">A tese</div>
-   <h2 class="d rv" style="--d:1">Ideia boa<br>é a que<br><span class="ac">acontece.<svg class="wave" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 14 Q80 4 150 12 T297 8"/></svg></span></h2>
-   <p class="lead rv" style="--d:2">E agora dá para provar. Conta a intenção, a gente pluga o rastreio certo.</p>
-   <div class="cta rv" style="--d:3">
-    <a class="btn" href="mailto:contato@setecincolab.com.br?subject=Rastreamento%20de%20PDV">Acelerar minha marca <span class="arr">→</span></a>
-    <button class="btn alt" data-go="simulador">Simular investimento</button>
-    <button class="btn alt" id="pdf">Baixar PDF</button>
-   </div>
-  </div>
-  <ol class="steps4 rv" style="--d:2">
-   <li><em>01</em><div><b>Mapa de lojas</b><p>Lojas, peças planejadas e equipe de campo.</p></div><span class="si"><svg><use href="#i-map"/></svg></span></li>
-   <li><em>02</em><div><b>Identidade na produção</b><p>QR One Shot ou tag OnTiming aplicados na fábrica.</p></div><span class="si"><svg><use href="#i-qr"/></svg></span></li>
-   <li><em>03</em><div><b>Instalação e ativação</b><p>Registro com GPS e foto da fachada em menos de um minuto.</p></div><span class="si"><svg><use href="#i-phone"/></svg></span></li>
-   <li><em>04</em><div><b>Painel e relatório</b><p>Painel online desde o primeiro registro e relatório mensal.</p></div><span class="si"><svg><use href="#i-dash"/></svg></span></li>
+  <ol class="ce-q">
+   <li><span class="n">?</span><b>Chegou mesmo na loja certa?</b></li>
+   <li><span class="n">?</span><b>Foi montada do jeito certo?</b></li>
+   <li><span class="n">?</span><b>Continua lá depois de 30 dias?</b></li>
   </ol>
-  <div class="marquee"><div class="mq-in"><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>One Shot</span><i>·</i><span>OnTiming</span><i>·</i><span>Prova acima de promessa</span><i>·</i><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>One Shot</span><i>·</i><span>OnTiming</span><i>·</i><span>Prova acima de promessa</span><i>·</i></div></div>
+  <p class="ce-pe">Hoje a resposta vem por foto solta no grupo de WhatsApp, quando vem. O investimento em material é aprovado no plano e conferido no boato.</p>
+  <div class="ce-mark"><svg viewBox="0 0 24 24"><use href="#i-eye"/></svg></div>
+ </section>
+
+ <!-- 03 ............................................................... trilha -->
+ <section class="slide t-ink s-trilha" id="trilha" data-title="O caminho da conversa" data-chap="Agenda">
+  <div class="tr-head">
+   <div class="eyebrow plain" data-n="(02)">O caminho desta conversa</div>
+   <h2 class="d">Uma tecnologia<br>de cada vez.</h2>
+   <p class="lead">Primeiro o QR, que já resolve a maior parte. Depois a tag ao vivo, para quem precisa saber onde a peça está agora.</p>
+  </div>
+  <div class="tr-via">
+   <div class="tr-cap">
+    <span class="tc-n">Capítulo 01</span>
+    <h3>QR na peça</h3>
+    <div class="tr-steps">
+     <button data-go="comoqr"><i>01</i>Como funciona</button>
+     <button data-go="pagina"><i>02</i>A página que o QR abre</button>
+     <button data-go="painel"><i>03</i>O painel de execução</button>
+     <button data-go="link"><i>04</i>O link ao vivo do cliente</button>
+     <button data-go="preco"><i>05</i>Investimento por volume</button>
+    </div>
+   </div>
+   <div class="tr-cap alt">
+    <span class="tc-n">Capítulo 02</span>
+    <h3>Tag ao vivo</h3>
+    <div class="tr-steps">
+     <button data-go="quandotag"><i>06</i>Quando o QR não basta</button>
+     <button data-go="comotag"><i>07</i>Como a tag funciona</button>
+     <button data-go="planos"><i>08</i>Planos da tag</button>
+    </div>
+   </div>
+   <div class="tr-cap fim">
+    <span class="tc-n">Fecho</span>
+    <h3>Decisão</h3>
+    <div class="tr-steps">
+     <button data-go="escolher"><i>09</i>Qual usar em cada caso</button>
+     <button data-go="comecar"><i>10</i>Como começamos</button>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- 04 ..................................................... como funciona o QR -->
+ <section class="slide t-white s-comoqr" id="comoqr" data-title="QR · como funciona" data-chap="01 · QR na peça">
+  <div class="cq-l">
+   <div class="eyebrow" data-n="(03)">Capítulo 01 · QR na peça</div>
+   <h2 class="d">Quatro segundos<br>do promotor,<br><span class="hl">um dado para sempre.</span></h2>
+   <ol class="cq-steps">
+    <li><i>01</i><b>A peça sai da produção com um QR único</b><span>Impresso na arte ou em etiqueta aplicada, um código por peça.</span></li>
+    <li><i>02</i><b>Na loja, o promotor aponta a câmera</b><span>Sem aplicativo, sem cadastro, sem senha para decorar.</span></li>
+    <li><i>03</i><b>Confirma a loja, as peças e tira a foto da fachada</b><span>O celular manda junto a localização e a hora exata.</span></li>
+    <li><i>04</i><b>O registro aparece no painel na hora</b><span>E no link que o cliente acompanha ao vivo.</span></li>
+   </ol>
+  </div>
+  <div class="cq-r">
+   <div class="fone"><img src="img/cel-registro.webp" alt="Tela de registro da instalação no celular do promotor"></div>
+   <div class="cq-tag t1"><b>GPS</b><span>onde foi lido</span></div>
+   <div class="cq-tag t2"><b>Foto</b><span>fachada da loja</span></div>
+   <div class="cq-tag t3"><b>Quem</b><span>promotor próprio ou agência</span></div>
+  </div>
+ </section>
+
+ <!-- 05 .................................................. frente 1 · a página -->
+ <section class="slide t-light s-pagina" id="pagina" data-title="Frente 1 · a página" data-chap="01 · QR na peça">
+  <div class="pg-head">
+   <div class="eyebrow" data-n="(04)">Frente 01 de 03</div>
+   <h2 class="d">O QR não abre<br>um formulário.<br><span class="hl">Abre o treinamento.</span></h2>
+  </div>
+  <div class="pg-fones">
+   <figure class="pf a"><img src="img/cel-capa.webp" alt="Capa da página de produto no celular"></figure>
+   <figure class="pf b"><img src="img/cel-montagem.webp" alt="Passo a passo de montagem no celular"></figure>
+   <figure class="pf c"><img src="img/cel-video.webp" alt="Vídeo de montagem com capítulos no celular"></figure>
+  </div>
+  <ul class="pg-list">
+   <li><svg><use href="#i-layers"/></svg><b>Montagem passo a passo</b><span>com foto de cada encaixe</span></li>
+   <li><svg><use href="#i-play"/></svg><b>Vídeo com capítulos</b><span>pula direto para a etapa</span></li>
+   <li><svg><use href="#i-box"/></svg><b>Peça em 3D e realidade aumentada</b><span>ela aparece no chão da loja</span></li>
+   <li><svg><use href="#i-ok"/></svg><b>Checklist de execução</b><span>o que conferir antes de sair</span></li>
+  </ul>
+  <p class="pg-pe">O mesmo código que prova a instalação ensina a montar. O material chega na loja com o manual dentro.</p>
+ </section>
+
+ <!-- 06 ................................................... frente 2 · o painel -->
+ <section class="slide t-ink s-painel" id="painel" data-title="Frente 2 · o painel" data-chap="01 · QR na peça">
+  <div class="pn-l">
+   <div class="eyebrow plain" data-n="(05)">Frente 02 de 03</div>
+   <h2 class="d">Enquanto o promotor<br>monta, o painel<br><span class="ac">enche.</span></h2>
+   <p class="lead">Cada leitura vira linha, mapa e gráfico na mesma hora. Ninguém digita planilha, ninguém espera o fim da ação para saber onde a campanha está.</p>
+   <div class="pn-nums">
+    <div><b data-count="58">0</b><span>lojas positivadas</span></div>
+    <div><b data-count="118">0</b><span>peças executadas</span></div>
+    <div><b data-count="72">0</b><span>% com foto da fachada</span></div>
+   </div>
+  </div>
+  <figure class="pn-shot"><img src="img/tela-painel.webp" alt="Painel de instalações com os indicadores da campanha"></figure>
+ </section>
+
+ <!-- 07 .......................................................... indicadores -->
+ <section class="slide t-white s-indica" id="indica" data-title="O que você passa a saber" data-chap="01 · QR na peça">
+  <div class="in-head">
+   <div class="eyebrow" data-n="(06)">Leituras que saem do QR</div>
+   <h2 class="d">O que você passa<br>a saber <span class="hl">sem pedir</span> a ninguém.</h2>
+  </div>
+  <div class="in-cols">
+   <div class="ic-col">
+    <span class="ic-t"><svg><use href="#i-map"/></svg>Cobertura</span>
+    <ul><li>Lojas positivadas</li><li>Peças executadas</li><li>Penetração por rede</li><li>Por cidade e por estado</li></ul>
+   </div>
+   <div class="ic-col">
+    <span class="ic-t"><svg><use href="#i-clock"/></svg>Velocidade</span>
+    <ul><li>Tempo de positivação</li><li>Ritmo diário da campanha</li><li>Lojas novas por dia</li><li>Horário de pico do campo</li></ul>
+   </div>
+   <div class="ic-col">
+    <span class="ic-t"><svg><use href="#i-shield"/></svg>Qualidade</span>
+    <ul><li>Foto da fachada</li><li>Localização conferida</li><li>Peças por loja</li><li>Lojas paradas há 30 dias</li></ul>
+   </div>
+   <div class="ic-col">
+    <span class="ic-t"><svg><use href="#i-users"/></svg>Time</span>
+    <ul><li>Promotores ativos</li><li>Próprio contra agência</li><li>Lojas por promotor</li><li>Cruzamento rede e campanha</li></ul>
+   </div>
+  </div>
+  <figure class="in-shot"><img src="img/tela-painel-cruza.webp" alt="Cruzamentos e comparações no painel"></figure>
+ </section>
+
+ <!-- 08 ................................................ frente 3 · link cliente -->
+ <section class="slide t-lime s-link" id="link" data-title="Frente 3 · link do cliente" data-chap="01 · QR na peça">
+  <div class="lk-head">
+   <div class="eyebrow" data-n="(07)">Frente 03 de 03</div>
+   <h2 class="d">O cliente vê a execução<br>acontecer. <span class="box">Sem login.</span></h2>
+   <p class="lead">Um endereço por campanha. Quem tem o link acompanha os números subindo em tempo real, do celular, sem conta e sem senha.</p>
+  </div>
+  <figure class="lk-shot"><img src="img/tela-cliente.webp" alt="Página do cliente com o acompanhamento ao vivo da campanha"></figure>
+  <ul class="lk-selos">
+   <li><b>Ao vivo</b><span>atualiza sozinho a cada leitura</span></li>
+   <li><b>Sem app</b><span>abre no navegador do celular</span></li>
+   <li><b>No seu controle</b><span>bloqueia, edita ou dá validade ao link</span></li>
+  </ul>
+ </section>
+
+ <!-- 09 ............................................................... preço QR -->
+ <section class="slide t-ink s-preco" id="preco" data-title="Investimento do QR" data-chap="01 · QR na peça">
+  <div class="pr-head">
+   <div class="eyebrow plain" data-n="(08)">Investimento · QR na peça</div>
+   <h2 class="d">Quanto custa<br>rastrear <span class="ac">uma peça.</span></h2>
+   <p class="lead">Preço por peça rastreada, com a plataforma inteira junto: página de montagem, painel e link do cliente. Quanto maior o volume, menor o unitário.</p>
+  </div>
+  <div class="pr-sim">
+   <label class="pr-lab">Quantidade de peças</label>
+   <input id="prQ" type="range" min="100" max="60000" step="100" value="7000">
+   <div class="pr-out">
+    <div><b id="prQn">7.000</b><span>peças</span></div>
+    <div><b id="prU">R$ 0,55</b><span>por peça</span></div>
+    <div class="tot"><b id="prT">R$ 3.850</b><span>total do pedido</span></div>
+   </div>
+   <p class="pr-faixa">Faixa aplicada: <b id="prF">5.000 a 9.999</b></p>
+  </div>
+  <div class="pr-esc" id="prEsc"></div>
+  <p class="pr-pe">Valores de tabela por peça, sem impostos extraordinários, frete ou personalização. Volume fechado por campanha.</p>
+ </section>
+
+ <!-- 10 ................................................... divisor capítulo 02 -->
+ <section class="slide t-ink s-quandotag" id="quandotag" data-title="Quando o QR não basta" data-chap="02 · Tag ao vivo">
+  <div class="qt-wrap">
+   <div class="eyebrow plain" data-n="(09)">Capítulo 02 · Tag ao vivo</div>
+   <h2 class="d">O QR prova que<br>chegou. A tag diz<br><span class="ac">onde está agora.</span></h2>
+   <div class="qt-duo">
+    <div class="qt-c">
+     <span class="qt-k"><svg><use href="#i-qr"/></svg>QR na peça</span>
+     <p>Alguém precisa ler. O dado nasce no momento da instalação e da revisita.</p>
+    </div>
+    <div class="qt-c on">
+     <span class="qt-k"><svg><use href="#i-live"/></svg>Tag ao vivo</span>
+     <p>Ninguém precisa ler. A peça avisa sozinha onde está, do CD até a loja e durante os meses de exposição.</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- 11 ..................................................... como a tag funciona -->
+ <section class="slide t-white s-comotag" id="comotag" data-title="Tag · como funciona" data-chap="02 · Tag ao vivo">
+  <div class="ct-head">
+   <div class="eyebrow" data-n="(10)">Como a tag funciona</div>
+   <h2 class="d">A peça conta a viagem <span class="hl">sozinha.</span></h2>
+  </div>
+  <div class="ct-rota">
+   <div class="ct-linha"><i id="ctDot"></i></div>
+   <div class="ct-marcos">
+    <div class="ct-m"><svg><use href="#i-cd"/></svg><b>Saiu do CD</b><span>data e hora da saída</span></div>
+    <div class="ct-m"><svg><use href="#i-truck"/></svg><b>Em trânsito</b><span>tempo de transporte</span></div>
+    <div class="ct-m"><svg><use href="#i-store"/></svg><b>Chegou na loja</b><span>tempo até a gôndola</span></div>
+    <div class="ct-m alerta"><svg><use href="#i-alert"/></svg><b>Saiu da loja</b><span>alerta de perda</span></div>
+   </div>
+  </div>
+  <ul class="ct-plus">
+   <li><b>Tempo parado no CD</b><span>o display que ninguém mandou para a loja</span></li>
+   <li><b>Inventário de ativos</b><span>quantas peças ainda existem e onde</span></li>
+   <li><b>Vida útil no PDV</b><span>há quantos dias a peça está exposta</span></li>
+  </ul>
+ </section>
+
+ <!-- 12 ........................................................ planos da tag -->
+ <section class="slide t-light s-planos" id="planos" data-title="Planos da tag" data-chap="02 · Tag ao vivo">
+  <div class="pl-head">
+   <div class="eyebrow" data-n="(11)">Investimento · tag ao vivo</div>
+   <h2 class="d">Por display,<br>por mês.</h2>
+   <p class="lead">A tag é assinatura: o rastreio fica ligado enquanto a campanha estiver no ar. O registro do QR vai junto, sem custo extra.</p>
+  </div>
+  <div class="pl-cards">
+   <div class="plc"><span class="pl-m">6 meses</span><b>R$ 27,27</b><em>por display, por mês, à vista</em><p>Total de R$ 163,62 por display.</p></div>
+   <div class="plc on"><span class="pl-m">9 meses</span><b>R$ 27,27</b><em>por display, por mês, à vista</em><p>Total de R$ 245,43 por display.</p><i class="pl-sel">mais escolhido</i></div>
+   <div class="plc"><span class="pl-m">12 meses</span><b>R$ 27,27</b><em>por display, por mês, à vista</em><p>Total de R$ 327,24 por display.</p></div>
+  </div>
+  <p class="pl-pe">No parcelado mensal, R$ 34,09 por display por mês. À vista, 20% de desconto.</p>
+ </section>
+
+ <!-- 13 ........................................................ qual escolher -->
+ <section class="slide t-white s-escolher" id="escolher" data-title="Qual usar" data-chap="Decisão">
+  <div class="es-head">
+   <div class="eyebrow" data-n="(12)">Decisão</div>
+   <h2 class="d">Comece pelo QR.<br>Suba para a tag<br><span class="hl">quando doer.</span></h2>
+  </div>
+  <div class="es-duo">
+   <div class="es-c">
+    <span class="es-k">O QR já resolve</span>
+    <ul>
+     <li>Provar que a peça chegou e foi montada</li>
+     <li>Positivação por rede, cidade e estado</li>
+     <li>Foto da fachada para auditoria</li>
+     <li>Treinamento de montagem no celular</li>
+     <li>Link ao vivo para o cliente</li>
+    </ul>
+    <p class="es-q">Campanha de ciclo curto, material entregue direto na loja.</p>
+   </div>
+   <div class="es-c on">
+    <span class="es-k">Só a tag responde</span>
+    <ul>
+     <li>Onde a peça está agora, sem ninguém ler</li>
+     <li>Quanto tempo ficou parada no CD</li>
+     <li>Quanto tempo levou no transporte</li>
+     <li>Alerta quando o material sai da loja</li>
+     <li>Inventário do ativo mês a mês</li>
+    </ul>
+    <p class="es-q">Display de valor, que roda meses e passa por CD.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- 14 ........................................................ como começamos -->
+ <section class="slide t-lime s-comecar" id="comecar" data-title="Como começamos" data-chap="Decisão">
+  <div class="co-head">
+   <div class="eyebrow" data-n="(13)">Como começamos</div>
+   <h2 class="d">Da próxima campanha<br>em diante, com dado.</h2>
+  </div>
+  <ol class="co-steps">
+   <li><i>01</i><b>Escolher a campanha</b><span>quais peças entram e quantas lojas</span></li>
+   <li><i>02</i><b>Gerar os QR</b><span>um por peça, prontos para a arte ou para etiqueta</span></li>
+   <li><i>03</i><b>Avisar o campo</b><span>o promotor aprende em dez minutos, na primeira loja</span></li>
+   <li><i>04</i><b>Abrir o link do cliente</b><span>e acompanhar a execução acontecendo</span></li>
+  </ol>
+  <div class="co-cta">
+   <a class="btn escuro" href="https://wa.me/5511986765634" target="_blank" rel="noopener">Falar no WhatsApp <span class="arr">→</span></a>
+   <button class="btn alt" data-go="preco">Rever o investimento</button>
+  </div>
+ </section>
+
+ <!-- 15 ............................................................ 75 LAB -->
+ <section class="slide t-ink s-fim" id="fim" data-title="75 LAB" data-chap="75 LAB">
+  <div class="fm-l">
+   <div class="eyebrow plain" data-n="(14)">75 LAB</div>
+   <h2 class="d">Ideia boa é<br>a que <span class="ac">acontece.</span></h2>
+   <p class="lead">Somos a aceleradora de trade marketing que fica dos dois lados do balcão: cria a peça e prova que ela chegou ao ponto de venda.</p>
+  </div>
+  <div class="fm-dados">
+   <div class="fd"><span>Razão social</span><b>75 LAB Estratégia, Design e Produção Ltda</b></div>
+   <div class="fd"><span>CNPJ</span><b>55.470.982/0001-77</b></div>
+   <div class="fd"><span>Endereço</span><b>CENU Torre Norte · Av. das Nações Unidas, 12.901 · Brooklin, São Paulo, SP</b></div>
+   <div class="fd"><span>Contato</span><b>(11) 98676-5634 · contato@75lab.com.br</b></div>
+   <div class="fd"><span>Site</span><b>75lab.com.br · @setecincolab</b></div>
+  </div>
+  <div class="marquee"><div class="mq-in"><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>QR na peça</span><i>·</i><span>Tag ao vivo</span><i>·</i><span>Prova acima de promessa</span><i>·</i><span>Ideia boa é a que acontece</span><i>·</i><span>Do CD à gôndola, com prova</span><i>·</i><span>QR na peça</span><i>·</i><span>Tag ao vivo</span><i>·</i><span>Prova acima de promessa</span><i>·</i></div></div>
  </section>
 
  <!-- HUD -->
@@ -363,7 +410,7 @@
    <div class="hud-nav">
     <button class="idx" id="btnMenu"><svg><use href="#i-grid"/></svg>Índice</button>
     <button id="btnPrev" aria-label="Anterior"><svg><use href="#i-l"/></svg></button>
-    <span class="cnt" id="cnt">01 <i>/ 17</i></span>
+    <span class="cnt" id="cnt">01 <i>/ 15</i></span>
     <button id="btnNext" aria-label="Próxima"><svg><use href="#i-arr"/></svg></button>
    </div>
   </div>
@@ -376,6 +423,6 @@
  </div>
 </div>
 
-<script src="script.js?v=23"></script>
+<script src="script.js?v=41"></script>
 </body>
 </html>

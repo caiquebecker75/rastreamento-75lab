@@ -1399,3 +1399,220 @@ input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--ink)}
 .steps4 li{grid-template-columns:58px 1fr 46px}
 .mq-in span,.mq-in i{font-size:18px}
 .marquee{height:40px}
+
+/* ==========================================================================
+   VERSÃO 13/10/2026 · 15 telas, uma ideia por tela, QR primeiro
+   ========================================================================== */
+
+/* 01 capa: só ajustes de medida */
+.s-capa h1{font-size:122px}
+.s-capa .statband{width:700px}
+
+/* 02 ....................................................... o ponto cego */
+.s-cego .ce-top{position:absolute;left:80px;top:110px;width:900px}
+.s-cego h2{font-size:92px;margin-top:26px}
+.s-cego .ce-q{position:absolute;left:80px;top:430px;width:1000px;display:grid;gap:0}
+.s-cego .ce-q li{display:flex;align-items:center;gap:30px;padding:26px 0;border-top:2px solid var(--line)}
+.s-cego .ce-q li:last-child{border-bottom:2px solid var(--line)}
+.s-cego .ce-q .n{font-family:var(--display);font-weight:900;font-size:74px;line-height:.8;color:var(--teal);width:52px}
+.s-cego .ce-q b{font-family:var(--display);font-weight:800;font-size:52px;letter-spacing:-.02em;text-transform:uppercase}
+.s-cego .ce-pe{position:absolute;left:80px;bottom:92px;width:760px;font-size:19px;color:var(--fg2);line-height:1.5}
+.s-cego .ce-mark{position:absolute;right:-60px;top:170px;width:620px;height:620px;color:var(--teal);opacity:.07}
+.s-cego .ce-mark svg{width:100%;height:100%;stroke-width:.7}
+
+/* 03 ............................................................. trilha */
+.s-trilha .tr-head{position:absolute;left:80px;top:120px;width:460px}
+.s-trilha h2{font-size:72px;margin:22px 0 20px}
+.s-trilha .lead{font-size:18px;max-width:400px}
+.s-trilha .tr-via{position:absolute;left:600px;top:110px;right:80px;display:grid;grid-template-columns:1fr 1fr;gap:26px 34px}
+.s-trilha .tr-cap{border-left:2px solid var(--line);padding-left:22px}
+.s-trilha .tr-cap.fim{grid-column:1 / -1;border-left:0;border-top:2px solid var(--line);padding:22px 0 0}
+.s-trilha .tc-n{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-l)}
+.s-trilha .tr-cap h3{font-family:var(--display);font-weight:900;font-size:40px;text-transform:uppercase;letter-spacing:-.02em;margin:4px 0 16px;color:var(--fg)}
+.s-trilha .tr-cap.fim h3{display:inline-block;margin-right:28px;vertical-align:middle}
+.s-trilha .tr-steps{display:grid;gap:8px}
+.s-trilha .tr-cap.fim .tr-steps{display:inline-grid;grid-auto-flow:column;gap:14px;vertical-align:middle}
+.s-trilha .tr-steps button{display:flex;align-items:center;gap:14px;padding:11px 16px;background:rgba(242,241,233,.06);font-size:17px;color:var(--fg);transition:.25s var(--ease)}
+.s-trilha .tr-steps button:hover{background:var(--lime);color:var(--ink);transform:translateX(6px)}
+.s-trilha .tr-steps i{font-family:var(--mono);font-size:12px;color:var(--teal-l);font-style:normal}
+.s-trilha .tr-steps button:hover i{color:var(--ink)}
+
+/* 04 .................................................. QR, como funciona */
+.s-comoqr .cq-l{position:absolute;left:80px;top:110px;width:830px}
+.s-comoqr h2{font-size:68px;margin:22px 0 34px}
+.s-comoqr .cq-steps{display:grid;gap:0}
+.s-comoqr .cq-steps li{display:grid;grid-template-columns:70px 1fr;gap:0 18px;padding:17px 0;border-top:2px solid var(--line)}
+.s-comoqr .cq-steps li:last-child{border-bottom:2px solid var(--line)}
+.s-comoqr .cq-steps i{font-family:var(--display);font-weight:900;font-size:34px;font-style:normal;color:var(--teal);line-height:1}
+.s-comoqr .cq-steps b{font-size:22px;font-weight:600}
+.s-comoqr .cq-steps span{grid-column:2;font-size:16px;color:var(--fg2);margin-top:3px}
+.s-comoqr .cq-r{position:absolute;right:90px;top:90px;width:430px;height:720px}
+.s-comoqr .fone{width:330px;margin-left:50px;border:10px solid var(--ink);background:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.s-comoqr .fone img{display:block;width:100%}
+.s-comoqr .cq-tag{position:absolute;background:var(--ink);color:var(--paper);padding:10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.s-comoqr .cq-tag b{display:block;font-family:var(--display);font-weight:900;font-size:24px;color:var(--lime);line-height:1}
+.s-comoqr .cq-tag span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(242,241,233,.7)}
+.s-comoqr .cq-tag.t1{left:-10px;top:150px}
+.s-comoqr .cq-tag.t2{left:-40px;top:380px}
+.s-comoqr .cq-tag.t3{left:120px;top:610px}
+.act .cq-tag{animation:pop .5s var(--ease) both}
+.act .cq-tag.t1{animation-delay:.5s}.act .cq-tag.t2{animation-delay:.65s}.act .cq-tag.t3{animation-delay:.8s}
+
+/* 05 ................................................ frente 1 · a página */
+.s-pagina .pg-head{position:absolute;left:80px;top:100px;width:720px}
+.s-pagina h2{font-size:64px;margin-top:22px}
+.s-pagina .pg-fones{position:absolute;right:70px;top:70px;width:760px;height:760px}
+.s-pagina .pf{position:absolute;width:260px;border:8px solid var(--ink);background:var(--ink);box-shadow:0 26px 60px rgba(0,0,0,.22);overflow:hidden}
+.s-pagina .pf img{display:block;width:100%}
+.s-pagina .pf.a{left:0;top:40px;transform:rotate(-5deg)}
+.s-pagina .pf.b{left:250px;top:0;z-index:2}
+.s-pagina .pf.c{left:500px;top:40px;transform:rotate(5deg)}
+.s-pagina .pg-list{position:absolute;left:80px;top:440px;width:700px;display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
+.s-pagina .pg-list li{display:grid;grid-template-columns:30px 1fr;gap:4px 14px;align-items:center}
+.s-pagina .pg-list svg{width:26px;height:26px;color:var(--teal);grid-row:span 2}
+.s-pagina .pg-list b{font-size:19px;font-weight:600}
+.s-pagina .pg-list span{font-size:15px;color:var(--fg2)}
+.s-pagina .pg-pe{position:absolute;left:80px;bottom:88px;width:660px;font-size:18px;color:var(--fg2);border-left:3px solid var(--lime);padding-left:18px}
+
+/* 06 ................................................. frente 2 · o painel */
+.s-painel .pn-l{position:absolute;left:80px;top:130px;width:500px}
+.s-painel h2{font-size:64px;margin:22px 0 22px}
+.s-painel .lead{font-size:18px;max-width:440px}
+.s-painel .pn-nums{display:flex;gap:34px;margin-top:40px}
+.s-painel .pn-nums b{display:block;font-family:var(--display);font-weight:900;font-size:62px;line-height:.9;color:var(--lime)}
+.s-painel .pn-nums span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3)}
+.s-painel .pn-shot{position:absolute;left:640px;top:90px;width:1030px;box-shadow:0 40px 90px rgba(0,0,0,.45);border:1px solid rgba(242,241,233,.14)}
+.s-painel .pn-shot img{display:block;width:100%}
+.act .pn-shot{animation:slideL .9s var(--ease) both .25s}
+@keyframes slideL{from{opacity:0;transform:translateX(70px)}to{opacity:1;transform:none}}
+
+/* 07 ......................................................... indicadores */
+.s-indica .in-head{position:absolute;left:80px;top:100px;width:1000px}
+.s-indica h2{font-size:62px;margin-top:20px}
+.s-indica .in-cols{position:absolute;left:80px;top:310px;right:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.s-indica .ic-col{padding:0 26px;border-left:2px solid var(--line)}
+.s-indica .ic-col:first-child{padding-left:0;border-left:0}
+.s-indica .ic-t{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px}
+.s-indica .ic-t svg{width:24px;height:24px;color:var(--teal)}
+.s-indica .ic-col li{font-size:17px;padding:9px 0;border-top:1px solid var(--line);color:var(--fg2)}
+.s-indica .in-shot{position:absolute;left:80px;right:80px;bottom:-200px;height:330px;overflow:hidden;opacity:.9;box-shadow:0 -20px 60px rgba(0,0,0,.12)}
+.s-indica .in-shot img{display:block;width:100%}
+
+/* 08 ........................................... frente 3 · link do cliente */
+.s-link .lk-head{position:absolute;left:80px;top:110px;width:720px}
+.s-link h2{font-size:62px;margin:22px 0 20px}
+.s-link .d .box{background:var(--ink);color:var(--lime);padding:0 .12em;display:inline-block}
+.s-link .lead{font-size:18px;max-width:600px}
+.s-link .lk-shot{position:absolute;right:60px;top:120px;width:820px;box-shadow:0 36px 80px rgba(5,5,5,.3);border:1px solid rgba(5,5,5,.2)}
+.s-link .lk-shot img{display:block;width:100%}
+.s-link .lk-selos{position:absolute;left:80px;bottom:96px;width:700px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.s-link .lk-selos li{padding:0 20px;border-left:3px solid var(--ink)}
+.s-link .lk-selos li:first-child{padding-left:0;border-left:0}
+.s-link .lk-selos b{display:block;font-family:var(--display);font-weight:900;font-size:30px;text-transform:uppercase}
+.s-link .lk-selos span{font-size:15px;color:var(--fg2)}
+
+/* 09 ..................................................... investimento QR */
+.s-preco .pr-head{position:absolute;left:80px;top:100px;width:620px}
+.s-preco h2{font-size:64px;margin:20px 0 18px}
+.s-preco .lead{font-size:17px;max-width:540px}
+.s-preco .pr-sim{position:absolute;right:80px;top:110px;width:740px;border:2px solid var(--line);padding:26px 30px}
+.s-preco .pr-lab{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3)}
+.s-preco input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:rgba(242,241,233,.2);margin:18px 0 8px}
+.s-preco input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;background:var(--lime);border:3px solid var(--ink);border-radius:50%!important;cursor:none}
+.s-preco .pr-out{display:flex;align-items:flex-end;gap:40px;margin-top:14px}
+.s-preco .pr-out b{display:block;font-family:var(--display);font-weight:900;font-size:52px;line-height:.9}
+.s-preco .pr-out .tot b{color:var(--lime);font-size:62px}
+.s-preco .pr-out span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3)}
+.s-preco .pr-faixa{margin-top:16px;font-size:15px;color:var(--fg2)}
+.s-preco .pr-faixa b{color:var(--lime);font-weight:600}
+.s-preco .pr-esc{position:absolute;left:80px;right:80px;bottom:120px;display:grid;grid-template-columns:repeat(9,1fr);gap:8px;align-items:end;height:280px}
+.s-preco .pe{position:relative;border-top:2px solid rgba(242,241,233,.2);padding-top:12px;transition:.3s var(--ease)}
+.s-preco .pe .bar{background:rgba(242,241,233,.12);margin-bottom:12px;transition:.4s var(--ease)}
+.s-preco .pe.on .bar{background:var(--lime)}
+.s-preco .pe .v{display:block;font-family:var(--display);font-weight:900;font-size:30px;line-height:1}
+.s-preco .pe.on .v{color:var(--lime)}
+.s-preco .pe .q{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--fg3);margin-top:4px}
+.s-preco .pr-pe{position:absolute;left:80px;bottom:72px;font-size:13px;color:var(--fg3)}
+
+/* 10 ............................................... quando o QR não basta */
+.s-quandotag .qt-wrap{position:absolute;left:80px;top:120px;right:80px}
+.s-quandotag h2{font-size:84px;margin:24px 0 46px}
+.s-quandotag .qt-duo{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--line)}
+.s-quandotag .qt-c{padding:30px 40px 0 0}
+.s-quandotag .qt-c.on{padding-left:40px;border-left:2px solid var(--line)}
+.s-quandotag .qt-k{display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:900;font-size:38px;text-transform:uppercase}
+.s-quandotag .qt-c.on .qt-k{color:var(--lime)}
+.s-quandotag .qt-k svg{width:34px;height:34px;color:var(--teal-l)}
+.s-quandotag .qt-c p{font-size:20px;color:var(--fg2);margin-top:16px;max-width:520px;line-height:1.5}
+
+/* 11 ................................................... tag, como funciona */
+.s-comotag .ct-head{position:absolute;left:80px;top:100px;width:900px}
+.s-comotag h2{font-size:66px;margin-top:20px}
+.s-comotag .ct-rota{position:absolute;left:80px;right:80px;top:340px}
+.s-comotag .ct-linha{position:relative;height:4px;background:var(--line);margin:0 60px 30px}
+.s-comotag .ct-linha i{position:absolute;top:-8px;left:0;width:20px;height:20px;background:var(--teal);border-radius:50%!important;animation:correr 7s linear infinite}
+@keyframes correr{0%{left:0}92%{left:100%}100%{left:100%}}
+.s-comotag .ct-marcos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.s-comotag .ct-m{text-align:center;padding:0 10px}
+.s-comotag .ct-m svg{width:40px;height:40px;color:var(--teal)}
+.s-comotag .ct-m b{display:block;font-family:var(--display);font-weight:900;font-size:30px;text-transform:uppercase;margin-top:10px}
+.s-comotag .ct-m span{font-size:15px;color:var(--fg2)}
+.s-comotag .ct-m.alerta svg,.s-comotag .ct-m.alerta b{color:var(--red)}
+.s-comotag .ct-plus{position:absolute;left:80px;right:80px;bottom:100px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--line);padding-top:22px}
+.s-comotag .ct-plus li{padding:0 24px;border-left:2px solid var(--line)}
+.s-comotag .ct-plus li:first-child{padding-left:0;border-left:0}
+.s-comotag .ct-plus b{display:block;font-size:21px;font-weight:600}
+.s-comotag .ct-plus span{font-size:15px;color:var(--fg2)}
+
+/* 12 ........................................................ planos da tag */
+.s-planos .pl-head{position:absolute;left:80px;top:120px;width:460px}
+.s-planos h2{font-size:76px;margin:20px 0 20px}
+.s-planos .lead{font-size:17px;max-width:420px}
+.s-planos .pl-cards{position:absolute;left:620px;right:80px;top:140px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.s-planos .plc{border:2px solid var(--line);padding:26px 24px;position:relative}
+.s-planos .plc.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.s-planos .pl-m{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.s-planos .plc.on .pl-m{color:var(--lime)}
+.s-planos .plc b{display:block;font-family:var(--display);font-weight:900;font-size:56px;line-height:1;margin:14px 0 6px}
+.s-planos .plc em{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--fg3)}
+.s-planos .plc.on em{color:rgba(242,241,233,.6)}
+.s-planos .plc p{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:16px}
+.s-planos .plc.on p{border-color:rgba(242,241,233,.2)}
+.s-planos .pl-sel{position:absolute;right:0;top:-14px;background:var(--lime);color:var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-style:normal}
+.s-planos .pl-pe{position:absolute;left:620px;right:80px;bottom:120px;font-size:15px;color:var(--fg2)}
+
+/* 13 .......................................................... qual usar */
+.s-escolher .es-head{position:absolute;left:80px;top:110px;width:600px}
+.s-escolher h2{font-size:64px;margin-top:22px}
+.s-escolher .es-duo{position:absolute;left:80px;right:80px;top:420px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.s-escolher .es-c{padding:26px 40px 0 0}
+.s-escolher .es-c.on{border-left:2px solid var(--ink);padding-left:40px}
+.s-escolher .es-k{font-family:var(--display);font-weight:900;font-size:34px;text-transform:uppercase}
+.s-escolher .es-c.on .es-k{color:var(--teal)}
+.s-escolher .es-c ul{margin-top:18px;display:grid;gap:10px}
+.s-escolher .es-c li{font-size:18px;padding-left:26px;position:relative;color:var(--fg2)}
+.s-escolher .es-c li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:3px;background:var(--lime)}
+.s-escolher .es-c.on li::before{background:var(--teal)}
+.s-escolher .es-q{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:16px;font-weight:600}
+
+/* 14 ..................................................... como começamos */
+.s-comecar .co-head{position:absolute;left:80px;top:110px;width:900px}
+.s-comecar h2{font-size:72px;margin-top:22px}
+.s-comecar .co-steps{position:absolute;left:80px;right:80px;top:380px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.s-comecar .co-steps li{padding:0 26px;border-left:2px solid rgba(5,5,5,.25)}
+.s-comecar .co-steps li:first-child{padding-left:0;border-left:0}
+.s-comecar .co-steps i{font-family:var(--display);font-weight:900;font-size:46px;font-style:normal;line-height:1;display:block;margin-bottom:10px}
+.s-comecar .co-steps b{display:block;font-size:24px;font-weight:600}
+.s-comecar .co-steps span{font-size:16px;color:var(--fg2)}
+.s-comecar .co-cta{position:absolute;left:80px;bottom:110px;display:flex;gap:14px}
+.s-comecar .btn.escuro{background:var(--ink);color:var(--lime)}
+.s-comecar .btn.escuro:hover{background:#000}
+
+/* 15 ............................................................. 75 LAB */
+.s-fim .fm-l{position:absolute;left:80px;top:140px;width:640px}
+.s-fim h2{font-size:92px;margin:24px 0 24px}
+.s-fim .lead{font-size:19px;max-width:560px}
+.s-fim .fm-dados{position:absolute;right:80px;top:150px;width:700px;border-top:2px solid var(--line)}
+.s-fim .fd{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.s-fim .fd span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.s-fim .fd b{font-size:17px;font-weight:500;color:var(--fg)}
