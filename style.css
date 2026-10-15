@@ -1616,3 +1616,33 @@ input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--ink)}
 .s-fim .fd{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .s-fim .fd span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
 .s-fim .fd b{font-size:17px;font-weight:500;color:var(--fg)}
+
+/* 02 ....................................................... as dores do trade */
+.s-dores .do-head{position:absolute;left:80px;top:88px;width:900px}
+.s-dores h2{font-size:62px;margin-top:20px}
+.s-dores .do-grade{position:absolute;left:80px;right:80px;top:316px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--line)}
+.s-dores .do-grade li{padding:22px 26px 22px 0;border-right:2px solid var(--line);border-bottom:2px solid var(--line)}
+.s-dores .do-grade li:nth-child(3n){border-right:0;padding-right:0}
+.s-dores .do-grade li:nth-child(n+4){padding-left:0}
+.s-dores .do-grade li:not(:nth-child(3n)){padding-right:26px}
+.s-dores .do-grade li:nth-child(2),.s-dores .do-grade li:nth-child(5){padding-left:26px}
+.s-dores .do-grade li:nth-child(3),.s-dores .do-grade li:nth-child(6){padding-left:26px}
+.s-dores .do-grade i{display:block;font-family:var(--display);font-weight:900;font-size:26px;font-style:normal;color:var(--teal);line-height:1;margin-bottom:8px}
+.s-dores .do-grade b{display:block;font-size:21px;font-weight:600;line-height:1.15;margin-bottom:7px}
+.s-dores .do-grade span{display:block;font-size:15px;line-height:1.4;color:var(--fg2)}
+.s-dores .do-pe{position:absolute;left:80px;bottom:74px;width:900px;font-size:17px;color:var(--fg2)}
+.s-dores .do-pe b{color:var(--fg);font-weight:600}
+
+/* 03 o ponto cego passa a ser a tela lime, depois das dores */
+.t-lime.s-cego .ce-mark{color:var(--ink);opacity:.06}
+.t-lime.s-cego .ce-q .n{color:var(--ink)}
+.t-lime.s-cego .ce-q li{border-color:rgba(5,5,5,.25)}
+
+/* ponto cego: as perguntas e o fecho não podem se encostar */
+.s-cego .ce-top{top:96px}
+.s-cego h2{font-size:84px}
+.s-cego .ce-q{top:392px;width:960px}
+.s-cego .ce-q li{padding:20px 0}
+.s-cego .ce-q b{font-size:44px}
+.s-cego .ce-q .n{font-size:62px;width:46px}
+.s-cego .ce-pe{bottom:66px;width:820px;font-size:17px}
