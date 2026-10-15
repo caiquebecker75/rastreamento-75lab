@@ -130,42 +130,16 @@
     lastPt = {x:(e.clientX - r.left) / s, y:(e.clientY - r.top) / s};
   });
 
-  /* ================= 09 · investimento do QR (tabela por volume) =================
-     Preço de venda por peça rastreada. Faixas da tabela comercial de 13/10/2026. */
-  var FAIXAS = [
-    {min:1,     max:99,    p:4.80, r:'1 a 99'},
-    {min:100,   max:499,   p:3.00, r:'100 a 499'},
-    {min:500,   max:999,   p:1.80, r:'500 a 999'},
-    {min:1000,  max:2499,  p:1.20, r:'1.000 a 2.499'},
-    {min:2500,  max:4999,  p:0.80, r:'2.500 a 4.999'},
-    {min:5000,  max:9999,  p:0.55, r:'5.000 a 9.999'},
-    {min:10000, max:24999, p:0.45, r:'10.000 a 24.999'},
-    {min:25000, max:49999, p:0.35, r:'25.000 a 49.999'},
-    {min:50000, max:1e9,   p:0.30, r:'50.000 ou mais'}
-  ];
-  var maxP = 4.80;
-  $('prEsc').innerHTML = FAIXAS.map(function(f, k){
-    var h = Math.round(26 + (f.p / maxP) * 150);
-    return '<div class="pe" data-k="' + k + '"><div class="bar" style="height:' + h + 'px"></div>' +
-      '<span class="v">' + money(f.p) + '</span><span class="q">' + f.r + '</span></div>';
-  }).join('');
-  function faixaDe(q){ for (var i = 0; i < FAIXAS.length; i++) if (q >= FAIXAS[i].min && q <= FAIXAS[i].max) return i; return FAIXAS.length - 1; }
+  /* ================= 09 · investimento do QR =================
+     Preço fechado por peça rastreada, decidido em 15/10/2026: acabou a tabela progressiva. */
+  var PRECO_QR = 0.50;
   function prRender(){
-    var q = +$('prQ').value, k = faixaDe(q), f = FAIXAS[k];
+    var q = +$('prQ').value;
     $('prQ').style.setProperty('--p', ((q - 100) / 59900 * 100) + '%');
     $('prQn').textContent = nf0.format(q);
-    $('prU').textContent = money(f.p);
-    $('prT').textContent = money(q * f.p);
-    $('prF').textContent = f.r;
-    [].forEach.call($('prEsc').children, function(el, i){ el.classList.toggle('on', i === k); });
+    $('prT').textContent = money(q * PRECO_QR);
   }
   $('prQ').addEventListener('input', prRender);
-  $('prEsc').addEventListener('click', function(e){
-    var d = e.target.closest('.pe'); if (!d) return;
-    var f = FAIXAS[+d.getAttribute('data-k')];
-    $('prQ').value = Math.min(60000, Math.max(100, f.min === 1 ? 100 : f.min));
-    prRender();
-  });
   prRender();
 
   /* ================= início ================= */

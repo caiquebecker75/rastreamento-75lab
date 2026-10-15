@@ -1683,3 +1683,21 @@ input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 3px var(--ink)}
 .jr-trilha{top:76px}
 .jr-bolha{top:79px}
 .s-comoqr .cq-pe{bottom:74px}
+
+/* 09 ..................................... investimento: preço fechado por peça */
+.s-preco .pr-head{position:absolute;left:80px;top:96px;width:640px}
+.s-preco h2{font-size:64px;margin:20px 0 20px}
+.s-preco .lead{font-size:17px;max-width:560px}
+.pr-heroi{position:absolute;right:80px;top:110px;display:flex;align-items:flex-start;gap:10px;color:var(--lime)}
+.pr-heroi .ph-moeda{font-family:var(--display);font-weight:900;font-size:62px;line-height:1;margin-top:24px}
+.pr-heroi .ph-n{font-family:var(--display);font-weight:900;font-size:230px;line-height:.78;letter-spacing:-.03em}
+.pr-heroi .ph-sub{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);margin-top:28px;line-height:1.5}
+.pr-inclui{position:absolute;right:80px;top:330px;width:640px;display:grid;gap:0;border-top:2px solid var(--line)}
+.pr-inclui li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:230px 1fr;gap:16px;align-items:baseline}
+.pr-inclui b{font-size:18px;font-weight:600}
+.pr-inclui span{font-size:15px;color:var(--fg2)}
+.s-preco .pr-sim{position:absolute;left:80px;right:auto;top:560px;width:620px;border:2px solid var(--line);padding:24px 28px}
+.s-preco .pr-out{display:flex;align-items:flex-end;gap:48px;margin-top:12px}
+.s-preco .pr-out .tot b{font-size:58px}
+.s-preco .pr-pe{position:absolute;left:80px;bottom:62px;font-size:13px;color:var(--fg3);max-width:620px}
+.s-preco .pr-pe{bottom:78px}

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rastreamento de PDV · 75 LAB</title>
-<meta name="description" content="Apresentação 75 LAB: como funciona o QR code nas peças de PDV, a página de montagem, o painel de execução, o link ao vivo para o cliente, a tabela de preços por volume e a tag de rastreio ao vivo.">
+<meta name="description" content="Apresentação 75 LAB: como funciona o QR code nas peças de PDV, a página de montagem, o painel de execução, o link ao vivo para o cliente, o preço por peça rastreada e a tag de rastreio ao vivo.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C0EE4E'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Impact,sans-serif' font-size='17' fill='%230E1110'%3E75%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rastreamento de PDV · 75 LAB">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=42">
+<link rel="stylesheet" href="style.css?v=43">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="ctxt" id="ctxt"></span></div>
@@ -88,7 +88,7 @@
    <div class="statband rv" style="--d:4">
     <div class="sb"><b>3</b><span>frentes do QR</span></div>
     <div class="sb"><b>12</b><span>indicadores de execução</span></div>
-    <div class="sb"><b>R$ 0,30</b><span>por peça rastreada</span></div>
+    <div class="sb"><b>R$ 0,50</b><span>por peça rastreada</span></div>
    </div>
   </div>
   <div class="decos"><svg class="deco d-circ" viewBox="0 0 90 90"><circle cx="45" cy="45" r="40"/></svg><svg class="deco d-sq" viewBox="0 0 60 60"><rect x="12" y="12" width="36" height="36"/></svg><svg class="deco d-tri" viewBox="0 0 60 60"><path d="M8 12h44L30 50z"/></svg><svg class="deco d-ring" viewBox="0 0 70 70"><circle cx="35" cy="35" r="26"/></svg></div>
@@ -156,7 +156,7 @@
      <button data-go="pagina"><i>02</i>A página que o QR abre</button>
      <button data-go="painel"><i>03</i>O painel de execução</button>
      <button data-go="link"><i>04</i>O link ao vivo do cliente</button>
-     <button data-go="preco"><i>05</i>Investimento por volume</button>
+     <button data-go="preco"><i>05</i>Investimento por peça</button>
     </div>
    </div>
    <div class="tr-cap alt">
@@ -340,21 +340,32 @@
  <section class="slide t-ink s-preco" id="preco" data-title="Investimento do QR" data-chap="01 · QR na peça">
   <div class="pr-head">
    <div class="eyebrow plain" data-n="(09)">Investimento · QR na peça</div>
-   <h2 class="d">Quanto custa<br>rastrear <span class="ac">uma peça.</span></h2>
-   <p class="lead">Preço por peça rastreada, com a plataforma inteira junto: página de montagem, painel e link do cliente. Quanto maior o volume, menor o unitário.</p>
+   <h2 class="d">Um preço só,<br>sem tabela<br><span class="ac">para decorar.</span></h2>
+   <p class="lead">Cada peça rastreada custa o mesmo, do primeiro pedido ao milésimo. A plataforma inteira vai junto: página de montagem, painel de execução e link ao vivo para o cliente.</p>
   </div>
+
+  <div class="pr-heroi">
+   <span class="ph-moeda">R$</span>
+   <b class="ph-n">0,50</b>
+   <span class="ph-sub">por peça<br>rastreada</span>
+  </div>
+
+  <ul class="pr-inclui">
+   <li><b>Página de montagem</b><span>passo a passo, vídeo e 3D no celular do promotor</span></li>
+   <li><b>Painel de execução</b><span>mapa, indicadores e Excel, em tempo real</span></li>
+   <li><b>Link ao vivo do cliente</b><span>acompanhamento sem login, que você bloqueia quando quiser</span></li>
+  </ul>
+
   <div class="pr-sim">
-   <label class="pr-lab">Quantidade de peças</label>
+   <label class="pr-lab">Simule o seu volume</label>
    <input id="prQ" type="range" min="100" max="60000" step="100" value="7000">
    <div class="pr-out">
-    <div><b id="prQn">7.000</b><span>peças</span></div>
-    <div><b id="prU">R$ 0,55</b><span>por peça</span></div>
-    <div class="tot"><b id="prT">R$ 3.850</b><span>total do pedido</span></div>
+    <div><b id="prQn">7.000</b><span>peças rastreadas</span></div>
+    <div class="tot"><b id="prT">R$ 3.500</b><span>investimento total</span></div>
    </div>
-   <p class="pr-faixa">Faixa aplicada: <b id="prF">5.000 a 9.999</b></p>
   </div>
-  <div class="pr-esc" id="prEsc"></div>
-  <p class="pr-pe">Valores de tabela por peça, sem impostos extraordinários, frete ou personalização. Volume fechado por campanha.</p>
+
+  <p class="pr-pe">Preço por peça, sem impostos extraordinários, frete ou personalização de arte. O volume é fechado por campanha.</p>
  </section>
 
  <!-- 10 ................................................... divisor capítulo 02 -->
@@ -500,6 +511,6 @@
  </div>
 </div>
 
-<script src="script.js?v=42"></script>
+<script src="script.js?v=43"></script>
 </body>
 </html>
