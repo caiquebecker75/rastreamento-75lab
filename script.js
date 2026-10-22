@@ -131,8 +131,8 @@
   });
 
   /* ================= 09 · investimento do QR =================
-     Preço fechado por peça rastreada, decidido em 15/10/2026: acabou a tabela progressiva. */
-  var PRECO_QR = 0.50;
+     Preço fechado por peça rastreada, corrigido em 23/10/2026: o QR estático é R$ 0,30 por peça. */
+  var PRECO_QR = 0.30;
   function prRender(){
     var q = +$('prQ').value;
     $('prQ').style.setProperty('--p', ((q - 100) / 59900 * 100) + '%');
